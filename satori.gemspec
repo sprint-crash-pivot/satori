@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Satori::VERSION
   spec.authors       = ["Corey Docken"]
   spec.email         = ["corey@dockenonline.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "Front end framework for Sprint, Crash, Pivot."
+  spec.summary       = "Front end framework for Sprint, Crash, Pivot"
   spec.homepage      = ""
   spec.license       = "MIT"
 
