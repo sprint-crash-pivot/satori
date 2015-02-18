@@ -1,0 +1,24 @@
+// 5 color scheme
+$background: #fff !default;
+$splash: #eaeaea !default;
+$foreground: rgba(0, 0, 0, .8) !default;
+$primary: #42cafd !default;
+$secondary: #ff8500 !default;
+
+// These are for comfort, but can/should be overidden.
+$border: #c8ccce !default; // ignore this one probably
+$text: $foreground !default;
+
+// Alert Colors
+$success: #41ad48 !default;
+$error: #df5b57 !default;
+$warning: yellow !default;
+$info: blue !default;
+
+// Responsive Design Breakpoints
+$break-small: 600px !default;
+$break-large: 960px !default;
+
+$base-size: 16px !default;
+$border-size: 1px !default;
+$default-spacing: 0.25rem !default;

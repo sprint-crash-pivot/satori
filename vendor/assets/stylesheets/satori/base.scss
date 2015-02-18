@@ -1,0 +1,208 @@
+@import '_variables';
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	height: 100%;
+	font-size: $base-size;
+	line-height: 1em;
+}
+
+body {
+	color: $text;
+	background: $background;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.75em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+h5 {
+	font-size: 1.25em;
+}
+
+h6 {
+	font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
+	padding: $default-spacing;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1em;
+}
+
+p, td, th, li {
+	line-height: 1.5em;
+}
+
+img {
+	max-width: 100%;
+}
+
+a, .fake-link {
+    color: $primary;
+    text-decoration: none;
+    
+    &:visited {
+        color: darken($primary, 10);
+    }
+    
+    &:hover, &:focus {
+        color: lighten($primary, 10);
+    }
+}
+
+li {
+	margin: 0 0 0 3em;
+}
+
+dt {
+	font-weight: bold;
+	margin: 1em 0 0 1.5em;
+
+	&:nth-of-type(1) {
+		margin-top: 0em;
+	}
+}
+
+dd {
+	margin: 0 0 0 1.5em;
+}
+
+label {
+	font-weight: bold;
+}
+
+input {
+	@include border($border);
+	background: $secondary;
+	height: 2.5rem;
+	padding: 0 1rem;
+	font-size: 1rem;
+	width: 100%;
+}
+
+textarea {
+    @extend input;
+    height: 6.25em;
+    padding: 0.5em;
+}
+
+input[type=checkbox], input[type=radio] {
+    width: auto;
+}
+
+select {
+    @extend input;
+    
+    -webkit-appearance:none;
+    background: white url("/images/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
+}
+
+input[type=submit], button, .button {
+    @extend .inline-field;
+	background: $background;
+   
+    cursor: pointer;
+	text-align: center;
+    
+    &:hover, &:focus {
+		color: $primary;
+        background: $background;
+    }
+}
+
+hr {
+	margin: 0.25em;
+	background-color: $border;
+	border-color: $border;
+	color: $border;
+}
+
+.inline-field {
+	@include box-shadow($border);
+	@extend input;
+	
+    border: none !important;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 2.5em;
+    width: auto;
+    white-space: nowrap;
+}
+
+table {
+	@include border($border);
+	@include box-shadow($border);
+	border-collapse: separate;
+		
+    thead {
+        background: $background;
+	    border-bottom: 1px solid $border;
+		border-radius: 3px;
+		  
+        th {
+            border-right: 1px solid $border;
+            
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+    
+    td, th {
+        padding: 0.5em;
+		vertical-align: top;
+    }
+    
+    tbody {
+        tr {
+            border-bottom: 1px solid $border;
+            
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        th {
+            background: $grey;
+			border-right: 1px solid $border;
+            text-align: left;
+        }
+    }
+    
+    tfoot {
+        background: $background;
+		border-top: 1px solid $border;
+    }
+    
+    button, .button, input[type=submit] {
+        margin: 0;
+    }
+	
+	.field {
+		padding: 0;
+	}
+}
+
+canvas {
+  width: 100%;
+  height: 300px;
+}

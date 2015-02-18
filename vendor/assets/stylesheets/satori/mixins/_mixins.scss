@@ -1,0 +1,58 @@
+@mixin device($media) {
+    @if $media == phone {
+        @media screen and (max-width: $break-small) {
+            @content;
+        }
+    } @else if $media == tablet{
+        @media screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) {
+            @content;
+        }
+    } @else if $media == mobile {
+        @media screen and (max-width: $break-large - 1) {
+            @content;
+        }
+    } @else if $media == desktop {
+        @media screen and (min-width: $break-large) {
+            @content;
+        }
+    } @else if $media == minimum {
+        @media screen and (min-width: 1px) {
+            @content;
+        }
+    } @else if $media == print {
+        @media print {
+            @content;
+        }
+    } @else if $media == screen {
+        @media screen {
+            @content;
+        }
+    }
+}
+
+@mixin box-shadow($value) {
+    -moz-box-shadow: 0 1px 1px 0 $value;
+    -webkit-box-shadow:  0 1px 1px 0 $value;
+    box-shadow:  0 1px 1px 0 $value;
+}
+
+@mixin border($color) {
+	border: 1px solid $color;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+@mixin transparent($value) {
+	zoom: 1;
+	filter: alpha(opacity=$value);
+	opacity: $value / 100;
+}
+
+@mixin button-icon($image) {
+	padding-left: calc(24px + 1em);
+	
+	background-image: url('/assets/icons/' + $image + '.png');
+	background-repeat: no-repeat;
+	background-position: 0.5em 50%;
+	background-size: 24px 24px;
+}

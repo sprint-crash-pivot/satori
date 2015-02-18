@@ -30,6 +30,41 @@ Add the following directive to your Css manifest file (applicaiton.css.scss):
 
 	*= require satori
 
+Additionally, if you do not already use a reset, you can add the following directives above the previous directive in your CSS manifest file (application.css.scss):
+
+	*= require satori/reset
+	*= require satori/base
+	*= require satori
+
+### SASS Variables
+
+Satori's SASS variables can be overriden by setting the variable prior to including the satori directive. The available variables are below:
+
+	// 5 color scheme
+	$background: #fff;
+	$splash: #eaeaea;
+	$foreground: rgba(0, 0, 0, .8);
+	$primary: #42cafd;
+	$secondary: #ff8500;
+
+	// These are for comfort, but can/should be overidden.
+	$border: #c8ccce;
+	$text: $foreground;
+
+	// Alert Colors
+	$success: #41ad48;
+	$error: #df5b57;
+	$warning: yellow;
+	$info: blue;
+
+	// Responsive Design Breakpoints
+	$break-small: 600px;
+	$break-large: 960px;
+
+	$base-size: 16px !default
+	$border-size: 1px;
+	$default-spacing: 0.25rem;
+
 ## Contributing
 
 1. Fork it
