@@ -61,7 +61,7 @@ Satori's SASS variables can be overriden by setting the variable prior to includ
 	$break-small: 600px;
 	$break-large: 960px;
 
-	$base-size: 16px !default
+	$base-size: 16px !default;
 	$border-size: 1px;
 	$default-spacing: 0.25rem;
 
@@ -72,3 +72,7 @@ Satori's SASS variables can be overriden by setting the variable prior to includ
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Development Notes
+
+1. Remember to "rake release"

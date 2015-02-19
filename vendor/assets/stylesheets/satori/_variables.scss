@@ -8,6 +8,7 @@ $secondary: #ff8500 !default;
 // These are for comfort, but can/should be overidden.
 $border: #c8ccce !default; // ignore this one probably
 $text: $foreground !default;
+$input: #fcfcfc !default;
 
 // Alert Colors
 $success: #41ad48 !default;
@@ -21,4 +22,15 @@ $break-large: 960px !default;
 
 $base-size: 16px !default;
 $border-size: 1px !default;
-$default-spacing: 0.25rem !default;
+$default-spacing: 0.5rem !default;
+
+$bold: bold !default;
+
+$header-font: Georgia !default;
+$body-font: Tahoma !default;
+$logo-font: $header-font !default;
+
+// TODO Add fonts
+	// $base-font
+	// $header-font
+	// $body-font??

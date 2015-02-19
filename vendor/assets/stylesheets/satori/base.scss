@@ -8,6 +8,7 @@
 html {
 	box-sizing: border-box;
 	height: 100%;
+	font-family: $body-font;
 	font-size: $base-size;
 	line-height: 1em;
 }
@@ -46,6 +47,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: $header-font;
     line-height: 1em;
 }
 
@@ -93,11 +95,15 @@ label {
 
 input {
 	@include border($border);
-	background: $secondary;
+	background: $input;
 	height: 2.5rem;
 	padding: 0 1rem;
 	font-size: 1rem;
 	width: 100%;
+}
+
+input[disabled], input[readonly] {
+	background: darken($input, 25);
 }
 
 textarea {
@@ -119,7 +125,7 @@ select {
 
 input[type=submit], button, .button {
     @extend .inline-field;
-	background: $background;
+	background: $input;
    
     cursor: pointer;
 	text-align: center;

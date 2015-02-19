@@ -1,0 +1,85 @@
+#basic-mobile {
+	font-family: Lato;
+	font-weight: 300;
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 300;
+		font-family: "Roboto Slab";
+	}
+	
+	body.admin, body.superuser {
+		header {
+			height: 7em;
+		}
+	
+		#layout {
+			margin-top: 7.5em;
+		}
+	}
+
+	header {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  height: 5em;
+	  z-index: 1000;
+  
+  
+	  //-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+	  //box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+  
+	  //border-bottom: 2px solid $grey;
+	  //border-bottom: 2px solid rgba(0,0,0,0.05);
+	}
+
+	.logo {
+		display: inline-block;
+		overflow: hidden;
+		float: left;
+		position: relative;
+  
+		a {
+			display: inline-block;
+			font-size: 1.25em;
+			color: $black;
+			text-decoration: none;
+			padding: 0.4em 0.25em;
+		
+			&:hover {
+				color: $white;
+				background-color: $primary !important;
+			}
+		}
+  
+		.version {
+			display: inline-block;
+			position: absolute;
+			color: $error;
+			font-size:50%;
+			right: 1.25em;
+			top: 1.5em;
+		}
+	}
+
+	#layout {
+		margin: 5em 0rem 0rem;
+		@extend .clearfix;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.search {
+		overflow: hidden;
+	
+		input {
+			background: url('/images/icons/search.png') $grey no-repeat;
+			background-position: calc(100% - 0.25em) 50%;
+			background-size: 24px 24px;
+			height: 2em;
+			line-height: 2em;
+			margin: 0.25em 0;
+			padding: 0.25em;
+		}
+	}
+}

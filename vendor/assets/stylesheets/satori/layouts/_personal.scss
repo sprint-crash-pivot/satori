@@ -1,0 +1,48 @@
+#personal {
+	font-family: Georgia, serif;
+	font-size: 16px;
+	line-height: 1em;
+	
+	header, footer {
+		font-family: Arial, Tahoma, sans-serif;
+		font-weight: 300;
+	}
+	
+	.search {
+		@extend .header-search-field;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: Arial, Tahoma, sans-serif;
+	}
+	
+	.logo {
+		padding: 0.25em;
+		font-size: 2em;
+		line-height: 1em;
+		
+		.tagline {
+			display: block;
+			color: $grey !important;
+			font-size: 0.5em;
+			line-height: 1em;
+		}
+		
+		a {
+			color: $white;
+			text-decoration: none;
+			
+			&:hover, &:focus {
+				color: $primary;
+			}
+		}
+	}
+	
+	header {
+		
+	}
+	
+	footer {
+		
+	}
+}
