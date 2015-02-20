@@ -10,7 +10,7 @@
 </head>
 <body class="new-dashboard">
 	<div class="layout-wrap">
-		<header class="site-header">
+		<header class="site-header bg-white">
 			<div class="site-logo">
 				<div class="title text-primary">Satori</div>
 				<div class="tagline text-grey">A UI Framework</div>
@@ -30,8 +30,8 @@
 			</nav>
 		</header>
 	
-		<main>
-			<nav class="bg-grey">
+		<main class="bg-grey">
+			<nav class="text-grey">
 				<ul>
 					<li><a href="#">Link</a></li>
 					<li><a href="#">Link</a></li>
@@ -40,13 +40,38 @@
 					<li><a href="#">Link</a></li>
 				</ul>
 			</nav>
+			
+			<section class="bg-white">
+				<h2>View This Page's Source Code</h2>
+				<p>View this page's source code to see how it was created.</p>
+				
+				<footer class="bg-grey">
+					<p>February 19th, 2015</p>
+				</footer>
+			</section>
 		
-			<section>
-				<h1>Test</h1>
-				<p>This is a sample paragraph</p>
+			<section class="bg-white">
+				<h2>A Quick Tip</h2>
+				<p>You may want to create a separate SASS stylesheet and include Satori's classes to simplify your code. The following code is recommended:</p>
+				
+				<div class="bg-grey">
+<pre>
+	
+  section {
+    @extend bg-white;
+
+    footer {
+      @extend bg-grey;
+    }
+  }
+	
+</pre>
+				</div>
+
+				<p>This allows you to avoid having to include bg-white and bg-grey in each section. It leads to slightly more maintainable code.</p>
 		
-				<footer>
-					<p>Some random date</p>
+				<footer class="bg-grey">
+					<p>February 18th, 2015</p>
 				</footer>
 			</section>
 			

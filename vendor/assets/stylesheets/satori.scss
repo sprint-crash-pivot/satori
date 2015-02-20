@@ -753,14 +753,6 @@ a.secondary, button.secondary {
 .bg-grey {
 	@extend .clearfix;
 	background: $grey;
-	
-	a {
-		color: $border;
-		
-		&:focus, &:hover {
-			color: $black;
-		}
-	}
 }
 .bg-black { @extend .clearfix; background: $black; @extend .white; }
 
@@ -780,6 +772,14 @@ a.secondary, button.secondary {
 
 .text-grey {
 	color: $grey;
+	
+	a {
+		color: $border;
+		
+		&:hover, &:focus {
+			color: $black;
+		}
+	}
 }
 
 .white {

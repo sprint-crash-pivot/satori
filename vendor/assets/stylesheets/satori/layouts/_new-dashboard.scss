@@ -4,7 +4,6 @@ $layout-spacing: 2rem;
 // TODO Remove the colors from this and use .bg-{color} instead.
 
 body.new-dashboard {
-	background: $grey;
 	position: relative;
 	height: 100%;
 	
@@ -19,9 +18,6 @@ body.new-dashboard {
 		vertical-align: top;
 		
 		border-right: $border $border-size solid;
-		
-		// temp?
-		background: $white;
 
 		.site-logo {
 			padding: $default-spacing;
@@ -60,10 +56,6 @@ body.new-dashboard {
 				display: block;
 				padding: $default-spacing;
 				margin: 0;
-			
-				&:focus, &:hover {
-					background: $grey;
-				}
 			}
 		}
 	}
@@ -96,13 +88,6 @@ body.new-dashboard {
 	section {
 		margin: $layout-spacing;
 		border: $border $border-size solid;
-		
-		// temp?
-		background: $white;
-		
-		footer {
-			background: lighten($grey, 2);
-		}
 	}
 	
 	footer.site-footer {
