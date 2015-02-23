@@ -418,7 +418,7 @@
 	}
 }
 
-a.primary, button.primary {
+a.primary, button.primary, input.primary {
     border: none;
     background: $primary !important;
     color: $white !important;
@@ -433,7 +433,7 @@ a.primary, button.primary {
     }
 }
 
-a.secondary, button.secondary {
+a.secondary, button.secondary, input.secondary {
     border: none;
     background: $secondary !important;
     color: $white !important;

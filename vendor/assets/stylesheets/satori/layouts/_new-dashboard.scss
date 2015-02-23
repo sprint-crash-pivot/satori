@@ -44,12 +44,12 @@ body.new-dashboard {
 				&:nth-child(1) {
 					border-top: $border $border-size solid;
 				}
-				
-				&.heading {
-					font-family: $header-font;
-					padding: $default-spacing;
-					font-weight: $bold;
-				}
+			}
+			
+			.heading {
+				font-family: $header-font;
+				padding: $default-spacing;
+				font-weight: $bold;
 			}
 		
 			a {
