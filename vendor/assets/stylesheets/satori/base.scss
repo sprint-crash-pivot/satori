@@ -120,7 +120,7 @@ select {
     @extend input;
     
     -webkit-appearance:none;
-    background: white url("/images/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
+    background: $input url("/assets/satori/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
 }
 
 input[type=submit], button, .button {
