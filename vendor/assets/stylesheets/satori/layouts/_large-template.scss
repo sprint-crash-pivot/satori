@@ -44,7 +44,11 @@
 		}
 	
 		.search {
-			@extend .header-search-field
+			@extend .header-search-field;
+			
+			input[type=text] {
+				@include box-shadow($border);
+			}
 		}
 	}
 

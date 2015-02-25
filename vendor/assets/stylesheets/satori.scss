@@ -501,20 +501,21 @@ a.secondary, button.secondary, input.secondary {
 	position: relative;
 
 	input[type=text] {
-		@include box-shadow($border);
 		line-height: 2em;
 		margin: 0;
 		padding: $default-spacing;
 	}
 
 	input[type=submit] {
-		background: url($base-path + '/satori/icons/search.png') $secondary no-repeat;
+		background: url($base-path + '/satori/icons/search.png') $input no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
 		border: 1px solid $border !important;
 		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
+		
+		@include box-shadow(none);
 
 		position: absolute;
 		right: $default-spacing;

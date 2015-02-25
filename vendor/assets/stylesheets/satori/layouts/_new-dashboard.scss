@@ -45,18 +45,18 @@ body.new-dashboard {
 					border-top: $border $border-size solid;
 				}
 			}
-			
-			.heading {
-				font-family: $header-font;
-				padding: $default-spacing;
-				font-weight: $bold;
-			}
 		
 			a {
 				display: block;
 				padding: $default-spacing;
 				margin: 0;
 			}
+		}
+		
+		.heading {
+			font-family: $header-font;
+			padding: $default-spacing;
+			font-weight: $bold;
 		}
 	}
 	

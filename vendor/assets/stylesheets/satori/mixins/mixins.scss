@@ -31,9 +31,15 @@
 }
 
 @mixin box-shadow($value) {
-    -moz-box-shadow: 0 1px 1px 0 $value;
-    -webkit-box-shadow:  0 1px 1px 0 $value;
-    box-shadow:  0 1px 1px 0 $value;
+	@if $value == 'none' {
+	    -moz-box-shadow: 0 0 0 0 transparent;
+	    -webkit-box-shadow: 0 0 0 0 transparent;
+	    box-shadow: 0 0 0 0 transparent;
+	} @else {
+	    -moz-box-shadow: 0 1px 1px 0 $value;
+	    -webkit-box-shadow:  0 1px 1px 0 $value;
+	    box-shadow:  0 1px 1px 0 $value;
+	}
 }
 
 @mixin border($color) {
