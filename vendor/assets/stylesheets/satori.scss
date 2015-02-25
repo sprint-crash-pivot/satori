@@ -75,6 +75,8 @@
 .full { width: 100%; }
 
 .toolbar {
+	@extend .box;
+	
     ul {
         list-style: none;
         padding: 0.5em 0;
@@ -191,13 +193,6 @@
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 
-.home-splash {
-  @extend .clearfix;
-  background: url(/images/splash/home.jpg) no-repeat; // image from http://www.flickr.com/photos/mjzitek/475244661/
-  background-size: 100% auto;
-  min-height: 250px;
-}
-
 .relative { position: relative; }
 
 .hidden { display: none; }
@@ -277,7 +272,7 @@
 	&.trash {
 		//@include border($border);
 	
-		background-image: url('/images/icons/trash.png');
+		background-image: url($base-path + '/satori/icons/trash.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -286,7 +281,7 @@
 	&.menu {
 		//@include border($border);
 	
-		background-image: url('/images/icons/list 2.png');
+		background-image: url($base-path + '/satori/icons/list 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -295,7 +290,7 @@
 	&.edit {
 		//@include border($border);
 	
-		background-image: url('/images/icons/file 2.png');
+		background-image: url($base-path + '/satori/icons/file 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -304,7 +299,7 @@
 	&.alerts {
 		//@include border($border);
 	
-		background-image: url('/images/icons/bell.png');
+		background-image: url($base-path + '/satori/icons/bell.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -313,7 +308,7 @@
 	&.messages {
 		//@include border($border);
 	
-		background-image: url('/images/icons/email 2.png');
+		background-image: url($base-path + '/satori/icons/email 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -322,7 +317,7 @@
 	&.cancel, &.close {
 		//@include border($border);
 	
-		background-image: url('/images/icons/error 1.png');
+		background-image: url($base-path + '/satori/icons/error 1.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -331,7 +326,7 @@
 	&.facebook {
 		//@include border($border);
 	
-		background-image: url('/images/social-icons/facebook.png');
+		background-image: url($base-path + '/satori/social-icons/facebook.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -340,7 +335,7 @@
 	&.twitter {
 		//@include border($border);
 	
-		background-image: url('/images/social-icons/twitter.png');
+		background-image: url($base-path + '/satori/social-icons/twitter.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -371,17 +366,17 @@
 	label {
 		position: absolute;
 		display: block;
-		padding: 0.25rem .25rem 0;
-		color: $grey;
+		padding: 0.25rem $default-spacing 0;
+		color: $border;
 		line-height: 1em;
 		z-index: 2;
 		white-space: nowrap;
 		font-size: 0.75em;
 	}
 
-	input, textarea, .fake-input {
+	input, textarea, select, .fake-input {
 		position: relative;
-		padding: 1rem 0.25rem 0.25rem !important;
+		padding: 1rem $default-spacing 0.25rem !important;
 		margin: 0 !important;
 		height: 2.5rem !important;
 		z-index: 1;
@@ -501,33 +496,32 @@ a.secondary, button.secondary, input.secondary {
 }
 
 .header-search-field {
-	padding: 0.25em;
+	padding: $default-spacing;
 	overflow: hidden;
 	position: relative;
 
 	input[type=text] {
 		@include box-shadow($border);
 		line-height: 2em;
-		margin: $default-spacing 0;
-		padding: 0.25rem 1rem;
-		width: 250px;
+		margin: 0;
+		padding: $default-spacing;
 	}
 
 	input[type=submit] {
-		background: url('/assets/icons/search.png') $background no-repeat;
+		background: url($base-path + '/satori/icons/search.png') $secondary no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
 		border: 1px solid $border !important;
-		border-radius: 0 0.25em 0.25em 0;
+		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
 
 		position: absolute;
-		right: 0.25em;
-		top: 0.5em;
+		right: $default-spacing;
+		top: $default-spacing;
 
-		width: auto;
-		padding: 1rem 2rem;
+		width: calc(48px);
+		padding: $default-spacing;
 
 		&:hover, &:focus {
 			background-color: $grey;
@@ -661,7 +655,7 @@ a.secondary, button.secondary, input.secondary {
 	@include box-shadow($border);
 	
 	overflow: hidden;
-	margin: 0.25rem 0.25rem;
+	margin: $default-spacing;
 }
 
 .success {

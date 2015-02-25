@@ -22,6 +22,7 @@ $break-large: 960px !default;
 
 $base-size: 16px !default;
 $border-size: 1px !default;
+$border-radius: 3px !default;
 $default-spacing: 0.5rem !default;
 
 $bold: 700 !default;
@@ -30,3 +31,5 @@ $light: 300 !default;
 $header-font: Georgia !default;
 $body-font: Tahoma !default;
 $logo-font: $header-font !default;
+
+$base-path: '/assets' !default; // $base-path: '../vendor/assets/images';

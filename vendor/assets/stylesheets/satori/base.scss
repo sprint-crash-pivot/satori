@@ -90,14 +90,16 @@ dd {
 }
 
 label {
+	display: block;
 	font-weight: bold;
+	padding: $default-spacing;
 }
 
 input {
 	@include border($border);
 	background: $input;
 	height: 2.5rem;
-	padding: 0 1rem;
+	padding: 0 $default-spacing;
 	font-size: 1rem;
 	width: 100%;
 }
@@ -119,8 +121,8 @@ input[type=checkbox], input[type=radio] {
 select {
     @extend input;
     
-    -webkit-appearance:none;
-    background: $input url("/assets/satori/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
+    -webkit-appearance: none;
+    background: $input url($base-path + "/satori/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
 }
 
 input[type=submit], button, .button {
