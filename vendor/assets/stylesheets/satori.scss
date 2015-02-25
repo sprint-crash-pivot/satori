@@ -383,9 +383,9 @@
 	}
 
 	.fake-input {
-		@extend input;
-		display: block !important;
-		background: $grey;
+		@include input;
+		
+		display: block;
 	}
 
 	textarea {
@@ -511,7 +511,7 @@ a.secondary, button.secondary, input.secondary {
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
-		border: 1px solid $border !important;
+		border: 1px solid $border;
 		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
 		
@@ -740,6 +740,7 @@ a.secondary, button.secondary, input.secondary {
 .bg-text { @extend .clearfix; background: $text; @extend .white; }
 .bg-border { @extend .clearfix; background: $border; @extend .white; }
 .bg-background { @extend .clearfix; background: $background; }
+.bg-splash { @extend .clearfix; background: $splash;}
 
 .bg-primary { @extend .clearfix; background: $primary; @extend .white; }
 .bg-secondary {	@extend .clearfix; background: $secondary; @extend .white; }

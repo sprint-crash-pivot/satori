@@ -30,7 +30,7 @@
     }
 }
 
-@mixin box-shadow($value) {
+@mixin box-shadow($value : 'none') {
 	@if $value == 'none' {
 	    -moz-box-shadow: 0 0 0 0 transparent;
 	    -webkit-box-shadow: 0 0 0 0 transparent;
@@ -57,8 +57,18 @@
 @mixin button-icon($image) {
 	padding-left: calc(24px + 1em);
 	
-	background-image: url('/assets/icons/' + $image + '.png');
+	background-image: url($base-path + '/icons/' + $image + '.png');
 	background-repeat: no-repeat;
 	background-position: 0.5em 50%;
 	background-size: 24px 24px;
+}
+
+// not really a mixin, but need to share it.
+@mixin input() {
+	@include border($border);
+	background: $input;
+	height: 2.5rem;
+	padding: 0 $default-spacing;
+	font-size: 1rem;
+	width: 100%;
 }

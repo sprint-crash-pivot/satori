@@ -10,6 +10,10 @@
 	
 	.search {
 		@extend .header-search-field;
+		
+		input {
+			border: none;
+		}
 	}
 
 	h1, h2, h3, h4, h5, h6 {
