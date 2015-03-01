@@ -12,7 +12,7 @@
 		@extend .header-search-field;
 		
 		input {
-			border: none;
+			border: none !important;
 		}
 	}
 

@@ -1,29 +1,17 @@
-#basic-mobile {
-	font-family: Lato;
-	font-weight: 300;
-
+.basic-mobile {
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 300;
-		font-family: "Roboto Slab";
-	}
-	
-	body.admin, body.superuser {
-		header {
-			height: 7em;
-		}
-	
-		#layout {
-			margin-top: 7.5em;
-		}
 	}
 
-	header {
+	header.site-header {
 	  position: fixed;
 	  top: 0;
 	  left: 0;
 	  right: 0;
-	  height: 5em;
 	  z-index: 1000;
+	  height: 3.5rem;
+	  
+	  @include box-shadow($input);
   
   
 	  //-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
@@ -31,24 +19,53 @@
   
 	  //border-bottom: 2px solid $grey;
 	  //border-bottom: 2px solid rgba(0,0,0,0.05);
+	  
+	  .search {
+		  @extend .header-search-field;
+	  }
+	  
+	  nav {
+		  ul {
+			  margin: 0;
+			  padding: 0;
+		  }
+		  li {
+			  float: left;
+			  margin: $default-spacing;
+			  padding: 0;
+	
+				&:nth-of-type(n) {
+					margin-left: 0 !important;
+				}
+		  }
+		  a {
+			  display: block;
+			  margin: 0;
+			  padding: $default-spacing;
+		  }
+	  }
+	  
+	  nav.secondary-nav {
+		  li {
+			  margin: 0 $default-spacing;
+		  }
+	  }
 	}
 
-	.logo {
+	.site-logo {
 		display: inline-block;
 		overflow: hidden;
 		float: left;
 		position: relative;
-  
-		a {
-			display: inline-block;
-			font-size: 1.25em;
-			color: $black;
-			text-decoration: none;
-			padding: 0.4em 0.25em;
 		
-			&:hover {
-				color: $white;
-				background-color: $primary !important;
+		.title {
+			display: block;
+			font-size: 1.25rem;
+			margin: $default-spacing;
+			
+			img {
+				height: 2.5rem;
+				vertical-align: middle;
 			}
 		}
   
@@ -62,24 +79,10 @@
 		}
 	}
 
-	#layout {
-		margin: 5em 0rem 0rem;
+	main {
+		margin: 6rem 0rem 0rem;
 		@extend .clearfix;
 		overflow: hidden;
 		width: 100%;
-	}
-
-	.search {
-		overflow: hidden;
-	
-		input {
-			background: url('/images/icons/search.png') $grey no-repeat;
-			background-position: calc(100% - 0.25em) 50%;
-			background-size: 24px 24px;
-			height: 2em;
-			line-height: 2em;
-			margin: 0.25em 0;
-			padding: 0.25em;
-		}
 	}
 }

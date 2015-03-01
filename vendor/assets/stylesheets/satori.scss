@@ -235,12 +235,11 @@
 }
 
 .mobile-icon {
-	@include border(transparent);
-	margin: 4px;
+	@include border($border);
 	display: inline-block;
 	vertical-align: middle;
-	width: 32px;
-	height: 32px;
+	width: 2.5rem;
+	height: 2.5rem;
 	position: relative;
 	cursor: pointer;
 
@@ -511,7 +510,7 @@ a.secondary, button.secondary, input.secondary {
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
-		border: 1px solid $border;
+		border: 1px solid $border !important;
 		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
 		
