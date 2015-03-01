@@ -76,17 +76,17 @@
 
 .toolbar {
 	@extend .box;
-	
+
     ul {
         list-style: none;
         padding: 0.5em 0;
-  
+
       li {
         display: inline-block;
         border-right: 1px solid $border;
         margin: 0;
         padding: 0 0.5em;
-    
+
         &:nth-last-of-type(1) {
           border-right: none;
         }
@@ -99,11 +99,11 @@
       border-bottom: $default-spacing solid transparent;
       color: $grey;
       text-decoration: none;
-  
+
       &:hover, &:focus {
         border-bottom: $default-spacing solid $primary;
       }
-    } 
+    }
 }
 
 .hor-toolbar {
@@ -121,7 +121,7 @@
 
     li {
         margin: 0;
-    
+
         &:nth-last-of-type(1) {
             border-bottom: none;
         }
@@ -134,7 +134,7 @@
         border-left: $default-spacing solid $grey;
         color: $grey;
         text-decoration: none;
-    
+
         &:hover, &:focus {
             border-color: $primary;
         }
@@ -155,7 +155,7 @@
 
 	a.cell {
 	        text-decoration: none;
-		
+
 	        &:hover, &:focus {
 	            background-color: $grey;
 		    }
@@ -173,7 +173,7 @@
 .error, .success, .delete, .save {
     a {
         color: inherit;
-    
+
         &:hover, &:focus {
             color: $black;
         }
@@ -250,7 +250,7 @@
 
 	&:hover, &:focus {
 		background-color: $grey;
-	} 
+	}
 
 	& .count {
 		text-indent: 0;
@@ -270,8 +270,8 @@
 
 	&.trash {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/icons/trash.png');
+
+		background-image: url($base-path + '/icons/trash.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -279,8 +279,8 @@
 
 	&.menu {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/icons/list 2.png');
+
+		background-image: url($base-path + '/icons/list 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -288,8 +288,8 @@
 
 	&.edit {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/icons/file 2.png');
+
+		background-image: url($base-path + '/icons/file 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -297,8 +297,8 @@
 
 	&.alerts {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/icons/bell.png');
+
+		background-image: url($base-path + '/icons/bell.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -306,8 +306,8 @@
 
 	&.messages {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/icons/email 2.png');
+
+		background-image: url($base-path + '/icons/email 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -315,8 +315,8 @@
 
 	&.cancel, &.close {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/icons/error 1.png');
+
+		background-image: url($base-path + '/icons/error 1.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -324,8 +324,8 @@
 
 	&.facebook {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/social-icons/facebook.png');
+
+		background-image: url($base-path + '/social-icons/facebook.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -333,8 +333,8 @@
 
 	&.twitter {
 		//@include border($border);
-	
-		background-image: url($base-path + '/satori/social-icons/twitter.png');
+
+		background-image: url($base-path + '/social-icons/twitter.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
@@ -348,7 +348,7 @@
 	input[type=submit], button {
 		width: auto;
 		margin: 0 0.25em;
-	
+
 		&:nth-child-of-type(1) {
 			margin-left: none;
 		}
@@ -383,7 +383,7 @@
 
 	.fake-input {
 		@include input;
-		
+
 		display: block;
 	}
 
@@ -506,14 +506,14 @@ a.secondary, button.secondary, input.secondary {
 	}
 
 	input[type=submit] {
-		background: url($base-path + '/satori/icons/search.png') $input no-repeat;
+		background: url($base-path + '/icons/search.png') $input no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
 		border: 1px solid $border !important;
 		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
-		
+
 		@include box-shadow(none);
 
 		position: absolute;
@@ -545,7 +545,7 @@ a.secondary, button.secondary, input.secondary {
 
 .nav {
   @extend .clearfix;
-  
+
   ul {
       list-style: none;
       padding: 0;
@@ -557,25 +557,25 @@ a.secondary, button.secondary, input.secondary {
       display: inline-block;
       margin: 0;
   }
-  
+
   &.right {
       li {
           float: right;
       }
   }
-  
+
   a {
     display: inline-block;
     padding: 0.5em 0.5em .25em;
     border-bottom: 0.25em solid transparent;
     color: $grey;
     text-decoration: none !important;
-    
+
     &:hover, &:focus {
       border-bottom: 0.25em solid $primary;
     }
   }
-  
+
   &.bg-primary {
 	  a {
 		  &:hover, &:focus {
@@ -583,7 +583,7 @@ a.secondary, button.secondary, input.secondary {
 		  }
 	  }
   }
-  
+
   &.bg-background {
 	  a {
 		  &:hover, &:focus {
@@ -592,7 +592,7 @@ a.secondary, button.secondary, input.secondary {
 		  }
 	  }
   }
-  
+
   &.bg-black {
 	  a {
 		  &:hover, &:focus {
@@ -607,13 +607,13 @@ a.secondary, button.secondary, input.secondary {
 	li {
 		display: block;
 	}
-	
+
 	a {
 		display: block;
 		margin: 0 0.5em;
 	}
 }
-  
+
 .button-nav {
 	@extend .clearfix;
 	margin: 0.25em;
@@ -653,35 +653,35 @@ a.secondary, button.secondary, input.secondary {
 	display: block;
 	@include border($border);
 	@include box-shadow($border);
-	
+
 	overflow: hidden;
 	margin: $default-spacing;
 }
 
 .success {
 	@extend .box;
-	
+
 	border-left: 4px solid $success;
     background: $white;
 }
 
 .error {
 	@extend .box;
-	
+
 	border-left: 4px solid $error;
     background: $white;
 }
 
 .warning {
 	@extend .box;
-	
+
 	border-left: 4px solid $warning;
     background: $white;
 }
 
 .info {
 	@extend .box;
-	
+
 	border-left: 4px solid $info;
     background: $white;
 }
@@ -706,7 +706,7 @@ a.secondary, button.secondary, input.secondary {
 		border-bottom: 1px solid $grey;
 		border-top: 1px solid $grey;
 		padding: $default-spacing;
-		
+
 		a {
 			color: $grey;
 		}
@@ -714,17 +714,17 @@ a.secondary, button.secondary, input.secondary {
 	ul {
 		padding: 0;
 		margin: 0;
-	
+
 		li {
 			padding: 0;
 			margin: 0;
 			list-style: none;
-		
+
 			a {
 				display: block;
 				padding: $default-spacing;
 				color: $grey;
-			
+
 				&:hover, &:focus {
 					text-decoration: none;
 					background: $grey;
@@ -732,7 +732,7 @@ a.secondary, button.secondary, input.secondary {
 				}
 			}
 		}
-	}	
+	}
 }
 
 // BACKGROUNDS
@@ -767,10 +767,10 @@ a.secondary, button.secondary, input.secondary {
 
 .text-grey {
 	color: $grey;
-	
+
 	a {
 		color: $border;
-		
+
 		&:hover, &:focus {
 			color: $black;
 		}
@@ -779,7 +779,7 @@ a.secondary, button.secondary, input.secondary {
 
 .white {
 	color: $white;
-  
+
 	a {
 	  color: $grey;
 

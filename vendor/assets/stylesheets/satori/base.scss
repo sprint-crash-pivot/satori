@@ -62,11 +62,11 @@ img {
 a, .fake-link {
     color: $primary;
     text-decoration: none;
-    
+
     &:visited {
         color: darken($primary, 10);
     }
-    
+
     &:hover, &:focus {
         color: lighten($primary, 10);
     }
@@ -115,18 +115,18 @@ input[type=checkbox], input[type=radio] {
 
 select {
     @extend input;
-    
+
     -webkit-appearance: none;
-    background: $input url($base-path + "/satori/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
+    background: $input url($base-path + "/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
 }
 
 input[type=submit], button, .button {
     @extend .inline-field;
 	background: $input;
-   
+
     cursor: pointer;
 	text-align: center;
-    
+
     &:hover, &:focus {
 		color: $primary;
         background: $background;
@@ -154,51 +154,51 @@ table {
 	@include border($border);
 	@include box-shadow($border);
 	border-collapse: separate;
-		
+
     thead {
         background: $background;
 	    border-bottom: 1px solid $border;
 		border-radius: 3px;
-		  
+
         th {
             border-right: 1px solid $border;
-            
+
             &:last-child {
                 border-right: none;
             }
         }
     }
-    
+
     td, th {
         padding: 0.5em;
 		vertical-align: top;
     }
-    
+
     tbody {
         tr {
             border-bottom: 1px solid $border;
-            
+
             &:last-child {
                 border-bottom: none;
             }
         }
-        
+
         th {
             background: $splash;
 			border-right: 1px solid $border;
             text-align: left;
         }
     }
-    
+
     tfoot {
         background: $background;
 		border-top: 1px solid $border;
     }
-    
+
     button, .button, input[type=submit] {
         margin: 0;
     }
-	
+
 	.field {
 		padding: 0;
 	}
