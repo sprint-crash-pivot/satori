@@ -10,20 +10,20 @@
 	  right: 0;
 	  z-index: 1000;
 	  height: 3.5rem;
-	  
+
 	  @include box-shadow($input);
-  
-  
+
+
 	  //-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
 	  //box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
-  
+
 	  //border-bottom: 2px solid $grey;
 	  //border-bottom: 2px solid rgba(0,0,0,0.05);
-	  
+
 	  .search {
 		  @extend .header-search-field;
 	  }
-	  
+
 	  nav {
 		  ul {
 			  margin: 0;
@@ -33,7 +33,7 @@
 			  float: left;
 			  margin: $default-spacing;
 			  padding: 0;
-	
+
 				&:nth-of-type(n) {
 					margin-left: 0 !important;
 				}
@@ -44,7 +44,7 @@
 			  padding: $default-spacing;
 		  }
 	  }
-	  
+
 	  nav.secondary-nav {
 		  li {
 			  margin: 0 $default-spacing;
@@ -57,25 +57,16 @@
 		overflow: hidden;
 		float: left;
 		position: relative;
-		
+
 		.title {
 			display: block;
 			font-size: 1.25rem;
 			margin: $default-spacing;
-			
+
 			img {
 				height: 2.5rem;
 				vertical-align: middle;
 			}
-		}
-  
-		.version {
-			display: inline-block;
-			position: absolute;
-			color: $error;
-			font-size:50%;
-			right: 1.25em;
-			top: 1.5em;
 		}
 	}
 
