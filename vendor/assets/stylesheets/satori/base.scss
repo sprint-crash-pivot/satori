@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $header-font;
-    line-height: 1rem;
+  line-height: 1em;
 }
 
 p, td, th, li {
@@ -143,6 +143,7 @@ hr {
 
     display: inline-block;
     text-decoration: none;
+    line-height: 2.5rem;
     width: auto;
     white-space: nowrap;
 }
