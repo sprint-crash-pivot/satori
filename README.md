@@ -30,15 +30,9 @@ Add the following directive to your Css manifest file (applicaiton.css.scss):
 
 	*= require satori
 
-Additionally, if you do not already use a reset, you can add the following directives above the previous directive in your CSS manifest file (application.css.scss):
-
-	*= require satori/reset
-	*= require satori/base
-	*= require satori
-
 ### SASS Variables
 
-Satori's SASS variables can be overriden by setting the variable prior to including the satori directive. The available variables are below:
+Satori's SASS variables can be overriden by setting the variable prior to importing Satori. The available variables are below:
 
 	// 5 color scheme
 	$background: #fff;
