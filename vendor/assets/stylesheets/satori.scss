@@ -235,7 +235,6 @@
 }
 
 .mobile-icon {
-	@include border($border);
 	display: inline-block;
 	vertical-align: middle;
 	width: 2.5rem;
@@ -247,6 +246,10 @@
 	overflow: hidden;
 	text-indent: 100%;
 	white-space: nowrap;
+
+	&.with-border {
+		@include border($border);
+	}
 
 	&:hover, &:focus {
 		background-color: $grey;
