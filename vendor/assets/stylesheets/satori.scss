@@ -6,6 +6,9 @@
 @import 'satori/_variables';
 @import 'satori/mixins/mixins';
 
+@import 'satori/reset';
+@import 'satori/base';
+
 @import 'satori/layouts/_basic-mobile';
 @import 'satori/layouts/_dashboard';
 @import 'satori/layouts/_large-template';
