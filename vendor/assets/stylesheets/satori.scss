@@ -712,6 +712,18 @@ a.secondary, button.secondary, input.secondary {
 	}
 }
 
+.text-grey {
+	color: $border;
+
+	a {
+		color: $black;
+
+		&:hover, &:focus {
+			color: $grey;
+		}
+	}
+}
+
 .white {
 	color: $white;
 
