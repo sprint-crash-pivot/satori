@@ -1,4 +1,47 @@
 .personal {
+		font-family: Georgia, serif;
+		font-size: 16px;
+		line-height: 1em;
+
+			header.site-header, footer.site-footer {
+				font-family: Arial, Tahoma, sans-serif;
+				font-weight: 300;
+			}
+
+			.search {
+				@extend .header-search-field;
+
+				input {
+					border: none !important;
+				}
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				font-family: Arial, Tahoma, sans-serif;
+			}
+
+			.site-logo {
+				padding: 0.25em;
+				font-size: 2em;
+				line-height: 1em;
+
+				.tagline {
+					display: block;
+					color: $grey !important;
+					font-size: 0.5em;
+					line-height: 1em;
+				}
+
+				a {
+					color: $white;
+					text-decoration: none !important;
+
+					&:hover, &:focus {
+						color: $primary;
+					}
+				}
+			}
+
 		nav {
 			ul {
 				margin: 0;
@@ -40,57 +83,4 @@
 				}
 			}
 		}
-}
-
-#personal {
-	font-family: Georgia, serif;
-	font-size: 16px;
-	line-height: 1em;
-
-	header, footer {
-		font-family: Arial, Tahoma, sans-serif;
-		font-weight: 300;
-	}
-
-	.search {
-		@extend .header-search-field;
-
-		input {
-			border: none !important;
-		}
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		font-family: Arial, Tahoma, sans-serif;
-	}
-
-	.logo {
-		padding: 0.25em;
-		font-size: 2em;
-		line-height: 1em;
-
-		.tagline {
-			display: block;
-			color: $grey !important;
-			font-size: 0.5em;
-			line-height: 1em;
-		}
-
-		a {
-			color: $white;
-			text-decoration: none;
-
-			&:hover, &:focus {
-				color: $primary;
-			}
-		}
-	}
-
-	header {
-
-	}
-
-	footer {
-
-	}
 }
