@@ -1,40 +1,23 @@
-#large-template {
-	font-family: Lato;
-	font-weight: 300;
-
+.large-template {
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 300;
-		font-family: "Roboto Slab";
 	}
-	
-	header {
-		border-top: 0.25em $primary solid;
-		.padding {
-			@extend .clearfix;
-			margin: 2em 0;
-		}
-	
-		.logo {
-			margin: $default-spacing;
+
+	.site-header {
+		border-top: calc(#{$default-spacing} / 2) $primary solid;
+
+		.site-logo {
+			margin: calc(3 * #{$default-spacing}) $default-spacing;
 			font-family: Lato;
 			font-weight: 300;
 			font-size: 2.5rem;
-		
-			.icon {
-				position: relative;
-				color: $primary;
-				padding: 10px 5px;
-				border-radius: 3px;
-				float: left;
-				top: -8px;
-			}
-		
+			line-height: 1.5em;
+
 			a, a:visited {
-				color: $grey;
-			
+				color: $border;
+
 				&:hover, &:focus {
 					color: $primary;
-				
+
 					.icon {
 						color: $background;
 						background-color: $primary;
@@ -42,22 +25,69 @@
 				}
 			}
 		}
-	
+
+		nav.right {
+			margin: calc(3 * #{$default-spacing}) 0;
+		}
+
 		.search {
+			margin: calc(3 * #{$default-spacing}) 0;
 			@extend .header-search-field;
-			
+
 			input[type=text] {
 				@include box-shadow($border);
 			}
 		}
 	}
 
-	#layout {
+	nav {
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			float: left;
+			margin: $default-spacing;
+			padding: 0;
+
+			&:nth-of-type(n) {
+				margin-left: 0 !important;
+			}
+		}
+
+		a {
+			display: block;
+			margin: 0;
+			padding: $default-spacing;
+
+			&.button {
+				padding: 0 $default-spacing;
+			}
+		}
+
+		&.secondary-nav {
+			li {
+				margin: 0 $default-spacing !important;
+			}
+
+			a {
+				border-bottom: 0.25em solid transparent;
+				text-decoration: none !important;
+
+				&:hover, &:focus {
+					border-bottom: 0.25em solid $primary;
+				}
+			}
+		}
+	}
+
+	main {
 		overflow: hidden;
 		width: 100%;
 	}
 
-	footer {
+	.site-footer {
 		// border-top: 0.25em $grey solid;
 	}
 }
