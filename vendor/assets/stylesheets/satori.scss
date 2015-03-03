@@ -15,6 +15,16 @@
 @import 'satori/layouts/new-dashboard';
 @import 'satori/layouts/personal';
 
+header:not(.site-header) {
+	font-family: $header-font;
+	font-size: 1.5rem;
+	padding: $default-spacing;
+}
+
+footer:not(.site-footer) {
+	padding: $default-spacing;
+}
+
 .clearfix {
   zoom: 1; // For IE 6/7 (trigger hasLayout)
 
@@ -117,11 +127,12 @@
       display: block;
       padding: $default-spacing $default-spacing calc(#{$default-spacing} / 2);
       border-bottom: calc(#{$default-spacing} / 2) solid transparent;
-      color: $border;
+			color: $border;
       text-decoration: none;
 
       &:hover, &:focus {
-        border-color: $primary;
+        border-color: lighten($primary, 10);
+				color: lighten($primary, 10);
       }
     }
 }
@@ -129,12 +140,6 @@
 .vertical-toolbar {
 	@include border($border);
     margin: $default-spacing;
-
-    .header {
-				font-weight: bold;
-				font-size: 1.5rem;
-        padding: $default-spacing;
-    }
 
     ul {
         list-style: none;
@@ -154,11 +159,39 @@
         text-decoration: none;
 
         &:hover, &:focus {
-            border-color: $primary;
+					color: lighten($primary, 10);
+          border-color: lighten($primary, 10);
         }
     }
 }
 
+.grid-box {
+	@extend .box;
+	padding: 0 !important;
+
+	.cell {
+		@extend .clearfix;
+
+		display: block;
+		border-bottom: 1px solid $border;
+	}
+
+	a.cell {
+		text-decoration: none;
+
+		&:hover, &:focus, &:visited:hover, &:visited:focus {
+			background-color: $grey;
+		}
+	}
+
+	&.zebra {
+		.cell {
+			&:nth-child(even) {
+				background: $splash;
+			}
+		}
+	}
+}
 // end partially complete elements
 
 .button-text {
@@ -195,43 +228,6 @@
 .full { width: 100%; }
 
 .clear { clear: both; }
-
-.grid-box {
-    @extend .box;
-    padding: 0 !important;
-
-    .cell {
-        @extend .clearfix;
-        display: block;
-        border-bottom: 1px solid $border;
-    }
-
-	a.cell {
-	        text-decoration: none;
-
-	        &:hover, &:focus {
-	            background-color: $grey;
-		    }
-	}
-
-	&.zebra {
-		.cell {
-			&:nth-child(even) {
-				background: $grey;
-			}
-		}
-	}
-}
-
-.error, .success, .delete, .save {
-    a {
-        color: inherit;
-
-        &:hover, &:focus {
-            color: $black;
-        }
-    }
-}
 
 .left { float: left; }
 .right { float: right; }
@@ -351,7 +347,7 @@
 		background-size: 24px 24px;
 	}
 
-	&.alerts {
+	&.alert {
 		//@include border($border);
 
 		background-image: url($base-path + '/icons/bell.png');
@@ -360,7 +356,7 @@
 		background-size: 24px 24px;
 	}
 
-	&.messages {
+	&.message {
 		//@include border($border);
 
 		background-image: url($base-path + '/icons/email 2.png');
@@ -411,7 +407,7 @@
 	}
 }
 
-.float-label, .field {
+.float-label {
 	@extend .clearfix;
 
 	position: relative;
