@@ -3,11 +3,66 @@
 <head>
 	<title>Satori</title>
 	<base href="../">
-	
-	<link rel="stylesheet" href="tmp/satori.css" />
+
+	<link rel="stylesheet" href="tmp/site.css" />
 </head>
 <body>
 	<h2>Satori Elements</h2>
+
+	<h6>.toolbar</h6>
+	<div class="toolbar">
+		<ul>
+			<li>
+				<div class="search-field">
+					<input type="text" placeholder="Search" />
+					<input type="submit" value="Find" />
+				</div>
+			<li>
+				<input type="text" value="Text" />
+			</li>
+			<li>
+				<div class="float-label">
+					<label>Dropdown</label>
+					<select>
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<option>Option 3</option>
+					</select>
+				</div>
+			</li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+		</ul>
+	</div>
+
+	<div class="toolbar">
+		<ul>
+			<li>
+				<a href="#">First</a>
+			</li>
+			<li>
+				<a href="#">Prev</a>
+			</li>
+	</div>
+
+	<h6>.vertical-toolbar</h6>
+	<div class="vertical-toolbar">
+		<div class="header bg-splash">Header</div>
+		<p>This is just some body text to describe the links.</p>
+		<ul>
+			<li>
+				<a href="#">Link</a>
+			</li>
+			<li>
+				<a href="#">Link</a>
+			</li>
+			<li>
+				<a href="#">Link</a>
+			</li>
+		</ul>
+	</div>
 
 	<h2>Form Elements</h2>
 
@@ -21,12 +76,12 @@
 
 	<h6>.float-label</h6>
 	<div class="clearfix">
-		<div class="float-label">
+		<div class="float-label container">
 			<label>This is an input:</label>
 			<input type="text" />
 		</div>
 
-		<div class="float-label">
+		<div class="float-label container">
 			<label>This is a select:</label>
 			<select>
 				<option>Option 1</option>
@@ -35,12 +90,12 @@
 			</select>
 		</div>
 
-		<div class="float-label">
+		<div class="float-label container">
 			<label>This is a textarea:</label>
 			<textarea></textarea>
 		</div>
 
-		<div class="float-label">
+		<div class="float-label container">
 			<label>This is a .fake-input:</label>
 			<span class="fake-input">Fake input</span>
 		</div>
@@ -190,27 +245,27 @@
 	<h2 class="clear">Boxes</h2>
 	<div class="clear">
 		<div class="box">
-			<h2>Box Header</h2>
+			<h6>Box Header</h6>
 			<p>Box paragraph</p>
 		</div>
 
 		<div class="success">
-			<h2>Success</h2>
+			<h6>Success</h6>
 			<p>Success message</p>
 		</div>
 
 		<div class="info">
-			<h2>Info</h2>
+			<h6>Info</h6>
 			<p>Info message</p>
 		</div>
 
 		<div class="warning">
-			<h2>Warning</h2>
+			<h6>Warning</h6>
 			<p>Warning message</p>
 		</div>
 
 		<div class="error">
-			<h2>Error</h2>
+			<h6>Error</h6>
 			<p>Error message</p>
 		</div>
 	</div>

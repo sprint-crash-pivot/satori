@@ -44,6 +44,123 @@
 
 // TODO Go through everything below and make sure it conforms to variables
 
+// partially complete elements
+
+.header-search-field {
+	padding: $default-spacing;
+	overflow: hidden;
+	position: relative;
+
+	input[type=text] {
+		line-height: 2em;
+		margin: 0;
+		padding: $default-spacing;
+	}
+
+	input[type=submit] {
+		background: url($base-path + '/icons/search.png') $input no-repeat;
+		background-position: 50% 50%;
+		background-size: 24px 24px;
+
+		border: 1px solid $border !important;
+		border-radius: 0 $border-radius $border-radius 0;
+		text-indent: -250px;
+
+		@include box-shadow(none);
+
+		position: absolute;
+		right: $default-spacing;
+		top: $default-spacing;
+
+		width: calc(48px);
+		padding: $default-spacing;
+
+		&:hover, &:focus {
+			background-color: $grey;
+		}
+	}
+}
+
+.search-field {
+	@extend .header-search-field;
+
+	padding: 0;
+
+	input[type=submit] {
+		right: 0;
+		top: 0;
+	}
+}
+
+.toolbar {
+	@extend .box;
+
+    ul {
+			@extend .clearfix;
+        list-style: none;
+        padding: $default-spacing 0;
+
+      li {
+        display: block;
+				float: left;
+        border-right: 1px solid $border;
+        margin: 0;
+        padding: 0 $default-spacing;
+
+        &:nth-last-of-type(1) {
+          border-right: none;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      padding: $default-spacing $default-spacing calc(#{$default-spacing} / 2);
+      border-bottom: calc(#{$default-spacing} / 2) solid transparent;
+      color: $border;
+      text-decoration: none;
+
+      &:hover, &:focus {
+        border-color: $primary;
+      }
+    }
+}
+
+.vertical-toolbar {
+	@include border($border);
+    margin: $default-spacing;
+
+    .header {
+				font-weight: bold;
+				font-size: 1.5rem;
+        padding: $default-spacing;
+    }
+
+    ul {
+        list-style: none;
+				padding: 0 $default-spacing;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    a {
+        display: block;
+        margin: $default-spacing $default-spacing $default-spacing 0em;
+        padding: $default-spacing;
+        border-left: calc(#{$default-spacing} / 2) solid $grey;
+        color: $border;
+        text-decoration: none;
+
+        &:hover, &:focus {
+            border-color: $primary;
+        }
+    }
+}
+
+// end partially complete elements
+
 .button-text {
   float: left;
   display: inline-block;
@@ -76,73 +193,6 @@
 
 .auto { width: auto; }
 .full { width: 100%; }
-
-.toolbar {
-	@extend .box;
-
-    ul {
-        list-style: none;
-        padding: 0.5em 0;
-
-      li {
-        display: inline-block;
-        border-right: 1px solid $border;
-        margin: 0;
-        padding: 0 0.5em;
-
-        &:nth-last-of-type(1) {
-          border-right: none;
-        }
-      }
-    }
-
-    a {
-      display: block;
-      padding: 0.5em 0.5em $default-spacing;
-      border-bottom: $default-spacing solid transparent;
-      color: $grey;
-      text-decoration: none;
-
-      &:hover, &:focus {
-        border-bottom: $default-spacing solid $primary;
-      }
-    }
-}
-
-.hor-toolbar {
-	@include border($border);
-    margin: 0.5em;
-
-    h1, h2, h3, h4, h5, h6 {
-        color: $grey;
-        padding-bottom: 0;
-    }
-
-    ul {
-        list-style: none;
-    }
-
-    li {
-        margin: 0;
-
-        &:nth-last-of-type(1) {
-            border-bottom: none;
-        }
-    }
-
-    a {
-        display: inline-block;
-        margin: $default-spacing $default-spacing $default-spacing 0em;
-        padding: $default-spacing;
-        border-left: $default-spacing solid $grey;
-        color: $grey;
-        text-decoration: none;
-
-        &:hover, &:focus {
-            border-color: $primary;
-        }
-    }
-}
 
 .clear { clear: both; }
 
@@ -363,7 +413,6 @@
 
 .float-label, .field {
 	@extend .clearfix;
-	@extend .container;
 
 	position: relative;
 	display: block;
@@ -381,7 +430,7 @@
 
 	input, textarea, select, .fake-input {
 		position: relative;
-		padding: 1rem $default-spacing 0.25rem !important;
+		padding: 1rem $default-spacing 0.25rem;
 		margin: 0 !important;
 		height: 2.5rem !important;
 		z-index: 1;
@@ -391,6 +440,7 @@
 		@include input;
 
 		display: block;
+		padding: 1rem $default-spacing 0.25rem;
 	}
 
 	textarea {
@@ -498,41 +548,6 @@ a.secondary, button.secondary, input.secondary {
 // rails specific
 .button_to {
 	display: inline-block;
-}
-
-.header-search-field {
-	padding: $default-spacing;
-	overflow: hidden;
-	position: relative;
-
-	input[type=text] {
-		line-height: 2em;
-		margin: 0;
-		padding: $default-spacing;
-	}
-
-	input[type=submit] {
-		background: url($base-path + '/icons/search.png') $input no-repeat;
-		background-position: 50% 50%;
-		background-size: 24px 24px;
-
-		border: 1px solid $border !important;
-		border-radius: 0 $border-radius $border-radius 0;
-		text-indent: -250px;
-
-		@include box-shadow(none);
-
-		position: absolute;
-		right: $default-spacing;
-		top: $default-spacing;
-
-		width: calc(48px);
-		padding: $default-spacing;
-
-		&:hover, &:focus {
-			background-color: $grey;
-		}
-	}
 }
 
 .px40 {

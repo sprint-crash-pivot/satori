@@ -112,9 +112,10 @@ input[type=checkbox], input[type=radio] {
 
 select {
     @extend input;
+    padding-right: 40px !important;
 
     -webkit-appearance: none;
-    background: $input url($base-path + "/icons/arrow 3.png") left calc(100% - 0.5rem) top 50% no-repeat;
+    background: $input url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
 }
 
 input[type=submit], button, .button {
