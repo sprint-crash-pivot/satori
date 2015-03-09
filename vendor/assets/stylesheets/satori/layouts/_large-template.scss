@@ -7,13 +7,13 @@
 
 		.site-logo {
 			margin: calc(3 * #{$default-spacing}) $default-spacing;
-			font-family: Lato;
+			font-family: $logo-font;
 			font-weight: 300;
 			font-size: 2.5rem;
 			line-height: 1.5em;
 
 			a, a:visited {
-				color: $border;
+				color: darken($splash, 24);
 
 				&:hover, &:focus {
 					color: $primary;
@@ -35,12 +35,14 @@
 			@extend .header-search-field;
 
 			input[type=text] {
-				@include box-shadow($border);
+				@include box-shadow($splash);
 			}
 		}
 	}
 
 	nav {
+		@extend .clearfix;
+		
 		ul {
 			margin: 0;
 			padding: 0;
@@ -88,6 +90,6 @@
 	}
 
 	.site-footer {
-		// border-top: 0.25em $grey solid;
+		// border-top: 0.25em $splash solid;
 	}
 }

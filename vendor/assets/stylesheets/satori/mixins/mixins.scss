@@ -1,74 +1,95 @@
 @mixin device($media) {
-    @if $media == phone {
-        @media screen and (max-width: $break-small) {
-            @content;
-        }
-    } @else if $media == tablet{
-        @media screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) {
-            @content;
-        }
-    } @else if $media == mobile {
-        @media screen and (max-width: $break-large - 1) {
-            @content;
-        }
-    } @else if $media == desktop {
-        @media screen and (min-width: $break-large) {
-            @content;
-        }
-    } @else if $media == minimum {
-        @media screen and (min-width: 1px) {
-            @content;
-        }
-    } @else if $media == print {
-        @media print {
-            @content;
-        }
-    } @else if $media == screen {
-        @media screen {
-            @content;
-        }
+  @if $media == phone {
+    @media screen and (max-width: $break-small) {
+      @content;
     }
+  } @else if $media == tablet{
+    @media screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) {
+      @content;
+    }
+  } @else if $media == mobile {
+    @media screen and (max-width: $break-large - 1) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media screen and (min-width: $break-large) {
+      @content;
+    }
+  } @else if $media == minimum {
+    @media screen and (min-width: 1px) {
+      @content;
+    }
+  } @else if $media == print {
+    @media print {
+      @content;
+    }
+  } @else if $media == screen {
+    @media screen {
+      @content;
+    }
+  }
 }
 
 @mixin box-shadow($value : 'none') {
-	@if $value == 'none' {
-	    -moz-box-shadow: 0 0 0 0 transparent;
-	    -webkit-box-shadow: 0 0 0 0 transparent;
-	    box-shadow: 0 0 0 0 transparent;
-	} @else {
-	    -moz-box-shadow: 0 1px 1px 0 $value;
-	    -webkit-box-shadow:  0 1px 1px 0 $value;
-	    box-shadow:  0 1px 1px 0 $value;
-	}
+  @if $value == 'none' {
+    -moz-box-shadow: 0 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 transparent;
+  } @else {
+    -moz-box-shadow: 0 1px 1px 0 $value;
+    -webkit-box-shadow:  0 1px 1px 0 $value;
+    box-shadow:  0 1px 1px 0 $value;
+  }
 }
 
 @mixin border($color) {
-	border: 1px solid $color;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
+  border: $border-size solid darken($color, 10);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 
 @mixin transparent($value) {
-	zoom: 1;
-	filter: alpha(opacity=$value);
-	opacity: $value / 100;
+  zoom: 1;
+  filter: alpha(opacity=$value);
+  opacity: $value / 100;
 }
 
 @mixin button-icon($image) {
-	padding-left: calc(24px + 1em);
+  padding-left: calc(24px + 1em);
 
-	background-image: url($base-path + '/icons/' + $image + '.png');
-	background-repeat: no-repeat;
-	background-position: 0.5em 50%;
-	background-size: 24px 24px;
+  background-image: url($base-path + '/icons/' + $image + '.png');
+  background-repeat: no-repeat;
+  background-position: 0.5em 50%;
+  background-size: 24px 24px;
 }
 
 // not really a mixin, but need to share it.
 @mixin input() {
-	@include border($border);
-	background: $input;
-	height: 2.5rem;
-	padding: 0 $default-spacing;
-	font-size: 1rem;
-	width: 100%;
+  @include border($splash);
+  background: $input;
+  height: 2.5rem;
+  padding: 0 $default-spacing;
+  font-size: 1rem;
+  width: 100%;
+}
+
+@mixin bg-color($background-color, $text-color, $link-color) {
+  background-color: $background-color;
+  color: $text-color;
+
+  @include link-color($link-color);
+}
+
+@mixin link-color($color) {
+  a {
+    color: $color;
+
+    &:visited {
+      //color: darken($color, 10);
+    }
+
+    &:hover, &:focus {
+      color: set-hover-text-color($color);
+    }
+  }
 }

@@ -1,0 +1,7 @@
+@function set-hover-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return darken($color, 10);
+  } @else {
+    @return lighten($color, 10);
+  }
+}

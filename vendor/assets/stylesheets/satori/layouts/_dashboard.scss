@@ -1,54 +1,53 @@
 #dashboard {
-	font-family: Lato;
 	font-weight: 300;
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 300;
 		font-family: "Roboto Slab";
 	}
-	
+
 	header {
 		position: fixed;
 		z-index: 100;
 		width: 100%;
-		border-bottom: 1px solid $grey;
-		
+		border-bottom: 1px solid $splash;
+
 		.header-application {
 			width: 240px;
-			color: $white;
+			color: $background;
 		}
-		
+
 		.toggle-menu {
 			position: absolute;
 			background: $background;
-			border: 1px solid $grey;
-			
+			border: 1px solid $splash;
+
 			li {
 				display: block;
-				
+
 				a {
 					display: block;
 				}
 			}
 		}
 	}
-	
+
 	#sidebar {
 		position: fixed;
 		left: 0px;
 		top: 2.5em;
 		width: 240px;
 		height: calc(100% - 2.5em);
-		border-right: 1px solid $grey;
+		border-right: 1px solid $splash;
 		overflow: auto;
 	}
-	
+
 	#layout {
 		margin-top: 2.5em;
 		margin-left: 240px;
 		margin-bottom: 2.5em;
 	}
-	
+
 	footer {
 		position: fixed;
 		z-index: 100;
@@ -58,6 +57,6 @@
 		margin-left: 240px;
 		width: calc(100% - 240px);
 		white-space: nowrap;
-		border-top: 1px solid $grey;
+		border-top: 1px solid $splash;
 	}
 }

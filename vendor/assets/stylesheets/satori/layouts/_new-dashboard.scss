@@ -6,77 +6,77 @@ $layout-spacing: 2rem;
 body.new-dashboard {
 	position: relative;
 	height: 100%;
-	
+
 	.layout-wrap {
 		display: table;
 		height: 100%;
 	}
-	
+
 	header.site-header {
 		display: table-cell;
 		min-width: $header-width;
 		vertical-align: top;
-		
-		border-right: $border $border-size solid;
+
+		border-right: darken($splash, 24) $border-size solid;
 
 		.site-logo {
 			padding: $default-spacing;
 			font-family: $logo-font;
-			
+
 			.title {
 				font-size: 2em;
 			}
-		
+
 			.tagline {
 				font-size: 1.25em;
 			}
 		}
-	
+
 		nav {
 			ul {
 				padding: 0;
 			}
-		
+
 			li {
 				margin: 0;
-				border-bottom: $border $border-size solid;
-				
+				border-bottom: darken($splash, 24) $border-size solid;
+
 				&:nth-child(1) {
-					border-top: $border $border-size solid;
+					border-top: darken($splash, 24) $border-size solid;
 				}
 			}
-		
+
 			a {
 				display: block;
 				padding: $default-spacing;
 				margin: 0;
 			}
 		}
-		
+
 		.heading {
 			font-family: $header-font;
 			padding: $default-spacing;
 			font-weight: $bold;
 		}
 	}
-	
+
 	main {
 		display: table-cell;
 		width: 100%;
 		vertical-align: top;
 
 		nav {
-			border-bottom: $border $border-size solid;
-		
+			border-bottom: darken($splash, 24) $border-size solid;
+
 			ul {
 				padding: 0;
 			}
-		
+
 			li {
 				display: inline-block;
 				margin: 0;
 			}
-		
+
 			a {
 				display: block;
 				padding: $default-spacing;
@@ -84,12 +84,12 @@ body.new-dashboard {
 			}
 		}
 	}
-	
+
 	section {
 		margin: $layout-spacing;
-		border: $border $border-size solid;
+		border: darken($splash, 24) $border-size solid;
 	}
-	
+
 	footer.site-footer {
 		margin: $default-spacing;
 	}

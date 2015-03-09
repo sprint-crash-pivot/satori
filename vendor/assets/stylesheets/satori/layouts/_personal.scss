@@ -27,13 +27,13 @@
 
 				.tagline {
 					display: block;
-					color: $grey !important;
+					color: $splash !important;
 					font-size: 0.5em;
 					line-height: 1em;
 				}
 
 				a {
-					color: $white;
+					color: $background;
 					text-decoration: none !important;
 
 					&:hover, &:focus {
@@ -43,6 +43,8 @@
 			}
 
 		nav {
+			@extend .clearfix;
+			
 			ul {
 				margin: 0;
 				padding: 0;

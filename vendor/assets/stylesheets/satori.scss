@@ -1,13 +1,12 @@
-// TODO Remove white, grey, black
-	$black: #000 !default;
-	$white: #fff !default;
-	$grey: #f6f6f6 !default;
-
 @import 'satori/variables';
+
+@import 'satori/functions/colors';
+
 @import 'satori/mixins/mixins';
 
 @import 'satori/reset';
 @import 'satori/base';
+@import 'satori/_base-classes';
 
 @import 'satori/layouts/basic-mobile';
 @import 'satori/layouts/dashboard';
@@ -25,32 +24,50 @@ footer:not(.site-footer) {
 	padding: $default-spacing;
 }
 
-.clearfix {
-  zoom: 1; // For IE 6/7 (trigger hasLayout)
-
-  &:before, &:after {
-    content: "";
-    display: table;
-  }
-
-  &:after {
-    clear:both;
-  }
-}
-
-.container {
-	@extend .clearfix;
-	padding: $default-spacing;
-}
-
 .width-container {
 	padding: 0 $default-spacing;
 }
 
 /*
-	Remember that order matters, so bg-* should be at the bottom inorder to overwrite default background
-	choices (e.g. class="success bg-grey").
+Remember that order matters, so bg-* should be at the bottom inorder to overwrite default background
+choices (e.g. class="success bg-grey").
 */
+
+.bg-background {
+	@include bg-color($background, $text, $primary);
+}
+
+.bg-text {
+	@include bg-color($text, $background, darken($splash, 25));
+}
+
+.bg-splash {
+	@include bg-color($splash, $text, $primary);
+}
+
+.bg-primary {
+	@include bg-color($primary, $text, $background);
+}
+
+.bg-secondary {
+	@include bg-color($secondary, $text, $background);
+}
+
+.bg-success {
+	@include bg-color($success, $text, $background);
+}
+
+.bg-error {
+	@include bg-color($error, $text, $background);
+}
+
+.bg-info {
+	@include bg-color($info, $text, $background);
+}
+
+.bg-warning {
+	@include bg-color($warning, $text, darken($splash, 25));
+}
 
 // TODO Go through everything below and make sure it conforms to variables
 
@@ -72,7 +89,7 @@ footer:not(.site-footer) {
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
-		border: 1px solid $border !important;
+		border: $border-size solid darken($splash, 24) !important;
 		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
 
@@ -86,7 +103,7 @@ footer:not(.site-footer) {
 		padding: $default-spacing;
 
 		&:hover, &:focus {
-			background-color: $grey;
+			background-color: $splash;
 		}
 	}
 }
@@ -105,64 +122,64 @@ footer:not(.site-footer) {
 .toolbar {
 	@extend .box;
 
-    ul {
-			@extend .clearfix;
-        list-style: none;
-        padding: $default-spacing 0;
+	ul {
+		@extend .clearfix;
+		list-style: none;
+		padding: $default-spacing 0;
 
-      li {
-        display: block;
-				float: left;
-        border-right: 1px solid $border;
-        margin: 0;
-        padding: 0 $default-spacing;
+		li {
+			display: block;
+			float: left;
+			border-right: 1px solid darken($splash, 24);
+			margin: 0;
+			padding: 0 $default-spacing;
 
-        &:nth-last-of-type(1) {
-          border-right: none;
-        }
-      }
-    }
+			&:nth-last-of-type(1) {
+				border-right: none;
+			}
+		}
+	}
 
-    a {
-      display: block;
-      padding: $default-spacing $default-spacing calc(#{$default-spacing} / 2);
-      border-bottom: calc(#{$default-spacing} / 2) solid transparent;
-			color: $border;
-      text-decoration: none;
+	a {
+		display: block;
+		padding: $default-spacing $default-spacing calc(#{$default-spacing} / 2);
+		border-bottom: calc(#{$default-spacing} / 2) solid transparent;
+		color: darken($splash, 24);
+		text-decoration: none;
 
-      &:hover, &:focus {
-        border-color: lighten($primary, 10);
-				color: lighten($primary, 10);
-      }
-    }
+		&:hover, &:focus {
+			border-color: lighten($primary, 10);
+			color: lighten($primary, 10);
+		}
+	}
 }
 
 .vertical-toolbar {
-	@include border($border);
-    margin: $default-spacing;
+	@include border($splash);
+	margin: $default-spacing;
 
-    ul {
-        list-style: none;
-				padding: 0 $default-spacing;
-    }
+	ul {
+		list-style: none;
+		padding: 0 $default-spacing;
+	}
 
-    li {
-        margin: 0;
-    }
+	li {
+		margin: 0;
+	}
 
-    a {
-        display: block;
-        margin: $default-spacing $default-spacing $default-spacing 0em;
-        padding: $default-spacing;
-        border-left: calc(#{$default-spacing} / 2) solid $grey;
-        color: $border;
-        text-decoration: none;
+	a {
+		display: block;
+		margin: $default-spacing $default-spacing $default-spacing 0em;
+		padding: $default-spacing;
+		border-left: calc(#{$default-spacing} / 2) solid darken($splash, 24);
+		color: darken($splash, 24);
+		text-decoration: none;
 
-        &:hover, &:focus {
-					color: lighten($primary, 10);
-          border-color: lighten($primary, 10);
-        }
-    }
+		&:hover, &:focus {
+			color: lighten($primary, 10);
+			border-color: lighten($primary, 10);
+		}
+	}
 }
 
 .grid-box {
@@ -173,14 +190,14 @@ footer:not(.site-footer) {
 		@extend .clearfix;
 
 		display: block;
-		border-bottom: 1px solid $border;
+		border-bottom: 1px solid darken($splash, 24);
 	}
 
 	a.cell {
 		text-decoration: none;
 
 		&:hover, &:focus, &:visited:hover, &:visited:focus {
-			background-color: $grey;
+			background-color: $splash;
 		}
 	}
 
@@ -195,12 +212,12 @@ footer:not(.site-footer) {
 // end partially complete elements
 
 .button-text {
-  float: left;
-  display: inline-block;
-  border: 1px solid transparent;
-  margin: 0.5em 0;
-  padding: 0em 0.5em;
-  font-size: 1em;
+	float: left;
+	display: inline-block;
+	border: 1px solid transparent;
+	margin: 0.5em 0;
+	padding: 0em 0.5em;
+	font-size: 1em;
 }
 
 .icon-text {
@@ -209,13 +226,13 @@ footer:not(.site-footer) {
 }
 
 .note {
-    font-style: italic;
-    color: $grey;
-    font-size: 0.9em;
+	font-style: italic;
+	color: $splash;
+	font-size: 0.9em;
 }
 
 .small {
-    font-size: 0.75em;
+	font-size: 0.75em;
 }
 
 .pct25 { width: 25%; }
@@ -247,40 +264,40 @@ footer:not(.site-footer) {
 .hidden { display: none; }
 
 .panel-header {
-    border-bottom: 1px solid $grey;
-    cursor: pointer;
+	border-bottom: 1px solid $splash;
+	cursor: pointer;
 }
 
 .menu-header {
-    cursor: pointer;
+	cursor: pointer;
 
-    &.active {
-        background: $white;
-    }
+	&.active {
+		background: $background;
+	}
 }
 
 .menu-body {
-	@include border($border);
+	@include border($splash);
 
-    position: absolute;
-    background: $white;
-    z-index: 1000;
+	position: absolute;
+	background: $background;
+	z-index: 1000;
 
-    ul {
-        list-style: none;
-        padding: 0;
-    }
+	ul {
+		list-style: none;
+		padding: 0;
+	}
 
-    li {
-        margin: 0;
-    }
+	li {
+		margin: 0;
+	}
 
-    a {
-        display: block;
-        border-bottom: 1px solid $border;
-        padding: 0.5em;
-        text-decoration: none;
-    }
+	a {
+		display: block;
+		border-bottom: 1px solid darken($splash, 24);
+		padding: 0.5em;
+		text-decoration: none;
+	}
 }
 
 .mobile-icon {
@@ -297,17 +314,17 @@ footer:not(.site-footer) {
 	white-space: nowrap;
 
 	&.with-border {
-		@include border($border);
+		@include border($splash);
 	}
 
 	&:hover, &:focus {
-		background-color: $grey;
+		background-color: $splash;
 	}
 
 	& .count {
 		text-indent: 0;
 		display: block;
-		color: $white;
+		color: $background;
 		background: $error;
 		position: absolute;
 		border-radius: 50%;
@@ -321,8 +338,6 @@ footer:not(.site-footer) {
 	}
 
 	&.trash {
-		//@include border($border);
-
 		background-image: url($base-path + '/icons/trash.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -330,8 +345,6 @@ footer:not(.site-footer) {
 	}
 
 	&.menu {
-		//@include border($border);
-
 		background-image: url($base-path + '/icons/list 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -339,8 +352,6 @@ footer:not(.site-footer) {
 	}
 
 	&.edit {
-		//@include border($border);
-
 		background-image: url($base-path + '/icons/file 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -348,8 +359,6 @@ footer:not(.site-footer) {
 	}
 
 	&.alert {
-		//@include border($border);
-
 		background-image: url($base-path + '/icons/bell.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -357,8 +366,6 @@ footer:not(.site-footer) {
 	}
 
 	&.message {
-		//@include border($border);
-
 		background-image: url($base-path + '/icons/email 2.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -366,8 +373,6 @@ footer:not(.site-footer) {
 	}
 
 	&.cancel, &.close {
-		//@include border($border);
-
 		background-image: url($base-path + '/icons/error 1.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -375,8 +380,6 @@ footer:not(.site-footer) {
 	}
 
 	&.facebook {
-		//@include border($border);
-
 		background-image: url($base-path + '/social-icons/facebook.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -384,12 +387,14 @@ footer:not(.site-footer) {
 	}
 
 	&.twitter {
-		//@include border($border);
-
 		background-image: url($base-path + '/social-icons/twitter.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
+	}
+
+	&.with-border {
+		@include border($splash);
 	}
 }
 
@@ -417,7 +422,7 @@ footer:not(.site-footer) {
 		position: absolute;
 		display: block;
 		padding: 0.25rem $default-spacing 0;
-		color: $border;
+		color: darken($splash, 24);
 		line-height: 1em;
 		z-index: 2;
 		white-space: nowrap;
@@ -456,8 +461,8 @@ footer:not(.site-footer) {
 	top: 0;
 	left: 0;
 	z-index: 1000;
-	background: $white;
-	@include border($border);
+	background: $background;
+	@include border($splash);
 
 	h1, h2, h3, h4, h5, h6, .header {
 		white-space: nowrap;
@@ -465,54 +470,54 @@ footer:not(.site-footer) {
 }
 
 a.primary, button.primary, input.primary {
-    border: none;
-    background: $primary !important;
-    color: $white !important;
-    cursor: pointer;
+	border: none;
+	background: $primary !important;
+	color: $background !important;
+	cursor: pointer;
 
-    &:hover, &:focus {
-        background: $black !important;
-    }
+	&:hover, &:focus {
+		background: $text !important;
+	}
 
-    &:visited {
-        color: $white;
-    }
+	&:visited {
+		color: $background;
+	}
 }
 
 a.secondary, button.secondary, input.secondary {
-    border: none;
-    background: $secondary !important;
-    color: $white !important;
-    cursor: pointer;
+	border: none;
+	background: $secondary !important;
+	color: $background !important;
+	cursor: pointer;
 
-    &:hover, &:focus {
-        background: $black !important;
-    }
+	&:hover, &:focus {
+		background: $text !important;
+	}
 
-    &:visited {
-        color: $white;
-    }
+	&:visited {
+		color: $background;
+	}
 }
 
 .save, .add {
-    background: $success !important;
-	color: $white !important;
-    cursor: pointer;
+	background: $success !important;
+	color: $background !important;
+	cursor: pointer;
 
-    &:hover, &:focus {
-        background: $black !important;
-    }
+	&:hover, &:focus {
+		background: $text !important;
+	}
 
 }
 
 .delete {
-    background: $error !important;
-    color: $white !important;
-    cursor: pointer;
+	background: $error !important;
+	color: $background !important;
+	cursor: pointer;
 
-    &:hover, &:focus {
-        background: $black !important;
-    }
+	&:hover, &:focus {
+		background: $text !important;
+	}
 }
 
 .button.trash {
@@ -551,7 +556,7 @@ a.secondary, button.secondary, input.secondary {
 }
 
 .soft-container {
-	max-width: 1200px;
+	max-width: $max-width;
 	margin: 0 auto;
 	@extend .clearfix;
 }
@@ -565,12 +570,12 @@ a.secondary, button.secondary, input.secondary {
 	margin: 0.25em;
 
 	ul {
-	    list-style: none;
-	    padding: 0;
+		list-style: none;
+		padding: 0;
 	}
 
 	li {
-	    float: left;
+		float: left;
 		margin: 0.25em 0.25em 0.25em 0;
 
 		&:last-child {
@@ -583,11 +588,11 @@ a.secondary, button.secondary, input.secondary {
 		font-size: 1em;
 		padding: 0.5em;
 		border-radius: 3px;
-		color: $grey;
+		color: $splash;
 		text-decoration: none;
 
 		&:hover, &:focus {
-			background: $grey;
+			background: $splash;
 			color: $text;
 			text-decoration: none !important;
 		}
@@ -597,8 +602,8 @@ a.secondary, button.secondary, input.secondary {
 // BOXES
 .box {
 	display: block;
-	@include border($border);
-	@include box-shadow($border);
+	@include border($splash);
+	@include box-shadow($splash);
 
 	overflow: hidden;
 	margin: $default-spacing;
@@ -607,38 +612,37 @@ a.secondary, button.secondary, input.secondary {
 .success {
 	@extend .box;
 
-	border-left: 4px solid $success;
-    background: $white;
+	border-left: calc(#{$default-spacing} / 1.5) solid $success;
+	background: $background;
 }
 
 .error {
 	@extend .box;
 
-	border-left: 4px solid $error;
-    background: $white;
+	border-left: calc(#{$default-spacing} / 1.5) solid $error;
+	background: $background;
 }
 
 .warning {
 	@extend .box;
 
-	border-left: 4px solid $warning;
-    background: $white;
+	border-left: calc(#{$default-spacing} / 1.5) solid $warning;
+	background: $background;
 }
 
 .info {
 	@extend .box;
 
-	border-left: 4px solid $info;
-    background: $white;
+	border-left: calc(#{$default-spacing} / 1.5) solid $info;
+	background: $background;
 }
 // END BOXES
 
 .box-header {
 	margin: 0 0.5em;
 	line-height: 1.25em;
-	font-family: Lato;
 	font-weight: 300;
-	border-bottom: 1px solid $grey;
+	border-bottom: 1px solid $splash;
 }
 
 .panel {
@@ -647,14 +651,14 @@ a.secondary, button.secondary, input.secondary {
 	}
 	.header {
 		background: $background;
-		color: $grey;
+		color: $splash;
 		font-weight: bold;
-		border-bottom: 1px solid $grey;
-		border-top: 1px solid $grey;
+		border-bottom: 1px solid $splash;
+		border-top: 1px solid $splash;
 		padding: $default-spacing;
 
 		a {
-			color: $grey;
+			color: $splash;
 		}
 	}
 	ul {
@@ -669,39 +673,17 @@ a.secondary, button.secondary, input.secondary {
 			a {
 				display: block;
 				padding: $default-spacing;
-				color: $grey;
+				color: $splash;
 
 				&:hover, &:focus {
 					text-decoration: none;
-					background: $grey;
-					color: $black;
+					background: $splash;
+					color: $text;
 				}
 			}
 		}
 	}
 }
-
-// BACKGROUNDS
-.bg-text { @extend .clearfix; background: $text; @extend .white; }
-.bg-border { @extend .clearfix; background: $border; @extend .white; }
-.bg-background { @extend .clearfix; background: $background; }
-.bg-splash { @extend .clearfix; background: $splash;}
-
-.bg-primary { @extend .clearfix; background: $primary; @extend .white; }
-.bg-secondary {	@extend .clearfix; background: $secondary; @extend .white; }
-
-.bg-white { @extend .clearfix; background: $white; }
-.bg-grey {
-	@extend .clearfix;
-	background: $grey;
-}
-.bg-black { @extend .clearfix; background: $black; @extend .white; }
-
-.bg-success { @extend .clearfix; background: $success; @extend .white; }
-.bg-info { @extend .clearfix; background: $info; @extend .white; }
-.bg-warning { @extend .clearfix; background: $warning; }
-.bg-error {	@extend .clearfix; background: $error; @extend .white; }
-// END BACKGROUND COLORS
 
 .text-primary {
 	color: $primary;
@@ -712,50 +694,60 @@ a.secondary, button.secondary, input.secondary {
 }
 
 .text-grey {
-	color: $grey;
+	color: $splash;
 
 	a {
-		color: $border;
+		color: darken($splash, 24);
 
 		&:hover, &:focus {
-			color: $black;
+			color: $text;
 		}
 	}
 }
 
-.text-grey {
-	color: $border;
+.text-border {
+	color: darken($splash, 24);
 
 	a {
-		color: $black;
+		color: $text;
 
 		&:hover, &:focus {
-			color: $grey;
+			color: $splash;
 		}
 	}
 }
 
 .white {
-	color: $white;
+	color: $background;
 
 	a {
-	  color: $grey;
+		color: $splash;
 
-	  &:hover, &:focus {
-		  color: $white;
-		  text-decoration: underline;
-	  }
+		&:hover, &:focus {
+			color: $background;
+			text-decoration: underline;
+		}
 	}
 }
 
 .grey, .grey-text {
-	color: $grey;
+	color: $splash;
 }
 
 .green, .text-green {
-  color: $success;
+	color: $success;
 }
 
 .red, .text-red {
-    color: $error;
+	color: $error;
+}
+
+
+// base fixes
+input.primary {
+  @extend a.primary;
+}
+
+input.secondary {
+  @extend a.secondary;
 }

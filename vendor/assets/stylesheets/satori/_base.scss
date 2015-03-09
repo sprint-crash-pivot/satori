@@ -3,212 +3,209 @@
 }
 
 html {
-	box-sizing: border-box;
-	height: 100%;
-	font-family: $body-font;
-	font-size: $base-size;
-	line-height: 1em;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: $body-font;
+  font-size: $base-size;
+  line-height: 1em;
 }
 
 body {
-	color: $text;
-	background: $background;
+  color: $text;
+  background: $background;
 }
 
 h1 {
-	font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 h3 {
-	font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 h4 {
-	font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 h5 {
-	font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 h6 {
-	font-size: 1rem;
+  font-size: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
-	padding: $default-spacing;
+  padding: $default-spacing;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $header-font;
+  font-family: $header-font;
   line-height: 1em;
 }
 
 p, td, th, li {
-	line-height: 1.5rem;
+  line-height: 1.5rem;
 }
 
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 a, .fake-link {
-    color: $primary;
-    text-decoration: none;
+  color: $primary;
+  text-decoration: none;
 
-    &:visited {
-        color: darken($primary, 10);
-    }
+  &:visited {
+    color: darken($primary, 10);
+  }
 
-    &:hover, &:focus {
-        color: lighten($primary, 10);
-    }
+  &:hover, &:focus {
+    color: lighten($primary, 10);
+  }
 }
 
 li {
-	margin: 0 0 0 3em;
+  margin: 0 0 0 3em;
 }
 
 dt {
-	font-weight: bold;
-	margin: 1em 0 0 1.5em;
+  font-weight: bold;
+  margin: 1em 0 0 1.5em;
 
-	&:nth-of-type(1) {
-		margin-top: 0em;
-	}
+  &:nth-of-type(1) {
+    margin-top: 0em;
+  }
 }
 
 dd {
-	margin: 0 0 0 1.5em;
+  margin: 0 0 0 1.5em;
 }
 
 label {
-	display: block;
-	font-weight: bold;
-	padding: $default-spacing;
+  display: block;
+  font-weight: bold;
+  padding: $default-spacing;
 }
 
 input {
-	@include input;
+  @include input;
 }
 
 input[disabled], input[readonly] {
-	background: darken($input, 25);
+  background: darken($input, 25);
 }
 
 textarea {
-    @extend input;
-    height: 6.25em;
-    padding: 0.5em;
+  @extend input;
+  height: 6.25em;
+  padding: 0.5em;
 }
 
 input[type=checkbox], input[type=radio] {
-    width: auto;
+  width: auto;
 }
 
 select {
-    @extend input;
-    padding-right: 40px !important;
+  @extend input;
+  padding-right: 40px !important;
 
-    -webkit-appearance: none;
-    background: $input url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
+  -webkit-appearance: none;
+  background: $input url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
 }
 
 input[type=submit], button, .button {
-    @extend .inline-field;
-	background: $input;
+  @extend .inline-field;
+  background: $input;
 
-    cursor: pointer;
-	text-align: center;
+  cursor: pointer;
+  text-align: center;
 
-    &:hover, &:focus {
-		color: $primary;
-        background: $background;
-    }
+  &:hover, &:focus {
+    color: $primary;
+    background: $background;
+  }
 }
 
 hr {
-	margin: 0.25em;
-	background-color: $border;
-	border-color: $border;
-	color: $border;
+  margin: 0.25em;
+  background-color: darken($splash, 24);
+  border-color: darken($splash, 24);
+  color: darken($splash, 24);
 }
 
 .inline-field {
-	@include box-shadow($border);
-	@extend input;
+  @include box-shadow($splash);
+  @extend input;
 
-    display: inline-block;
-    text-decoration: none;
-    line-height: 2.5rem;
-    width: auto;
-    white-space: nowrap;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 2.5rem;
+  width: auto;
+  white-space: nowrap;
 }
 
 table {
-	@include border($border);
-	@include box-shadow($border);
-	border-collapse: separate;
+  @include border($splash);
+  @include box-shadow($splash);
+  border-collapse: separate;
 
-    thead {
-        background: $background;
-	    border-bottom: 1px solid $border;
-		border-radius: 3px;
+  thead {
+    @extend .clearfix;
 
-        th {
-            border-right: 1px solid $border;
+    background: $background;
+    border-bottom: $border-size solid darken($splash, 24);
+    border-radius: 3px;
 
-            &:last-child {
-                border-right: none;
-            }
-        }
+    th {
+      border-right: $border-size solid darken($splash, 24);
+
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+  }
+
+  td, th {
+    padding: 0.5em;
+    vertical-align: top;
+  }
+
+  tbody {
+    tr {
+      border-bottom: $border-size solid darken($splash, 24);
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
-    td, th {
-        padding: 0.5em;
-		vertical-align: top;
+    th {
+      background: $splash;
+      border-right: $border-size solid darken($splash, 24);
+      text-align: left;
+
+      &:last-of-type {
+        border-right: none;
+      }
     }
+  }
 
-    tbody {
-        tr {
-            border-bottom: 1px solid $border;
+  tfoot {
+    background: $background;
+    border-top: $border-size solid darken($splash, 24);
+  }
 
-            &:last-child {
-                border-bottom: none;
-            }
-        }
-
-        th {
-            background: $splash;
-			border-right: 1px solid $border;
-            text-align: left;
-        }
-    }
-
-    tfoot {
-        background: $background;
-		border-top: 1px solid $border;
-    }
-
-    button, .button, input[type=submit] {
-        margin: 0;
-    }
+  button, .button, input[type=submit] {
+    margin: 0;
+  }
 }
 
 canvas {
   width: 100%;
   height: 300px;
-}
-
-// base fixes
-input.primary {
-	@extend a.primary;
-}
-
-input.secondary {
-	@extend a.secondary;
 }
