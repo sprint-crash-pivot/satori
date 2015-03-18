@@ -54,6 +54,7 @@
   opacity: $value / 100;
 }
 
+/* TODO Remove this when icons are replaced with fonts.
 @mixin button-icon($image) {
   padding-left: calc(24px + 1em);
 
@@ -62,6 +63,7 @@
   background-position: 0.5em 50%;
   background-size: 24px 24px;
 }
+*/
 
 // not really a mixin, but need to share it.
 @mixin input() {
@@ -80,6 +82,16 @@
   @include link-color($link-color);
 }
 
+@mixin button-color($background-color, $text-color) {
+  background-color: $background-color;
+  color: $text-color;
+
+  &:hover, &:focus {
+    background-color: set-hover-text-color($background-color);
+    //color: set-hover-text-color($text-color);
+  }
+}
+
 @mixin link-color($color) {
   a {
     color: $color;
@@ -92,4 +104,34 @@
       color: set-hover-text-color($color);
     }
   }
+}
+
+@mixin button-colors($background-color, $text-color) {
+	@include border(darken($background-color, 10));
+	background: $background-color;
+	color: $text-color;
+
+	&:hover, &:focus {
+		background: set-hover-text-color($background-color);
+	}
+
+	&:visited {
+		color: $text-color;
+	}
+}
+
+@mixin button-icon() {
+  @extend .fa;
+
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  left:  0.5rem;
+}
+
+@mixin mobile-icon() {
+  font-size: 2rem;
+  position: absolute;
+  top: 0.25rem;
+  left:  0.25rem;
 }

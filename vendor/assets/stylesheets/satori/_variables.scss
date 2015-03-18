@@ -13,8 +13,8 @@ $input: #fcfcfc !default;
 // Alert Colors
 $success: #41ad48 !default;
 $error: #df5b57 !default;
-$warning: yellow !default;
-$info: blue !default;
+$warning: #ffeb0d !default;
+$info: #3979cc !default;
 
 // Responsive Design Breakpoints
 $break-small: 600px !default;
@@ -34,3 +34,4 @@ $body-font: Tahoma !default;
 $logo-font: $header-font !default;
 
 $base-path: '/assets/satori' !default;
+$font-path: '/assets/font-awesome/fonts' !default;

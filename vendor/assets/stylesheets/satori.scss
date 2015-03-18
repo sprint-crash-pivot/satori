@@ -1,5 +1,7 @@
 @import 'satori/variables';
 
+@import 'font-awesome/scss/font-awesome';
+
 @import 'satori/functions/colors';
 
 @import 'satori/mixins/mixins';
@@ -300,17 +302,64 @@ choices (e.g. class="success bg-grey").
 	}
 }
 
+.button-icon {
+	position: relative;
+	padding-left: calc(2rem + #{$default-spacing / 2});
+
+	&.edit {
+		&:before {
+			@include button-icon;
+		  content: "\f044";
+		}
+	}
+
+	&.new {
+		&:before {
+			@include button-icon;
+			content: "\f067";
+		}
+	}
+
+	&.save {
+		&:before {
+			@include button-icon;
+			content: "\f0c7";
+		}
+	}
+
+	&.delete {
+		&:before {
+			@include button-icon;
+			content: "\f1f8";
+		}
+	}
+
+	&.upload {
+		&:before {
+			@include button-icon;
+			content: "\f093";
+		}
+	}
+
+	&.copy {
+		&:before {
+			@include button-icon;
+			content: "\f0c5";
+		}
+	}
+}
+
 .mobile-icon {
 	display: inline-block;
-	vertical-align: middle;
-	width: 2.5rem;
-	height: 2.5rem;
 	position: relative;
 	cursor: pointer;
 
+	height: 2.5rem;
+	width: 2.5rem;
+  font-size: 0;
+
 	// hide text
 	overflow: hidden;
-	text-indent: 100%;
 	white-space: nowrap;
 
 	&.with-border {
@@ -345,10 +394,12 @@ choices (e.g. class="success bg-grey").
 	}
 
 	&.menu {
-		background-image: url($base-path + '/icons/list 2.png');
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 24px 24px;
+		&:before {
+			@include mobile-icon;
+		  @extend .fa;
+
+			content: "\f0c9";
+		}
 	}
 
 	&.edit {
@@ -359,17 +410,20 @@ choices (e.g. class="success bg-grey").
 	}
 
 	&.alert {
-		background-image: url($base-path + '/icons/bell.png');
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 24px 24px;
+		&:before {
+			@include mobile-icon;
+		  @extend .fa;
+
+		  content: "\f0f3";
+		}
 	}
 
 	&.message {
-		background-image: url($base-path + '/icons/email 2.png');
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 24px 24px;
+		&:before {
+			@include mobile-icon;
+		  @extend .fa;
+		  content: "\f0e0";
+		}
 	}
 
 	&.cancel, &.close {
@@ -391,10 +445,6 @@ choices (e.g. class="success bg-grey").
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
-	}
-
-	&.with-border {
-		@include border($splash);
 	}
 }
 
@@ -470,62 +520,20 @@ choices (e.g. class="success bg-grey").
 }
 
 a.primary, button.primary, input.primary {
-	border: none;
-	background: $primary !important;
-	color: $background !important;
-	cursor: pointer;
-
-	&:hover, &:focus {
-		background: $text !important;
-	}
-
-	&:visited {
-		color: $background;
-	}
+	@include button-colors($primary, $background);
 }
 
 a.secondary, button.secondary, input.secondary {
-	border: none;
-	background: $secondary !important;
-	color: $background !important;
-	cursor: pointer;
-
-	&:hover, &:focus {
-		background: $text !important;
-	}
-
-	&:visited {
-		color: $background;
-	}
+	@include button-colors($secondary, $background);
 }
 
-.save, .add {
-	background: $success !important;
-	color: $background !important;
-	cursor: pointer;
-
-	&:hover, &:focus {
-		background: $text !important;
-	}
-
+a.new, button.new, input.new,
+a.save, button.save, input.save {
+	@include button-colors($success, $background);
 }
 
-.delete {
-	background: $error !important;
-	color: $background !important;
-	cursor: pointer;
-
-	&:hover, &:focus {
-		background: $text !important;
-	}
-}
-
-.button.trash {
-	@extend .delete;
-}
-
-.button.new {
-	@extend .add;
+a.delete, button.delete, input.delete {
+	@include button-colors($error, $background);
 }
 
 .page-title {
