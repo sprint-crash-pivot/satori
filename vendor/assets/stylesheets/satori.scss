@@ -313,7 +313,7 @@ choices (e.g. class="success bg-grey").
 		}
 	}
 
-	&.new {
+	&.add {
 		&:before {
 			@include button-icon;
 			content: "\f067";
@@ -527,7 +527,7 @@ a.secondary, button.secondary, input.secondary {
 	@include button-colors($secondary, $background);
 }
 
-a.new, button.new, input.new,
+a.add, button.add, input.add,
 a.save, button.save, input.save {
 	@include button-colors($success, $background);
 }
