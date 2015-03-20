@@ -7,6 +7,7 @@ html {
   height: 100%;
   font-family: $body-font;
   font-size: $base-size;
+  font-weight: $body-font-weight;
   line-height: 1em;
 }
 
@@ -45,6 +46,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
+	font-weight: $header-font-weight;
   line-height: 1em;
 }
 

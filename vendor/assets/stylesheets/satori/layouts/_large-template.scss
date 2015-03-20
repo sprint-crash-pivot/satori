@@ -8,7 +8,7 @@
 		.site-logo {
 			margin: calc(3 * #{$default-spacing}) $default-spacing;
 			font-family: $logo-font;
-			font-weight: 300;
+			font-weight: $logo-font-weight;
 			font-size: 2.5rem;
 			line-height: 1.5em;
 
@@ -42,7 +42,7 @@
 
 	nav {
 		@extend .clearfix;
-		
+
 		ul {
 			margin: 0;
 			padding: 0;

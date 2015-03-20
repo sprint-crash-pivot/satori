@@ -22,6 +22,7 @@ $break-large: 960px !default;
 $max-width: 1200px !default;
 
 $base-size: 16px !default;
+
 $border-size: 1px !default;
 $border-radius: 3px !default;
 $default-spacing: 0.5rem !default;
@@ -29,9 +30,14 @@ $default-spacing: 0.5rem !default;
 $bold: 700 !default;
 $light: 300 !default;
 
-$header-font: Georgia !default;
-$body-font: Tahoma !default;
+$header-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default;
+$header-font-weight: 700 !default;
+
+$body-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default;
+$body-font-weight: 300 !default;
+
 $logo-font: $header-font !default;
+$logo-font-weight: 300 !default;
 
 $base-path: '/assets/satori' !default;
 $font-path: '/assets/font-awesome/fonts' !default;

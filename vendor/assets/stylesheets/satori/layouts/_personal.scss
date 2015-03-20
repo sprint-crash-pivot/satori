@@ -1,11 +1,7 @@
 .personal {
-		font-family: Georgia, serif;
-		font-size: 16px;
-		line-height: 1em;
-
 			header.site-header, footer.site-footer {
-				font-family: Arial, Tahoma, sans-serif;
-				font-weight: 300;
+				font-family: $logo-font;
+				font-weight: $logo-font-weight;
 			}
 
 			.search {
@@ -17,7 +13,7 @@
 			}
 
 			h1, h2, h3, h4, h5, h6 {
-				font-family: Arial, Tahoma, sans-serif;
+				font-family: $header-font;
 			}
 
 			.site-logo {
@@ -44,7 +40,7 @@
 
 		nav {
 			@extend .clearfix;
-			
+
 			ul {
 				margin: 0;
 				padding: 0;
