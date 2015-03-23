@@ -7,7 +7,7 @@
 }
 
 @function set-text-color($color) {
-  @if (lightness($color) > 25) {
+  @if (lightness($color) > 33) {
     @return darken($black, 10);
   } @else {
     @return lighten($white, 10);

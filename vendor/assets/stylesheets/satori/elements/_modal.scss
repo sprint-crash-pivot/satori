@@ -1,0 +1,28 @@
+#satori-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: none;
+
+  opacity: 0.25;
+  background-color: $black;
+}
+
+#satori-modal {
+  position: absolute;
+  max-width: 80%;
+
+  background-color: $background;
+  display: none;
+
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  #satori-modal-top-toolbar {
+    min-width: #{$base-size * 2.5};
+    min-height: #{$base-size * 2.5};
+  }
+}

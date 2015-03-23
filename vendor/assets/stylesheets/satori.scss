@@ -10,6 +10,8 @@
 @import 'satori/base';
 @import 'satori/_base-classes';
 
+@import 'satori/elements/modal';
+
 @import 'satori/layouts/basic-mobile';
 @import 'satori/layouts/dashboard';
 @import 'satori/layouts/large-template';
@@ -396,8 +398,13 @@ choices (e.g. class="success bg-grey").
 		@include border($grey);
 	}
 
-	&:hover, &:focus {
-		background-color: $grey;
+	&.no-text {
+		font-size: 0;
+		padding-left: 1.875rem; // TODO: change this to default-spacing, but still needs to be 40px
+	}
+
+	&.no-margin {
+		margin: -#{$default-spacing};
 	}
 
 	& .count {
@@ -457,10 +464,12 @@ choices (e.g. class="success bg-grey").
 	}
 
 	&.cancel, &.close {
-		background-image: url($base-path + '/icons/error 1.png');
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 24px 24px;
+		&:before {
+			@include mobile-icon;
+			@extend .fa;
+
+		  content: "\f00d";
+		}
 	}
 
 	&.facebook {
