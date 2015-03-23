@@ -11,13 +11,13 @@
 	  z-index: 1000;
 	  height: 3.5rem;
 
-	  @include box-shadow($input);
+	  @include box-shadow($light-grey);
 
 
 	  //-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
 	  //box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
 
-	  //border-bottom: 2px solid $splash;
+	  //border-bottom: 2px solid $grey;
 	  //border-bottom: 2px solid rgba(0,0,0,0.05);
 
 	  .search {

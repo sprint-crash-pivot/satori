@@ -36,7 +36,7 @@ Satori's SASS variables can be overriden by setting the variable prior to import
 
 	// 5 color scheme
 	$background: #fff;
-	$splash: #eaeaea;
+	$grey: #eaeaea;
 	$foreground: rgba(0, 0, 0, .8);
 	$primary: #42cafd;
 	$secondary: #ff8500;

@@ -13,7 +13,7 @@
 			line-height: 1.5em;
 
 			a, a:visited {
-				color: darken($splash, 24);
+				color: darken($grey, 24);
 
 				&:hover, &:focus {
 					color: $primary;
@@ -35,7 +35,7 @@
 			@extend .header-search-field;
 
 			input[type=text] {
-				@include box-shadow($splash);
+				@include box-shadow($grey);
 			}
 		}
 	}
@@ -90,6 +90,6 @@
 	}
 
 	.site-footer {
-		// border-top: 0.25em $splash solid;
+		// border-top: 0.25em $grey solid;
 	}
 }

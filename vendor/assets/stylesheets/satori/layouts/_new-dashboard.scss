@@ -17,7 +17,7 @@ body.new-dashboard {
 		min-width: $header-width;
 		vertical-align: top;
 
-		border-right: darken($splash, 24) $border-size solid;
+		border-right: darken($grey, 24) $border-size solid;
 
 		.site-logo {
 			padding: $default-spacing;
@@ -25,6 +25,12 @@ body.new-dashboard {
 
 			.title {
 				font-size: 2em;
+
+				small {
+					font-size: 75%;
+					color: $dark-grey;
+					font-weight: $light;
+				}
 			}
 
 			.tagline {
@@ -39,10 +45,10 @@ body.new-dashboard {
 
 			li {
 				margin: 0;
-				border-bottom: darken($splash, 24) $border-size solid;
+				border-bottom: darken($grey, 24) $border-size solid;
 
 				&:nth-child(1) {
-					border-top: darken($splash, 24) $border-size solid;
+					border-top: darken($grey, 24) $border-size solid;
 				}
 			}
 
@@ -67,7 +73,7 @@ body.new-dashboard {
 		vertical-align: top;
 
 		nav {
-			border-bottom: darken($splash, 24) $border-size solid;
+			border-bottom: darken($grey, 24) $border-size solid;
 
 			ul {
 				padding: 0;
@@ -88,7 +94,7 @@ body.new-dashboard {
 
 	section {
 		margin: $layout-spacing;
-		border: darken($splash, 24) $border-size solid;
+		border: darken($grey, 24) $border-size solid;
 	}
 
 	footer.site-footer {

@@ -9,7 +9,7 @@
 		position: fixed;
 		z-index: 100;
 		width: 100%;
-		border-bottom: 1px solid $splash;
+		border-bottom: 1px solid $grey;
 
 		.header-application {
 			width: 240px;
@@ -19,7 +19,7 @@
 		.toggle-menu {
 			position: absolute;
 			background: $background;
-			border: 1px solid $splash;
+			border: 1px solid $grey;
 
 			li {
 				display: block;
@@ -37,7 +37,7 @@
 		top: 2.5em;
 		width: 240px;
 		height: calc(100% - 2.5em);
-		border-right: 1px solid $splash;
+		border-right: 1px solid $grey;
 		overflow: auto;
 	}
 
@@ -56,6 +56,6 @@
 		margin-left: 240px;
 		width: calc(100% - 240px);
 		white-space: nowrap;
-		border-top: 1px solid $splash;
+		border-top: 1px solid $grey;
 	}
 }

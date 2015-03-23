@@ -67,8 +67,8 @@
 
 // not really a mixin, but need to share it.
 @mixin input() {
-  @include border($splash);
-  background: $input;
+  @include border($grey);
+  background: $light-grey;
   height: 2.5rem;
   padding: 0 $default-spacing;
   font-size: 1rem;
@@ -113,6 +113,7 @@
 
 	&:hover, &:focus {
 		background: set-hover-text-color($background-color);
+    color: $text-color;
 	}
 
 	&:visited {
@@ -126,7 +127,7 @@
   font-size: 1.5rem;
   position: absolute;
   top: 0.5rem;
-  left:  0.5rem;
+  left:  0.575rem; // TODO: fix this to be the correct spacing
 }
 
 @mixin mobile-icon() {

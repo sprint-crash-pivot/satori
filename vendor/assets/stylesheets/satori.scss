@@ -37,39 +37,63 @@ choices (e.g. class="success bg-grey").
 */
 
 .bg-background {
-	@include bg-color($background, $text, $primary);
+	@include bg-color($background, set-text-color($background), $link);
 }
 
 .bg-text {
-	@include bg-color($text, $background, darken($splash, 25));
+	@include bg-color($text, set-text-color($text), $link);
 }
 
-.bg-splash {
-	@include bg-color($splash, $text, $primary);
+.bg-link {
+	@include bg-color($link, set-text-color($link), $link);
+}
+
+.bg-grey {
+	@include bg-color($grey, set-text-color($grey), $link);
+}
+
+.bg-light-grey {
+	@include bg-color($light-grey, set-text-color($light-grey), $link);
+}
+
+.bg-dark-grey {
+	@include bg-color($dark-grey, set-text-color($dark-grey), $link);
 }
 
 .bg-primary {
-	@include bg-color($primary, $text, $background);
+	@include bg-color($primary, set-text-color($primary), $link);
+}
+
+.bg-alternate {
+	@include bg-color($alternate, set-text-color($alternate), $link);
 }
 
 .bg-secondary {
-	@include bg-color($secondary, $text, $background);
+	@include bg-color($secondary, set-text-color($secondary), $link);
 }
 
 .bg-success {
-	@include bg-color($success, $text, $background);
+	@include bg-color($success, set-text-color($success), $link);
 }
 
 .bg-error {
-	@include bg-color($error, $text, $background);
+	@include bg-color($error, set-text-color($error), $link);
 }
 
 .bg-info {
-	@include bg-color($info, $text, $background);
+	@include bg-color($info, set-text-color($info), $link);
 }
 
 .bg-warning {
-	@include bg-color($warning, $text, darken($splash, 25));
+	@include bg-color($warning, set-text-color($warning), $link);
+}
+
+.bg-white {
+	@include bg-color($white, $black, $link);
+}
+
+.bg-black {
+	@include bg-color($black, $white, $link);
 }
 
 // TODO Go through everything below and make sure it conforms to variables
@@ -88,11 +112,11 @@ choices (e.g. class="success bg-grey").
 	}
 
 	input[type=submit] {
-		background: url($base-path + '/icons/search.png') $input no-repeat;
+		background: url($base-path + '/icons/search.png') $light-grey no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
-		border: $border-size solid darken($splash, 24) !important;
+		border: $border-size solid darken($grey, 24) !important;
 		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
 
@@ -106,7 +130,7 @@ choices (e.g. class="success bg-grey").
 		padding: $default-spacing;
 
 		&:hover, &:focus {
-			background-color: $splash;
+			background-color: $grey;
 		}
 	}
 }
@@ -133,7 +157,7 @@ choices (e.g. class="success bg-grey").
 		li {
 			display: block;
 			float: left;
-			border-right: 1px solid darken($splash, 24);
+			border-right: 1px solid darken($grey, 24);
 			margin: 0;
 			padding: 0 $default-spacing;
 
@@ -147,7 +171,7 @@ choices (e.g. class="success bg-grey").
 		display: block;
 		padding: $default-spacing $default-spacing calc(#{$default-spacing} / 2);
 		border-bottom: calc(#{$default-spacing} / 2) solid transparent;
-		color: darken($splash, 24);
+		color: darken($grey, 24);
 		text-decoration: none;
 
 		&:hover, &:focus {
@@ -158,7 +182,7 @@ choices (e.g. class="success bg-grey").
 }
 
 .vertical-toolbar {
-	@include border($splash);
+	@include border($grey);
 	margin: $default-spacing;
 
 	ul {
@@ -174,8 +198,8 @@ choices (e.g. class="success bg-grey").
 		display: block;
 		margin: $default-spacing $default-spacing $default-spacing 0em;
 		padding: $default-spacing;
-		border-left: calc(#{$default-spacing} / 2) solid darken($splash, 24);
-		color: darken($splash, 24);
+		border-left: calc(#{$default-spacing} / 2) solid darken($grey, 24);
+		color: darken($grey, 24);
 		text-decoration: none;
 
 		&:hover, &:focus {
@@ -193,21 +217,21 @@ choices (e.g. class="success bg-grey").
 		@extend .clearfix;
 
 		display: block;
-		border-bottom: 1px solid darken($splash, 24);
+		border-bottom: 1px solid darken($grey, 24);
 	}
 
 	a.cell {
 		text-decoration: none;
 
 		&:hover, &:focus, &:visited:hover, &:visited:focus {
-			background-color: $splash;
+			background-color: $grey;
 		}
 	}
 
 	&.zebra {
 		.cell {
 			&:nth-child(even) {
-				background: $splash;
+				background: $grey;
 			}
 		}
 	}
@@ -230,7 +254,7 @@ choices (e.g. class="success bg-grey").
 
 .note {
 	font-style: italic;
-	color: $splash;
+	color: $grey;
 	font-size: 0.9em;
 }
 
@@ -267,7 +291,7 @@ choices (e.g. class="success bg-grey").
 .hidden { display: none; }
 
 .panel-header {
-	border-bottom: 1px solid $splash;
+	border-bottom: 1px solid $grey;
 	cursor: pointer;
 }
 
@@ -280,7 +304,7 @@ choices (e.g. class="success bg-grey").
 }
 
 .menu-body {
-	@include border($splash);
+	@include border($grey);
 
 	position: absolute;
 	background: $background;
@@ -297,7 +321,7 @@ choices (e.g. class="success bg-grey").
 
 	a {
 		display: block;
-		border-bottom: 1px solid darken($splash, 24);
+		border-bottom: 1px solid darken($grey, 24);
 		padding: 0.5em;
 		text-decoration: none;
 	}
@@ -305,7 +329,12 @@ choices (e.g. class="success bg-grey").
 
 .button-icon {
 	position: relative;
-	padding-left: calc(2rem + #{$default-spacing / 2});
+	padding-left: calc(1.75rem + #{$default-spacing}); // TODO: change this to default-spacing, but still needs to be 40px
+
+	&.no-text {
+		font-size: 0;
+		padding-left: 1.875rem; // TODO: change this to default-spacing, but still needs to be 40px
+	}
 
 	&.edit {
 		&:before {
@@ -364,11 +393,11 @@ choices (e.g. class="success bg-grey").
 	white-space: nowrap;
 
 	&.with-border {
-		@include border($splash);
+		@include border($grey);
 	}
 
 	&:hover, &:focus {
-		background-color: $splash;
+		background-color: $grey;
 	}
 
 	& .count {
@@ -473,7 +502,7 @@ choices (e.g. class="success bg-grey").
 		position: absolute;
 		display: block;
 		padding: 0.25rem $default-spacing 0;
-		color: darken($splash, 24);
+		color: darken($grey, 24);
 		line-height: 1em;
 		z-index: 2;
 		white-space: nowrap;
@@ -513,7 +542,7 @@ choices (e.g. class="success bg-grey").
 	left: 0;
 	z-index: 1000;
 	background: $background;
-	@include border($splash);
+	@include border($grey);
 
 	h1, h2, h3, h4, h5, h6, .header {
 		white-space: nowrap;
@@ -522,6 +551,10 @@ choices (e.g. class="success bg-grey").
 
 a.primary, button.primary, input.primary {
 	@include button-colors($primary, $background);
+}
+
+a.alternate, button.alternate, input.alternate {
+	@include button-colors($alternate, $background);
 }
 
 a.secondary, button.secondary, input.secondary {
@@ -597,11 +630,11 @@ a.delete, button.delete, input.delete {
 		font-size: 1em;
 		padding: 0.5em;
 		border-radius: 3px;
-		color: $splash;
+		color: $grey;
 		text-decoration: none;
 
 		&:hover, &:focus {
-			background: $splash;
+			background: $grey;
 			color: $text;
 			text-decoration: none !important;
 		}
@@ -611,8 +644,8 @@ a.delete, button.delete, input.delete {
 // BOXES
 .box {
 	display: block;
-	@include border($splash);
-	@include box-shadow($splash);
+	@include border($grey);
+	@include box-shadow($grey);
 
 	overflow: hidden;
 	margin: $default-spacing;
@@ -651,7 +684,7 @@ a.delete, button.delete, input.delete {
 	margin: 0 0.5em;
 	line-height: 1.25em;
 	font-weight: 300;
-	border-bottom: 1px solid $splash;
+	border-bottom: 1px solid $grey;
 }
 
 .panel {
@@ -660,14 +693,14 @@ a.delete, button.delete, input.delete {
 	}
 	.header {
 		background: $background;
-		color: $splash;
+		color: $grey;
 		font-weight: bold;
-		border-bottom: 1px solid $splash;
-		border-top: 1px solid $splash;
+		border-bottom: 1px solid $grey;
+		border-top: 1px solid $grey;
 		padding: $default-spacing;
 
 		a {
-			color: $splash;
+			color: $grey;
 		}
 	}
 	ul {
@@ -682,11 +715,11 @@ a.delete, button.delete, input.delete {
 			a {
 				display: block;
 				padding: $default-spacing;
-				color: $splash;
+				color: $grey;
 
 				&:hover, &:focus {
 					text-decoration: none;
-					background: $splash;
+					background: $grey;
 					color: $text;
 				}
 			}
@@ -703,10 +736,10 @@ a.delete, button.delete, input.delete {
 }
 
 .text-grey {
-	color: $splash;
+	color: $grey;
 
 	a {
-		color: darken($splash, 24);
+		color: darken($grey, 24);
 
 		&:hover, &:focus {
 			color: $text;
@@ -715,13 +748,13 @@ a.delete, button.delete, input.delete {
 }
 
 .text-border {
-	color: darken($splash, 24);
+	color: darken($grey, 24);
 
 	a {
 		color: $text;
 
 		&:hover, &:focus {
-			color: $splash;
+			color: $grey;
 		}
 	}
 }
@@ -730,7 +763,7 @@ a.delete, button.delete, input.delete {
 	color: $background;
 
 	a {
-		color: $splash;
+		color: $grey;
 
 		&:hover, &:focus {
 			color: $background;
@@ -740,7 +773,7 @@ a.delete, button.delete, input.delete {
 }
 
 .grey, .grey-text {
-	color: $splash;
+	color: $grey;
 }
 
 .green, .text-green {
@@ -751,6 +784,9 @@ a.delete, button.delete, input.delete {
 	color: $error;
 }
 
+.no-text {
+	font-size: 0;
+}
 
 // base fixes
 input.primary {

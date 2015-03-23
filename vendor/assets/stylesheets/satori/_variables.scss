@@ -1,20 +1,23 @@
 // 5 color scheme
-$background: #fff !default; // white
-$text: #343434 !default; // black
-$splash: #eeeeee !default; // grey
+$primary: #025185 !default; // #42cafd
+$alternate: #001e61 !default; // #3978cc
+$secondary: #00b9d2 !default; // #ff8500
 
-$primary: #42cafd !default;
-$secondary: #ff8500 !default;
-
-// These are for comfort, but can/should be overidden.
-// TODO Remove white, grey, black
-$input: #fcfcfc !default;
-
-// Alert Colors
 $success: #41ad48 !default;
 $error: #df5b57 !default;
 $warning: #ffeb0d !default;
 $info: #3979cc !default;
+
+$white: #fff !default;
+$lighter-grey: #eee !default;
+$light-grey: #fcfcfc !default;
+$grey: #eee !default;
+$dark-grey: #aeaeae !default;
+$black: #000 !default;
+
+$background: #f7fff9 !default; // white
+$text: #343434 !default; // black
+$link: $secondary !default;
 
 // Responsive Design Breakpoints
 $break-small: 600px !default;
@@ -32,6 +35,8 @@ $light: 300 !default;
 
 $header-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default;
 $header-font-weight: 700 !default;
+$header-color: $primary !default;
+$header-secondary-color: $dark-grey !default;
 
 $body-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default;
 $body-font-weight: 300 !default;

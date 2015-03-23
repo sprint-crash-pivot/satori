@@ -5,3 +5,11 @@
     @return lighten($color, 10);
   }
 }
+
+@function set-text-color($color) {
+  @if (lightness($color) > 25) {
+    @return darken($black, 10);
+  } @else {
+    @return lighten($white, 10);
+  }
+}

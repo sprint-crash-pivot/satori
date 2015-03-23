@@ -47,7 +47,14 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
 	font-weight: $header-font-weight;
+  color: $header-color;
   line-height: 1em;
+
+  small {
+    font-size: 0.75em;
+    color: $header-secondary-color;
+    font-weight: $light;
+  }
 }
 
 p, td, th, li {
@@ -59,15 +66,15 @@ img {
 }
 
 a, .fake-link {
-  color: $primary;
+  color: $link;
   text-decoration: none;
 
   &:visited {
-    color: darken($primary, 10);
+    color: darken($link, 10);
   }
 
   &:hover, &:focus {
-    color: lighten($primary, 10);
+    color: lighten($link, 10);
   }
 }
 
@@ -99,7 +106,7 @@ input {
 }
 
 input[disabled], input[readonly] {
-  background: darken($input, 25);
+  background: darken($light-grey, 25);
 }
 
 textarea {
@@ -117,12 +124,12 @@ select {
   padding-right: 40px !important;
 
   -webkit-appearance: none;
-  background: $input url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
+  background: $light-grey url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
 }
 
 input[type=submit], button, a.button {
   @extend .inline-field;
-  background: $input;
+  background: $light-grey;
   color: $text;
 
   cursor: pointer;
@@ -130,19 +137,19 @@ input[type=submit], button, a.button {
 
   &:hover, &:focus {
     color: $text;
-    background: $background;
+    background: darken($light-grey, 10);
   }
 }
 
 hr {
   margin: 0.25em;
-  background-color: darken($splash, 24);
-  border-color: darken($splash, 24);
-  color: darken($splash, 24);
+  background-color: darken($grey, 24);
+  border-color: darken($grey, 24);
+  color: darken($grey, 24);
 }
 
 .inline-field {
-  @include box-shadow($splash);
+  @include box-shadow($grey);
   @extend input;
 
   display: inline-block;
@@ -153,19 +160,19 @@ hr {
 }
 
 table {
-  @include border($splash);
-  @include box-shadow($splash);
+  @include border($grey);
+  @include box-shadow($grey);
   border-collapse: separate;
 
   thead {
     @extend .clearfix;
 
     background: $background;
-    border-bottom: $border-size solid darken($splash, 24);
+    border-bottom: $border-size solid darken($grey, 24);
     border-radius: 3px;
 
     th {
-      border-right: $border-size solid darken($splash, 24);
+      border-right: $border-size solid darken($grey, 24);
 
       &:last-of-type {
         border-right: none;
@@ -180,7 +187,7 @@ table {
 
   tbody {
     tr {
-      border-bottom: $border-size solid darken($splash, 24);
+      border-bottom: $border-size solid darken($grey, 24);
 
       &:last-child {
         border-bottom: none;
@@ -188,8 +195,8 @@ table {
     }
 
     th {
-      background: $splash;
-      border-right: $border-size solid darken($splash, 24);
+      background: $grey;
+      border-right: $border-size solid darken($grey, 24);
       text-align: left;
 
       &:last-of-type {
@@ -200,7 +207,7 @@ table {
 
   tfoot {
     background: $background;
-    border-top: $border-size solid darken($splash, 24);
+    border-top: $border-size solid darken($grey, 24);
   }
 
   button, .button, input[type=submit] {
