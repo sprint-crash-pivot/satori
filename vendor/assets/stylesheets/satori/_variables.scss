@@ -19,6 +19,8 @@ $background: #f7fff9 !default; // white
 $text: #343434 !default; // black
 $link: $secondary !default;
 
+$box-background: $white !default;
+
 // Responsive Design Breakpoints
 $break-small: 600px !default;
 $break-large: 960px !default;
@@ -38,7 +40,7 @@ $header-font-weight: 700 !default;
 $header-color: $primary !default;
 $header-secondary-color: $dark-grey !default;
 
-$body-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default;
+$body-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default; // "Helvetica Neue",HelveticaNeue,helvetica,arial,sans-serif
 $body-font-weight: 300 !default;
 
 $logo-font: $header-font !default;

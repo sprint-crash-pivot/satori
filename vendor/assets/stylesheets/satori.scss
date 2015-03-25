@@ -185,6 +185,7 @@ choices (e.g. class="success bg-grey").
 
 .vertical-toolbar {
 	@include border($grey);
+	background-color: $box-background;
 	margin: $default-spacing;
 
 	ul {
@@ -205,8 +206,7 @@ choices (e.g. class="success bg-grey").
 		text-decoration: none;
 
 		&:hover, &:focus {
-			color: lighten($primary, 10);
-			border-color: lighten($primary, 10);
+			border-color: lighten($link, 10);
 		}
 	}
 }
@@ -656,36 +656,55 @@ a.delete, button.delete, input.delete {
 	@include border($grey);
 	@include box-shadow($grey);
 
-	overflow: hidden;
+	// overflow: hidden; // TODO This is bad
+	background-color: $box-background;
 	margin: $default-spacing;
 }
 
-.success {
+.success, .info, .warning, .error {
 	@extend .box;
 
-	border-left: calc(#{$default-spacing} / 1.5) solid $success;
-	background: $background;
+	position: relative;
+	border-left: calc(#{$base-size * 2.5}) solid $grey;
+
+	&:before {
+		@include button-icon;
+
+		color: $white;
+		left: calc(#{$default-spacing - 2.5rem});
+	}
+}
+
+.success {
+	border-color: $success;
+
+	&:before {
+	  content: "\f058";
+	}
 }
 
 .error {
-	@extend .box;
+	border-color: $error;
 
-	border-left: calc(#{$default-spacing} / 1.5) solid $error;
-	background: $background;
+	&:before {
+	  content: "\f06a";
+	}
 }
 
 .warning {
-	@extend .box;
+	border-color: $warning;
 
-	border-left: calc(#{$default-spacing} / 1.5) solid $warning;
-	background: $background;
+	&:before {
+	  content: "\f071";
+	}
 }
 
 .info {
-	@extend .box;
+	border-color: $info;
 
-	border-left: calc(#{$default-spacing} / 1.5) solid $info;
-	background: $background;
+	&:before {
+	  content: "\f05a";
+	}
 }
 // END BOXES
 

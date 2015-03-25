@@ -7,8 +7,11 @@
 
   display: none;
 
-  opacity: 0.25;
   background-color: $black;
+
+  // TODO These should be variables...
+  opacity: 0.25;
+  z-index: 1000;
 }
 
 #satori-modal {
@@ -25,4 +28,7 @@
     min-width: #{$base-size * 2.5};
     min-height: #{$base-size * 2.5};
   }
+
+  // TODO These should be variables....
+  z-index: 1001;
 }
