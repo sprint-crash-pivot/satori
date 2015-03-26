@@ -816,6 +816,64 @@ a.delete, button.delete, input.delete {
 	font-size: 0;
 }
 
+
+
+nav {
+	@extend .clearfix;
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		float: left;
+		margin: $default-spacing;
+		padding: 0;
+
+		&:nth-of-type(n) {
+			margin-left: 0 !important;
+		}
+	}
+
+	a {
+		display: block;
+		margin: 0;
+		padding: $default-spacing;
+
+		&.button {
+			padding: 0 $default-spacing;
+		}
+	}
+
+	&.vertical-nav {
+		li {
+			float: none;
+			margin: 0;
+			border-bottom: darken($grey, 24) $border-size solid;
+
+			&:nth-child(1) {
+				border-top: darken($grey, 24) $border-size solid;
+			}
+		}
+	}
+
+	&.secondary-nav {
+		li {
+			margin: 0 $default-spacing !important;
+		}
+
+		a {
+			border-bottom: 0.25em solid transparent;
+			text-decoration: none !important;
+
+			&:hover, &:focus {
+				border-bottom: 0.25em solid lighten($link, 10);
+			}
+		}
+	}
+}
+
 // base fixes
 input.primary {
   @extend a.primary;

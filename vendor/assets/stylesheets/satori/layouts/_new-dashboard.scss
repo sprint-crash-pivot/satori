@@ -38,27 +38,6 @@ body.new-dashboard {
 			}
 		}
 
-		nav {
-			ul {
-				padding: 0;
-			}
-
-			li {
-				margin: 0;
-				border-bottom: darken($grey, 24) $border-size solid;
-
-				&:nth-child(1) {
-					border-top: darken($grey, 24) $border-size solid;
-				}
-			}
-
-			a {
-				display: block;
-				padding: $default-spacing;
-				margin: 0;
-			}
-		}
-
 		.heading {
 			font-family: $header-font;
 			font-weight: $header-font-weight;
