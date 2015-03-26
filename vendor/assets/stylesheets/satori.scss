@@ -173,12 +173,11 @@ choices (e.g. class="success bg-grey").
 		display: block;
 		padding: $default-spacing $default-spacing calc(#{$default-spacing} / 2);
 		border-bottom: calc(#{$default-spacing} / 2) solid transparent;
-		color: darken($grey, 24);
 		text-decoration: none;
 
 		&:hover, &:focus {
-			border-color: lighten($primary, 10);
-			color: lighten($primary, 10);
+			border-color: lighten($link, 10);
+			color: lighten($link, 10);
 		}
 	}
 }
@@ -201,12 +200,11 @@ choices (e.g. class="success bg-grey").
 		display: block;
 		margin: $default-spacing $default-spacing $default-spacing 0em;
 		padding: $default-spacing;
-		border-left: calc(#{$default-spacing} / 2) solid darken($grey, 24);
-		color: darken($grey, 24);
+		border-left: calc(#{$default-spacing} / 2) solid $link;
 		text-decoration: none;
 
 		&:hover, &:focus {
-			border-color: lighten($link, 10);
+			border-left-color: lighten($link, 10);
 		}
 	}
 }
