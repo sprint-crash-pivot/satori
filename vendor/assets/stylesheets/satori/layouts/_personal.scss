@@ -12,25 +12,16 @@
 		}
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		font-family: $header-font;
-	}
-
 	.site-logo {
 		padding: 0.25em;
 		font-size: 2em;
 		line-height: 1em;
 
-		.tagline {
+		.tagline, small {
 			display: block;
-			color: $grey !important;
+			color: $white !important;
 			font-size: 0.5em;
 			line-height: 1em;
-		}
-
-		a {
-			color: $background;
-			text-decoration: none !important;
 		}
 	}
 }
