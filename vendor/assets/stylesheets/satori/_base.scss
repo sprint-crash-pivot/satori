@@ -143,9 +143,9 @@ input[type=submit], button, a.button {
 
 hr {
   margin: 0.25em;
-  background-color: darken($grey, 24);
-  border-color: darken($grey, 24);
-  color: darken($grey, 24);
+  background-color: $dark-grey;
+  border-color: $dark-grey;
+  color: $dark-grey;
 }
 
 .inline-field {
@@ -160,19 +160,26 @@ hr {
 }
 
 table {
-  @include border($grey);
+  @include border($dark-grey);
   @include box-shadow($grey);
   border-collapse: separate;
+  border-spacing: 0px;
+  overflow: hidden; // TODO this may be unnecccessary, but radius clipping needs to be fixed
 
   thead {
     @extend .clearfix;
 
-    background: $background;
-    border-bottom: $border-size solid darken($grey, 24);
+    background: $grey;
     border-radius: 3px;
 
+    tr:last-child {
+      th, td {
+        border-bottom: $border-size solid $dark-grey;
+      }
+    }
+
     th {
-      border-right: $border-size solid darken($grey, 24);
+      border-right: $border-size solid $dark-grey;
 
       &:last-of-type {
         border-right: none;
@@ -185,18 +192,25 @@ table {
     vertical-align: top;
   }
 
+  .even, &.zebra tbody tr:nth-child(even) {
+    background-color: highlight-color($background, 5);
+  }
+
   tbody {
     tr {
-      border-bottom: $border-size solid darken($grey, 24);
+      td {
+        border-bottom: $border-size solid $dark-grey;
+      }
 
-      &:last-child {
+      &:last-of-type td  {
         border-bottom: none;
       }
     }
 
     th {
       background: $grey;
-      border-right: $border-size solid darken($grey, 24);
+      border-right: $border-size solid $dark-grey;
+      border-bottom: $border-size solid $dark-grey;
       text-align: left;
 
       &:last-of-type {
@@ -207,7 +221,7 @@ table {
 
   tfoot {
     background: $background;
-    border-top: $border-size solid darken($grey, 24);
+    border-top: $border-size solid $dark-grey;
   }
 
   button, .button, input[type=submit] {

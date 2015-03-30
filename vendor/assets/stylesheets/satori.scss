@@ -118,7 +118,7 @@ choices (e.g. class="success bg-grey").
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
-		border: $border-size solid darken($grey, 24) !important;
+		border: $border-size solid $dark-grey !important;
 		border-radius: 0 $border-radius $border-radius 0;
 		text-indent: -250px;
 
@@ -159,7 +159,7 @@ choices (e.g. class="success bg-grey").
 		li {
 			display: block;
 			float: left;
-			border-right: 1px solid darken($grey, 24);
+			border-right: 1px solid $dark-grey;
 			margin: 0;
 			padding: 0 $default-spacing;
 
@@ -217,7 +217,7 @@ choices (e.g. class="success bg-grey").
 		@extend .clearfix;
 
 		display: block;
-		border-bottom: 1px solid darken($grey, 24);
+		border-bottom: 1px solid $dark-grey;
 	}
 
 	a.cell {
@@ -321,7 +321,7 @@ choices (e.g. class="success bg-grey").
 
 	a {
 		display: block;
-		border-bottom: 1px solid darken($grey, 24);
+		border-bottom: 1px solid $dark-grey;
 		padding: 0.5em;
 		text-decoration: none;
 	}
@@ -510,7 +510,7 @@ choices (e.g. class="success bg-grey").
 		position: absolute;
 		display: block;
 		padding: 0.25rem $default-spacing 0;
-		color: darken($grey, 24);
+		color: $dark-grey;
 		line-height: 1em;
 		z-index: 2;
 		white-space: nowrap;
@@ -766,7 +766,7 @@ a.delete, button.delete, input.delete {
 	color: $grey;
 
 	a {
-		color: darken($grey, 24);
+		color: $dark-grey;
 
 		&:hover, &:focus {
 			color: $text;
@@ -775,7 +775,7 @@ a.delete, button.delete, input.delete {
 }
 
 .text-border {
-	color: darken($grey, 24);
+	color: $dark-grey;
 
 	a {
 		color: $text;
@@ -849,10 +849,10 @@ nav {
 		li {
 			float: none;
 			margin: 0;
-			border-bottom: darken($grey, 24) $border-size solid;
+			border-bottom: $dark-grey $border-size solid;
 
 			&:nth-child(1) {
-				border-top: darken($grey, 24) $border-size solid;
+				border-top: $dark-grey $border-size solid;
 			}
 		}
 	}

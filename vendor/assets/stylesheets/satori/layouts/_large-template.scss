@@ -13,7 +13,7 @@
 			line-height: 1.5em;
 
 			a, a:visited {
-				color: darken($grey, 24);
+				color: $dark-grey;
 
 				&:hover, &:focus {
 					color: $primary;

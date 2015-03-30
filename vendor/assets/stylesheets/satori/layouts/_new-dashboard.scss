@@ -17,7 +17,7 @@ body.new-dashboard {
 		min-width: $header-width;
 		vertical-align: top;
 
-		border-right: darken($grey, 24) $border-size solid;
+		border-right: $dark-grey $border-size solid;
 
 		.site-logo {
 			padding: $default-spacing;
@@ -52,7 +52,7 @@ body.new-dashboard {
 		vertical-align: top;
 
 		nav {
-			border-bottom: darken($grey, 24) $border-size solid;
+			border-bottom: $dark-grey $border-size solid;
 
 			ul {
 				padding: 0;
@@ -73,7 +73,7 @@ body.new-dashboard {
 
 	section {
 		margin: $layout-spacing;
-		border: darken($grey, 24) $border-size solid;
+		border: $dark-grey $border-size solid;
 	}
 
 	footer.site-footer {

@@ -13,3 +13,11 @@
     @return lighten($white, 10);
   }
 }
+
+@function highlight-color($color, $intensity: 10) {
+  @if (lightness($color) > 50) {
+    @return darken($color, $intensity);
+  } @else {
+    @return lighten($color, $intensity);
+  }
+}
