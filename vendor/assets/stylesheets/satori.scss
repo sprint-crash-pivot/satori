@@ -328,6 +328,7 @@ choices (e.g. class="success bg-grey").
 }
 
 .button-icon {
+	@extend a.button;
 	position: relative;
 	padding-left: calc(1.75rem + #{$default-spacing}); // TODO: change this to default-spacing, but still needs to be 40px
 
