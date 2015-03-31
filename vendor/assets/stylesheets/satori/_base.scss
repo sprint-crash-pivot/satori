@@ -149,7 +149,7 @@ hr {
 }
 
 .inline-field {
-  @include box-shadow($grey);
+  @include box-shadow($dark-grey);
   @extend input;
 
   display: inline-block;
@@ -192,10 +192,6 @@ table {
     vertical-align: top;
   }
 
-  .even, &.zebra tbody tr:nth-child(even) {
-    background-color: highlight-color($background, 5);
-  }
-
   tbody {
     tr {
       td {
@@ -204,6 +200,10 @@ table {
 
       &:last-of-type td  {
         border-bottom: none;
+      }
+
+      &:nth-child(even) {
+        background-color: highlight-color($background, 5);
       }
     }
 

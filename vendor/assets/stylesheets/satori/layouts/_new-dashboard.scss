@@ -17,18 +17,28 @@ body.new-dashboard {
 		min-width: $header-width;
 		vertical-align: top;
 
-		border-right: $dark-grey $border-size solid;
+		background-color: $primary;
+		color: highlight-color($primary, 60);
+
+		a {
+			color: set-text-color($primary);
+
+			&:hover, &:focus {
+				background-color: highlight-color($primary, 2.5) !important;
+			}
+		}
 
 		.site-logo {
 			padding: $default-spacing;
 			font-family: $logo-font;
 
 			.title {
+				color: $secondary;
 				font-size: 2em;
 
 				small {
 					font-size: 75%;
-					color: $dark-grey;
+					color: highlight-color($primary, 60);
 					font-weight: $light;
 				}
 			}
@@ -43,6 +53,8 @@ body.new-dashboard {
 			font-weight: $header-font-weight;
 			padding: $default-spacing;
 			font-weight: $bold;
+
+			background-color: highlight-color($primary, 5);
 		}
 	}
 
@@ -50,30 +62,21 @@ body.new-dashboard {
 		display: table-cell;
 		width: 100%;
 		vertical-align: top;
+		background: $grey;
 
 		nav {
+			background: $background;
 			border-bottom: $dark-grey $border-size solid;
-
-			ul {
-				padding: 0;
-			}
-
-			li {
-				display: inline-block;
-				margin: 0;
-			}
-
-			a {
-				display: block;
-				padding: $default-spacing;
-				margin: 0 $default-spacing;
-			}
 		}
 	}
 
 	section {
-		margin: $layout-spacing;
+		margin: $default-spacing;
 		border: $dark-grey $border-size solid;
+		border-radius: $border-radius;
+		background: $background;
+
+		// @include box-shadow($dark-grey);
 	}
 
 	footer.site-footer {

@@ -9,16 +9,9 @@
 	  left: 0;
 	  right: 0;
 	  z-index: 1000;
-	  height: 3.5rem;
+	  height: 6.25rem;
 
-	  @include box-shadow($light-grey);
-
-
-	  //-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
-	  //box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
-
-	  //border-bottom: 2px solid $grey;
-	  //border-bottom: 2px solid rgba(0,0,0,0.05);
+	  @include box-shadow($dark-grey);
 
 	  .search {
 		  @extend .header-search-field;
@@ -33,12 +26,13 @@
 
 		.title {
 			display: block;
-			font-size: 1.25rem;
+			font-size: 1.5rem;
 			margin: $default-spacing;
+			line-height: 2.5rem;
 
 			img {
 				height: 2.5rem;
-				vertical-align: middle;
+				vertical-align: top;
 			}
 		}
 	}
@@ -48,5 +42,13 @@
 		@extend .clearfix;
 		overflow: hidden;
 		width: 100%;
+
+		section {
+			margin: $default-spacing;
+			border: highlight-color($grey) $border-size solid;
+			border-radius: $border-radius;
+
+		  @include box-shadow($dark-grey);
+		}
 	}
 }

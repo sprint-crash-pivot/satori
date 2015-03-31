@@ -2,6 +2,9 @@
 	header.site-header, footer.site-footer {
 		font-family: $logo-font;
 		font-weight: $logo-font-weight;
+
+	  @include box-shadow($dark-grey);
+		margin-bottom: 1px;
 	}
 
 	.search {

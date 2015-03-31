@@ -758,6 +758,26 @@ a.delete, button.delete, input.delete {
 	color: $primary;
 }
 
+.link-primary {
+	a {
+		color: $primary;
+
+		&:hover, &:focus {
+			color: highlight-color($primary, 10);
+		}
+	}
+}
+
+.link-white {
+	a {
+		color: $white;
+
+		&:hover, &:focus {
+			color: highlight-color($link, 10);
+		}
+	}
+}
+
 .text-secondary {
 	color: $secondary;
 }
@@ -849,20 +869,25 @@ nav {
 		li {
 			float: none;
 			margin: 0;
+
+			/* no border for now
 			border-bottom: $dark-grey $border-size solid;
 
 			&:nth-child(1) {
 				border-top: $dark-grey $border-size solid;
 			}
+			*/
 		}
 	}
 
 	&.secondary-nav {
 		li {
-			margin: 0 $default-spacing !important;
+			margin: 0;
 		}
 
 		a {
+			padding: $default-spacing;
+			margin: 0 $default-spacing;
 			border-bottom: 0.25em solid transparent;
 			text-decoration: none !important;
 
