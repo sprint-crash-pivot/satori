@@ -19,7 +19,7 @@ $background: #fcfcfc !default; // white
 $text: #404040 !default; // black
 $link: $secondary !default;
 
-$box-background: $white !default;
+$box-background: $background !default;
 
 // Responsive Design Breakpoints
 $break-small: 600px !default;
@@ -35,15 +35,15 @@ $default-spacing: 0.5rem !default;
 $bold: 700 !default;
 $light: 300 !default;
 
-$header-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default;
+$header-font: "Impact", "Arial Black", sans-serif !default;
 $header-font-weight: 700 !default;
 $header-color: $primary !default;
 $header-secondary-color: $dark-grey !default;
 
-$body-font: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !default; // "Helvetica Neue",HelveticaNeue,helvetica,arial,sans-serif
+$body-font: "Helvetica", "Arial", "Futura", "Tahoma", sans-serif !default; // "Helvetica Neue",HelveticaNeue,helvetica,arial,sans-serif
 $body-font-weight: 300 !default;
 
-$logo-font: $header-font !default;
+$logo-font: $body-font !default;
 $logo-font-weight: 300 !default;
 
 $base-path: '/assets/satori' !default;
