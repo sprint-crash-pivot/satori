@@ -1,4 +1,6 @@
 .personal {
+	overflow-x: hidden;
+
 	header.site-header, footer.site-footer {
 		font-family: $logo-font;
 		font-weight: $logo-font-weight;
@@ -26,5 +28,32 @@
 			font-size: 0.5em;
 			line-height: 1em;
 		}
+	}
+
+	.sidebar.right + main {
+		margin-right: #{$sidebar-width};
+	}
+
+	.sidebar {
+		width: $sidebar-width;
+		margin-left: $default-spacing;
+	}
+
+	.sidebar.right:after {
+		border-left: $border-size $dark-grey solid
+	}
+
+	.sidebar:after {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		background: $grey;
+		width: 100%;
+		content: " ";
+		z-index: -1
+	}
+
+	section {
+		@extend .box;
 	}
 }

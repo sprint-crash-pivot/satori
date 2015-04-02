@@ -9,70 +9,78 @@
 <body class="personal">
 	<div class="layout-wrap">
 		<header class="site-header bg-primary link-white">
-			<div class="site-logo left">
-				<a href="#" class="title text-border">
-					Satori<small>Sprint, Crash, Pivot's UI Framework</small>
-				</a>
-			</div>
-
-			<nav class="right">
-				<ul>
-					<li><a href="#" class="">Register</a></li>
-					<li><a href="#" class="">Sign In</a></li>
-				</ul>
-			</nav>
-
-			<div class="search right">
-				<input type="text" placeholder="Search..." />
-				<input type="submit" value="Find" />
-			</div>
-
-			<nav class="clear secondary-nav">
-				<ul>
-					<li><a href="#">Register</a></li>
-					<li><a href="#">Register</a></li>
-					<li><a href="#">Register</a></li>
-				</ul>
-			</nav>
-		</header>
-
-		<main class="">
-			<section>
-				<h2>View This Page's Source Code</h2>
-				<p>View this page's source code to see how it was created.</p>
-
-				<footer class="bg-grey">
-					<p>February 19th, 2015</p>
-				</footer>
-			</section>
-
-			<section>
-				<h2>A Quick Tip</h2>
-				<p>You may want to create a separate SASS stylesheet and include Satori's classes to simplify your code. The following code is recommended:</p>
-
-				<div class="bg-grey">
-<pre>
-
-  section {
-    @extend bg-white;
-
-    footer {
-      @extend bg-grey;
-    }
-  }
-
-</pre>
+			<div class="soft-container">
+				<div class="site-logo left">
+					<a href="#" class="title text-border">
+						Satori<small>Sprint, Crash, Pivot's UI Framework</small>
+					</a>
 				</div>
 
-				<p>This allows you to avoid having to include bg-white and bg-grey in each section. It leads to slightly more maintainable code.</p>
+				<nav class="right">
+					<ul>
+						<li><a href="#" class="">Register</a></li>
+						<li><a href="#" class="">Sign In</a></li>
+					</ul>
+				</nav>
 
-				<footer class="bg-grey">
-					<p>February 18th, 2015</p>
-				</footer>
-			</section>
-		</main>
+				<div class="search right">
+					<input type="text" placeholder="Search..." />
+					<input type="submit" value="Find" />
+				</div>
 
-			<footer class="site-footer bg-primary link-white">
+				<nav class="clear secondary-nav">
+					<ul>
+						<li><a href="#">Register</a></li>
+						<li><a href="#">Register</a></li>
+						<li><a href="#">Register</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+
+		<div class="soft-container">
+			<div class="sidebar right">
+				<h3>This is a side bar</h3>
+				<p>It should extend a static width and have a grey background that spans the entire height of the page.</p>
+			</div>
+
+			<main class="">
+
+				<section>
+					<h2>View This Page's Source Code</h2>
+					<p>View this page's source code to see how it was created.</p>
+
+					<footer class="bg-grey">
+						<p>February 19th, 2015</p>
+					</footer>
+				</section>
+
+				<section>
+					<h2>A Quick Tip</h2>
+					<p>You may want to create a separate SASS stylesheet and include Satori's classes to simplify your code. The following code is recommended:</p>
+
+					<div class="bg-grey">
+						<pre>section {
+	@extend bg-white;
+
+	footer {
+		@extend bg-grey;
+	}
+}</pre>
+					</div>
+
+					<p>This allows you to avoid having to include bg-white and bg-grey in each section. It leads to slightly more maintainable code.</p>
+
+					<footer class="bg-grey">
+						<p>February 18th, 2015</p>
+					</footer>
+				</section>
+			</main>
+		</div>
+
+		<footer class="site-footer bg-primary link-white">
+			<div class="soft-container">
 				<nav class="secondary-nav">
 					<ul>
 						<li><a href="#">Register</a></li>
@@ -82,7 +90,8 @@
 				</nav>
 
 				<p>&copy; <a href="http://www.sprintcrashpivot.com">2015 Sprint, Crash, Pivot</a></p>
-			</footer>
+			</div>
+		</footer>
 	</div>
 
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>

@@ -606,6 +606,7 @@ a.delete, button.delete, input.delete {
 }
 
 .soft-container {
+	position: relative; // this is new
 	max-width: $max-width;
 	margin: 0 auto;
 	@extend .clearfix;
