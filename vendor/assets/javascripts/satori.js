@@ -194,6 +194,51 @@ $document.on("page:load ready", function(event) {
 	ToggleMenu.ready(event);
 	ToggleEdit.ready(event);
 
+	$(".secondary-nav ul").each(function(i, ul) {
+		var $ul = $(ul),
+				$nav = $ul.closest(".secondary-nav"),
+				boundary = $nav.width()
+				visible = true;
+
+		$ul.children("li").each(function(j, li) {
+			var $li = $(li),
+					position = $li.position().top;
+
+			if (position == 0) {
+				// li is visible
+			} else {
+				visible = false;
+			}
+		});
+
+		if (!visible) {
+			var $left = $("<div class=\"arrow dir-left\" />"),
+					$right = $("<div class=\"arrow dir-right\" />");
+
+			$right.on("click.scrollRight", function(event) {
+				var $nav = $(this).closest(".secondary-nav"),
+						$ul = $nav.children("ul"),
+						$arrows = $nav.children(".arrow");
+
+				$nav.scrollTop($nav.scrollTop() + $nav.height());
+				$arrows.css("top", $nav.scrollTop());
+			});
+
+			$left.on("click.scrollLeft", function(event) {
+				// TODO make this a function, it's a copy of right, just - instead of +
+				var $nav = $(this).closest(".secondary-nav"),
+						$ul = $nav.children("ul"),
+						$arrows = $nav.children(".arrow");
+
+				$nav.scrollTop($nav.scrollTop() - $nav.height());
+				$arrows.css("top", $nav.scrollTop());
+			});
+
+			$left.prependTo($nav);
+			$right.appendTo($nav);
+		}
+	});
+
     $document.on("click.delete-model", "[data-role*=delete-model]", function(event) {
         var $this = $(this),
             $closest = $this.closest("[data-role*=model-template]");

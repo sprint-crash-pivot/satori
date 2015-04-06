@@ -19,7 +19,7 @@
 @import 'satori/layouts/personal';
 
 header:not(.site-header) {
-	font-family: $header-font;
+	font-family: $header-font-small;
 	font-weight: $header-font-weight;
 	font-size: 1.5rem;
 	padding: $default-spacing;
@@ -52,6 +52,25 @@ choices (e.g. class="success bg-grey").
 
 .bg-grey {
 	@include bg-color($grey, set-text-color($grey), $link);
+
+	/* trying to make the background span the entire width of the page when using soft-container
+	position: relative;
+
+	&:before {
+		content: " ";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: -1000px;
+		right: -1000px;
+		z-index: 0;
+		background: $grey;
+	}
+
+	& > * {
+		position: relative; // this makes z-index work
+	}
+	*/
 }
 
 .bg-light-grey {
@@ -760,6 +779,9 @@ a.delete, button.delete, input.delete {
 }
 
 .link-primary {
+	max-height: calc(2.5rem + (2 * #{$default-spacing}));
+	overflow: hidden;
+
 	a {
 		color: $primary;
 
@@ -882,6 +904,52 @@ nav {
 	}
 
 	&.secondary-nav {
+		max-height: calc(1.5rem + 0.25rem + (2 * #{$default-spacing}));
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+
+		.arrow {
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 40px;
+			height: 100%;
+
+			&.dir-left {
+				left: 0px;
+
+				&:before {
+					@include mobile-icon;
+				  @extend .fa;
+
+					top: 0.875rem;
+					left: 0.875rem;
+					font-size: 1rem;
+				  content: "\f053";
+				}
+			}
+
+			&.dir-right {
+				right: 0;
+
+				&:before {
+					@include mobile-icon;
+				  @extend .fa;
+
+					top: 0.875rem;
+					left: 0.875rem;
+					font-size: 1rem;
+				  content: "\f054";
+				}
+			}
+		}
+
+		.arrow ~ ul {
+			padding: 0 40px;
+		}
+
 		li {
 			margin: 0;
 		}

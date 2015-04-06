@@ -58,6 +58,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+h1, h2, h3 {
+  font-family: $header-font;
+}
+
+h4, h5, h6 {
+  font-family: $header-font-small;
+}
+
 p, td, th, li {
   line-height: 1.5rem;
 }

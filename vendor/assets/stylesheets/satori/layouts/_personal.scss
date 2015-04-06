@@ -30,6 +30,10 @@
 		}
 	}
 
+	main {
+		overflow: hidden;
+	}
+
 	.sidebar.right + main {
 		margin-right: #{$sidebar-width};
 	}
