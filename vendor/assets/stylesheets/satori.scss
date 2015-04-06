@@ -779,9 +779,6 @@ a.delete, button.delete, input.delete {
 }
 
 .link-primary {
-	max-height: calc(2.5rem + (2 * #{$default-spacing}));
-	overflow: hidden;
-
 	a {
 		color: $primary;
 
