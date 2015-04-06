@@ -197,6 +197,7 @@ $document.on("page:load ready", function(event) {
 	$(".secondary-nav ul").each(function(i, ul) {
 		var $ul = $(ul),
 				$nav = $ul.closest(".secondary-nav"),
+				$parent = $ul.parent(),
 				boundary = $nav.width()
 				visible = true;
 
@@ -218,7 +219,7 @@ $document.on("page:load ready", function(event) {
 			$right.on("click.scrollRight", function(event) {
 				var $nav = $(this).closest(".secondary-nav"),
 						$ul = $nav.children("ul"),
-						$arrows = $nav.children(".arrow");
+						$arrows = $nav.find(".arrow");
 
 				$nav.scrollTop($nav.scrollTop() + $nav.height());
 				$arrows.css("top", $nav.scrollTop());
@@ -228,14 +229,14 @@ $document.on("page:load ready", function(event) {
 				// TODO make this a function, it's a copy of right, just - instead of +
 				var $nav = $(this).closest(".secondary-nav"),
 						$ul = $nav.children("ul"),
-						$arrows = $nav.children(".arrow");
+						$arrows = $nav.find(".arrow");
 
 				$nav.scrollTop($nav.scrollTop() - $nav.height());
 				$arrows.css("top", $nav.scrollTop());
 			});
 
-			$left.prependTo($nav);
-			$right.appendTo($nav);
+			$left.prependTo($parent);
+			$right.appendTo($parent);
 		}
 	});
 
