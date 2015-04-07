@@ -404,9 +404,9 @@ choices (e.g. class="success bg-grey").
 	position: relative;
 	cursor: pointer;
 
+	font-size: 0;
 	height: 2.5rem;
 	width: 2.5rem;
-  font-size: 0;
 
 	// hide text
 	overflow: hidden;
@@ -416,9 +416,11 @@ choices (e.g. class="success bg-grey").
 		@include border($grey);
 	}
 
-	&.no-text {
-		font-size: 0;
-		padding-left: 1.875rem; // TODO: change this to default-spacing, but still needs to be 40px
+	&.with-text {
+		width: auto;
+		padding-left: 2.25rem;
+		padding-right: $default-spacing;
+		font-size: 1rem;
 	}
 
 	&.no-margin {
@@ -478,6 +480,22 @@ choices (e.g. class="success bg-grey").
 			@include mobile-icon;
 		  @extend .fa;
 		  content: "\f0e0";
+		}
+	}
+
+	&.cog {
+		&:before {
+			@include mobile-icon;
+		  @extend .fa;
+		  content: "\f013";
+		}
+	}
+
+	&.user {
+		&:before {
+			@include mobile-icon;
+		  @extend .fa;
+		  content: "\f007";
 		}
 	}
 
@@ -867,7 +885,7 @@ nav {
 
 	li {
 		float: left;
-		margin: $default-spacing;
+		margin: $default-spacing $default-spacing 0;
 		padding: 0;
 
 		&:nth-of-type(n) {
