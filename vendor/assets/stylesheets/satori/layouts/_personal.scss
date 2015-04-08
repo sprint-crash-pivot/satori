@@ -30,33 +30,6 @@
 		}
 	}
 
-	main {
-		overflow: hidden;
-	}
-
-	.sidebar.right + main {
-		margin-right: #{$sidebar-width};
-	}
-
-	.sidebar {
-		width: $sidebar-width;
-		margin-left: $default-spacing;
-	}
-
-	.sidebar.right:after {
-		border-left: $border-size $dark-grey solid
-	}
-
-	.sidebar:after {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		background: $grey;
-		width: 100%;
-		content: " ";
-		z-index: -1
-	}
-
 	section {
 		@extend .box;
 	}

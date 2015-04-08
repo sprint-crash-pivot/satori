@@ -15,8 +15,45 @@
 @import 'satori/layouts/basic-mobile';
 @import 'satori/layouts/dashboard';
 @import 'satori/layouts/large-template';
+@import 'satori/layouts/micro';
 @import 'satori/layouts/new-dashboard';
 @import 'satori/layouts/personal';
+
+// TODO Create _layout base file
+body {
+	overflow-x: hidden; // TODO it would be nice to remove this
+}
+
+main {
+	overflow: hidden;
+}
+
+.sidebar {
+	width: $sidebar-width;
+}
+
+.sidebar:after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: $grey;
+	content: " ";
+	z-index: -1;
+}
+
+.sidebar.left:after {
+	left: -100%;
+	width: calc(100% + #{$sidebar-width});
+
+	border-right: $border-size $dark-grey solid;
+}
+
+.sidebar.right:after {
+	width: 100%;
+
+	border-left: $border-size $dark-grey solid;
+}
+// End TODO
 
 header:not(.site-header) {
 	font-family: $header-font-small;
@@ -243,7 +280,8 @@ choices (e.g. class="success bg-grey").
 		text-decoration: none;
 
 		&:hover, &:focus, &:visited:hover, &:visited:focus {
-			background-color: $grey;
+			background-color: highlight-color($grey, 5);
+			color: $link;
 		}
 	}
 
@@ -443,11 +481,11 @@ choices (e.g. class="success bg-grey").
 		text-align: center;
 	}
 
-	&.trash {
-		background-image: url($base-path + '/icons/trash.png');
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 24px 24px;
+	&.delete {
+		&:before {
+			@include button-icon;
+			content: "\f1f8";
+		}
 	}
 
 	&.menu {

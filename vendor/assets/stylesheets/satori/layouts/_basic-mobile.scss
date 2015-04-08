@@ -37,12 +37,11 @@
 		}
 	}
 
-	main {
+	main, .sidebar {
 		margin: 6.25rem 0rem 0rem;
-		@extend .clearfix;
-		overflow: hidden;
-		width: 100%;
+	}
 
+	main {
 		section {
 			margin: $default-spacing;
 			border: highlight-color($grey) $border-size solid;
