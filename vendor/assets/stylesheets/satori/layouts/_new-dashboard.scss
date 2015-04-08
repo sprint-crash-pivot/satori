@@ -49,10 +49,10 @@ body.new-dashboard {
 		}
 
 		.heading {
+			font-size: 1.25rem;
 			font-family: $header-font-small;
-			font-weight: $header-font-weight;
+			font-weight: $header-font-small-weight;
 			padding: $default-spacing;
-			font-weight: $bold;
 
 			background-color: highlight-color($primary, 5);
 		}

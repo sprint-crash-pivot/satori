@@ -20,7 +20,7 @@
 
 header:not(.site-header) {
 	font-family: $header-font-small;
-	font-weight: $header-font-weight;
+	font-weight: $header-font-small-weight;
 	font-size: 1.5rem;
 	padding: $default-spacing;
 }
@@ -460,10 +460,12 @@ choices (e.g. class="success bg-grey").
 	}
 
 	&.edit {
-		background-image: url($base-path + '/icons/file 2.png');
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 24px 24px;
+		&:before {
+			@include mobile-icon;
+		  @extend .fa;
+
+		  content: "\f044";
+		}
 	}
 
 	&.alert {
