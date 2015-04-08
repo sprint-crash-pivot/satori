@@ -935,7 +935,7 @@ nav {
 
 	a {
 		display: block;
-		margin: 0;
+		margin: $default-spacing calc(#{$default-spacing / 2});
 		padding: $default-spacing;
 
 		&.button {
@@ -947,6 +947,10 @@ nav {
 		li {
 			float: none;
 			margin: 0;
+
+			a {
+				margin: 0;
+			}
 
 			/* no border for now
 			border-bottom: $dark-grey $border-size solid;
