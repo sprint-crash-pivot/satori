@@ -27,8 +27,8 @@
 			</nav>
 		</header>
 
-		<main>
-			<nav class="secondary-nav">
+		<div class="page-content">
+			<nav class="bg-white secondary-nav">
 				<ul>
 					<li><a href="#">Link</a></li>
 					<li><a href="#">Link</a></li>
@@ -38,20 +38,26 @@
 				</ul>
 			</nav>
 
-			<section class="">
-				<h2>View This Page's Source Code</h2>
-				<p>View this page's source code to see how it was created.</p>
+			<div class="sidebar left">
+				<h3>How Does This Work?</h3>
+				<p>If the left sidebar is not the left-most element on the page, a container needs to be created that has position: relative that contains the sidebar.</p>
+			</div>
 
-				<footer class="">
-					<p>February 19th, 2015</p>
-				</footer>
-			</section>
+			<main>
+				<section class="">
+					<h2>View This Page's Source Code</h2>
+					<p>View this page's source code to see how it was created.</p>
 
-			<section class="">
-				<h2>A Quick Tip</h2>
-				<p>You may want to create a separate SASS stylesheet and include Satori's classes to simplify your code. The following code is recommended:</p>
+					<footer class="bg-grey">
+						<p>February 19th, 2015</p>
+					</footer>
+				</section>
 
-				<div class="">
+				<section class="">
+					<h2>A Quick Tip</h2>
+					<p>You may want to create a separate SASS stylesheet and include Satori's classes to simplify your code. The following code is recommended:</p>
+
+					<div class="bg-grey">
 <pre>
 
   section {
@@ -63,19 +69,19 @@
   }
 
 </pre>
-				</div>
+					</div>
 
-				<p>This allows you to avoid having to include bg-white and bg-grey in each section. It leads to slightly more maintainable code.</p>
+					<p>This allows you to avoid having to include bg-white and bg-grey in each section. It leads to slightly more maintainable code.</p>
 
-				<footer class="">
-					<p>February 18th, 2015</p>
-				</footer>
-			</section>
-
-			<footer class="site-footer">
-				<p>&copy; <a href="http://www.sprintcrashpivot.com">2015 Sprint, Crash, Pivot</a></p>
-			</footer>
+					<footer class="bg-grey">
+						<p>February 18th, 2015</p>
+					</footer>
+				</section>
 		</main>
+
+		<footer class="site-footer bg-white">
+			<p>&copy; <a href="http://www.sprintcrashpivot.com">2015 Sprint, Crash, Pivot</a></p>
+		</footer>
 	</div>
 
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>

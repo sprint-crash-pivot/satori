@@ -15,6 +15,7 @@ body.new-dashboard {
 	header.site-header {
 		display: table-cell;
 		min-width: $header-width;
+		width: $header-width;
 		vertical-align: top;
 
 		background-color: $primary;
@@ -58,16 +59,19 @@ body.new-dashboard {
 		}
 	}
 
-	main {
+	div.page-content {
 		display: table-cell;
 		width: 100%;
+		position: relative;
+	}
+
+	nav.secondary-nav {
+		border-bottom: $dark-grey $border-size solid;
+	}
+
+	main {
 		vertical-align: top;
 		background: $grey;
-
-		nav {
-			background: $background;
-			border-bottom: $dark-grey $border-size solid;
-		}
 	}
 
 	section {
@@ -80,6 +84,6 @@ body.new-dashboard {
 	}
 
 	footer.site-footer {
-		margin: $default-spacing;
+		border-top: $border-size $dark-grey solid;
 	}
 }

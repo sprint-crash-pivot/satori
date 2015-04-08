@@ -1,0 +1,45 @@
+body.micro {
+  header.site-header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    height: 2.5rem;
+    width: 100%;
+    z-index: 5;
+
+    @include box-shadow($dark-grey);
+
+    .site-logo {
+      float: left;
+      height: 2.5rem;
+      line-height: 1rem;
+
+  		.title {
+  			display: block;
+  			font-size: 1.25rem;
+        line-height: 2.5rem;
+        padding: 0 $default-spacing;
+
+  			img {
+  				float: left;
+          margin: 4px 4px -4px 0;
+  			}
+  		}
+    }
+
+    nav.secondary-nav {
+      width: auto;
+    }
+  }
+
+  main {
+    margin-top: calc(2.5rem + 2px);
+
+    section {
+      @extend .box;
+
+      margin: $default-spacing 0 !important;
+    }
+  }
+}

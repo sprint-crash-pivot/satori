@@ -13,7 +13,6 @@
 @import 'satori/elements/modal';
 
 @import 'satori/layouts/basic-mobile';
-@import 'satori/layouts/dashboard';
 @import 'satori/layouts/large-template';
 @import 'satori/layouts/micro';
 @import 'satori/layouts/new-dashboard';
@@ -914,7 +913,6 @@ a.delete, button.delete, input.delete {
 }
 
 
-
 nav {
 	@extend .clearfix;
 
@@ -925,8 +923,10 @@ nav {
 
 	li {
 		float: left;
-		margin: $default-spacing $default-spacing 0;
+		margin: 0;
 		padding: 0;
+		line-height: 1.25rem;
+		height: 2.5rem;
 
 		&:nth-of-type(n) {
 			margin-left: 0 !important;
@@ -959,7 +959,7 @@ nav {
 	}
 
 	&.secondary-nav {
-		max-height: calc(1.5rem + 0.25rem + (2 * #{$default-spacing}));
+		height: calc(1.5rem + (2 * #{$default-spacing}));
 		overflow: hidden;
 		position: relative;
 		width: 100%;
@@ -978,8 +978,8 @@ nav {
 					@include mobile-icon;
 				  @extend .fa;
 
-					top: 0.875rem;
-					left: 0.875rem;
+					top: 0.75rem;
+					left: 0.75rem;
 					font-size: 1rem;
 				  content: "\f053";
 				}
