@@ -344,8 +344,6 @@ choices (e.g. class="success bg-grey").
 
 .relative { position: relative; }
 
-.hidden { display: none; }
-
 .panel-header {
 	border-bottom: 1px solid $grey;
 	cursor: pointer;
@@ -655,7 +653,7 @@ a.delete, button.delete, input.delete {
 }
 
 .page-title {
-	border-bottom: 1px solid $background;
+	border-bottom: $border-size solid $dark-grey;
 }
 
 .no-border {
@@ -1033,3 +1031,7 @@ input.primary {
 input.secondary {
   @extend a.secondary;
 }
+
+
+// Order matters, this needs to be last.
+.hidden { display: none; }

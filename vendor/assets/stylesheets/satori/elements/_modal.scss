@@ -14,19 +14,38 @@
   z-index: 1000;
 }
 
-#satori-modal {
+#satori-modal, .fixed-alert {
   position: absolute;
   max-width: 80%;
 
-  background-color: $background;
+  background-color: $light-grey;
   display: none;
 
   border-radius: $border-radius;
-  overflow: hidden;
+  border: $border-size $dark-grey solid;
+  // overflow: hidden;
 
-  #satori-modal-top-toolbar {
+  #satori-modal-top-toolbar, header {
+    border-radius: $border-radius $border-radius 0 0;
+    background-color: $primary;
+    color: set-text-color($primary);
+
     min-width: #{$base-size * 2.5};
     min-height: #{$base-size * 2.5};
+
+    .mobile-icon {
+      margin: -0.5rem -0.5rem 0 0;
+    }
+  }
+
+  &.success, &.info, &.warning, &.error {
+    position: absolute;
+    margin: 0;
+
+    header {
+      background-color: transparent;
+      color: set-text-color($light-grey);
+    }
   }
 
   // TODO These should be variables....

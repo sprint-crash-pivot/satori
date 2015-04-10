@@ -105,6 +105,11 @@ ModalWindow = {
 		var $modal = ModalWindow.findModal();
 
 		$document.on("click.open-modal", "[data-role*=modal]", ModalWindow.open);
+		$document.on("keyup.close-modal", function(event) {
+			if (event.keyCode == 27) {
+				ModalWindow.close(event);
+			}
+		});
 	},
 	open: function(event) {
 		var $link = $(event.target),
@@ -141,12 +146,9 @@ ModalWindow = {
 	resize: function ($modal) {
 		var $window = $(window);
 
-		console.log($window.scrollTop());
-		console.log($window.height());
-
 		$modal.css({
 			top: ($window.scrollTop() + ($window.height() / 10)),
-			left: $window.width() / 10
+			left: "calc(50% - " + ($modal.width() / 2) + "px)"
 		});
 	},
 	findOverlay: function() {
@@ -167,7 +169,7 @@ ModalWindow = {
 		if ($modal.length === 0) {
 			$modal = $("<div id=\"satori-modal\">");
 
-			var $toolbar = $("<header id=\"satori-modal-top-toolbar\" class=\"bg-primary\"><div id=\"satori-modal-title\"></div></header>"),
+			var $toolbar = $("<header><div id=\"satori-modal-title\"></div></header>"),
 					$btnClose = $("<div id=\"satori-modal-close\" class=\"right fake-link mobile-icon close no-text no-margin\">Close</div>"),
 					$content = $("<div id=\"satori-modal-content\">");
 
@@ -193,6 +195,32 @@ $document.on("page:load ready", function(event) {
 	CopyContents.ready(event);
 	ToggleMenu.ready(event);
 	ToggleEdit.ready(event);
+
+	// Alert Stuff
+	$document.on("click.openAlert", "[data-role*=open-alert]", function(event) {
+		var $alert = $($(this).data("alert-selector"));
+
+		$alert.css({
+			position: "fixed",
+			left: "calc(50% - " + ($alert.width() / 2) +  "px)",
+			bottom: "10%"
+		}).show();
+	});
+
+	$document.on("click.closeAlert", "[data-role*=close-alert]", function(event) {
+		var $alert = $(this).closest(".fixed-alert");
+
+		$alert.hide();
+	});
+
+	$document.on("keyup.closeAlert", function(event) {
+		if (event.keyCode == 27) {
+			var $alert = $(".fixed-alert");
+
+			$alert.hide();
+		}
+	});
+	// End Alert Stuff
 
 	$(".secondary-nav ul").each(function(i, ul) {
 		var $ul = $(ul),
