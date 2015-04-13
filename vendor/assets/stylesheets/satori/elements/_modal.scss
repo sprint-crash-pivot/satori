@@ -23,12 +23,12 @@
 
   border-radius: $border-radius;
   border: $border-size $dark-grey solid;
+  border-top: calc(#{$base-size} / 4) $primary solid;
   // overflow: hidden;
 
   #satori-modal-top-toolbar, header {
     border-radius: $border-radius $border-radius 0 0;
-    background-color: $primary;
-    color: set-text-color($primary);
+    border-bottom: $dark-grey $border-size solid;
 
     min-width: #{$base-size * 2.5};
     min-height: #{$base-size * 2.5};
@@ -45,6 +45,9 @@
     header {
       background-color: transparent;
       color: set-text-color($light-grey);
+
+      border-top: none;
+      border-bottom: $border-size $dark-grey solid;
     }
   }
 

@@ -196,6 +196,37 @@ $document.on("page:load ready", function(event) {
 	ToggleMenu.ready(event);
 	ToggleEdit.ready(event);
 
+	// Slideshow!
+	$("[data-role*=slideshow]").each(function(i, slideshow) {
+		var $slideshow = $(slideshow),
+				$slides = $slideshow.find("[data-role*=slide]"),
+				defaults = {
+					timer: 0,
+					visibleSlides: 1,
+					step: 1,
+					loop: true,
+					showArrows: true,
+					showControls: false
+				},
+				options = $.extend({}, defaults, $slideshow.data());
+
+		// Hide all but visible slides
+		$slides.slice(options.visibleSlides, $slides.length).hide();
+
+		// TODO Add Timer
+
+		// TODO Add slide left/right (with steps, loops)
+			// TODO Bind left/right arrows
+			// TODO Manual scroll should remove timer
+			// Maybe TODO Bind escape to stop timer
+
+		// TODO Create Arrows
+
+		// TODO Create Controls
+	});
+	// $document.on("", "", function() {});
+	// End Slideshow
+
 	// Alert Stuff
 	$document.on("click.openAlert", "[data-role*=open-alert]", function(event) {
 		var $alert = $($(this).data("alert-selector"));

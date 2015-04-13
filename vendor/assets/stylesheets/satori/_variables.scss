@@ -9,7 +9,7 @@ $warning: #ffeb0d !default;
 $info: #3979cc !default;
 
 $white: #fff !default;
-$lighter-grey: #eee !default;
+$lighter-grey: #f9f9f9 !default;
 $light-grey: #fcfcfc !default;
 $grey: #eee !default;
 $dark-grey: #aeaeae !default;
@@ -30,8 +30,11 @@ $base-size: 16px !default;
 $sidebar-width: 250px !default;
 
 $border-size: 1px !default;
-$border-radius: 3px !default;
+$border-radius: 0px !default;
 $default-spacing: 0.5rem !default;
+
+$input-color: $lighter-grey !default;
+$input-radius: 3px !default;
 
 $bold: 700 !default;
 $light: 300 !default;

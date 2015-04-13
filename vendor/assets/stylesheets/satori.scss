@@ -169,15 +169,15 @@ choices (e.g. class="success bg-grey").
 	}
 
 	input[type=submit] {
-		background: url($base-path + '/icons/search.png') $light-grey no-repeat;
+		background: url($base-path + '/icons/search.png') $input-color no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
 		border: $border-size solid $dark-grey !important;
-		border-radius: 0 $border-radius $border-radius 0;
+		border-radius: 0 $input-radius $input-radius 0;
 		text-indent: -250px;
 
-		@include box-shadow(none);
+		// @include box-shadow(none);
 
 		position: absolute;
 		right: $default-spacing;
@@ -204,7 +204,9 @@ choices (e.g. class="success bg-grey").
 }
 
 .toolbar {
-	@extend .box;
+	@include border($dark-grey);
+	background-color: $box-background;
+	margin: $default-spacing;
 
 	ul {
 		@extend .clearfix;
@@ -238,9 +240,11 @@ choices (e.g. class="success bg-grey").
 }
 
 .vertical-toolbar {
-	@include border($grey);
-	background-color: $box-background;
-	margin: $default-spacing;
+	@extend .box;
+
+	header {
+		border-bottom: $border-size $dark-grey solid;
+	}
 
 	ul {
 		list-style: none;
@@ -265,7 +269,10 @@ choices (e.g. class="success bg-grey").
 }
 
 .grid-box {
-	@extend .box;
+	@include border($dark-grey);
+	background-color: $box-background;
+	margin: $default-spacing;
+
 	padding: 0 !important;
 
 	.cell {
@@ -358,7 +365,7 @@ choices (e.g. class="success bg-grey").
 }
 
 .menu-body {
-	@include border($grey);
+	@include border($dark-grey);
 
 	position: absolute;
 	background: $background;
@@ -448,7 +455,7 @@ choices (e.g. class="success bg-grey").
 	white-space: nowrap;
 
 	&.with-border {
-		@include border($grey);
+		@include border($dark-grey);
 	}
 
 	&.with-text {
@@ -624,7 +631,7 @@ choices (e.g. class="success bg-grey").
 	left: 0;
 	z-index: 1000;
 	background: $background;
-	@include border($grey);
+	@include border($dark-grey);
 
 	h1, h2, h3, h4, h5, h6, .header {
 		white-space: nowrap;
@@ -712,7 +719,7 @@ a.delete, button.delete, input.delete {
 		display: inline-block;
 		font-size: 1em;
 		padding: 0.5em;
-		border-radius: 3px;
+		border-radius: $border-radius;
 		color: $grey;
 		text-decoration: none;
 
@@ -727,8 +734,12 @@ a.delete, button.delete, input.delete {
 // BOXES
 .box {
 	display: block;
-	@include border($grey);
-	@include box-shadow($grey);
+	@include border($dark-grey);
+
+	// TODO Move this to header??
+	border-top: calc(#{$base-size} / 4) $primary solid;
+
+	// @include box-shadow($dark-grey);
 
 	// overflow: hidden; // TODO This is bad
 	background-color: $box-background;
@@ -739,6 +750,7 @@ a.delete, button.delete, input.delete {
 	@extend .box;
 
 	position: relative;
+	border-top-width: $border-size;
 	border-left: calc(#{$base-size * 2.5}) solid $grey;
 
 	&:before {

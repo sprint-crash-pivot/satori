@@ -37,7 +37,8 @@ body.micro {
     margin-top: calc(2.5rem + 2px);
 
     section {
-      @extend .box;
+			border: highlight-color($dark-grey) $border-size solid;
+			border-radius: $border-radius;
 
       margin: $default-spacing 0 !important;
     }

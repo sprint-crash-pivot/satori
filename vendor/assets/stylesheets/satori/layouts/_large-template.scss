@@ -35,7 +35,7 @@
 			@extend .header-search-field;
 
 			input[type=text] {
-				@include box-shadow($grey);
+				// @include box-shadow($grey);
 			}
 		}
 	}

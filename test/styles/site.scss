@@ -2,3 +2,12 @@ $base-path: '../vendor/assets/images/satori';
 $font-path: '../vendor/assets/stylesheets/font-awesome/fonts';
 
 @import '../../vendor/assets/stylesheets/satori';
+
+[data-role*=slideshow] {
+
+  [data-role*=slide] {
+    float: left;
+    width: 100px;
+    height: 50px;
+  }
+}

@@ -42,10 +42,10 @@
   }
 }
 
-@mixin border($color) {
+@mixin border($color, $radius: $border-radius) {
   border: $border-size solid darken($color, 10);
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin transparent($value) {
@@ -67,8 +67,8 @@
 
 // not really a mixin, but need to share it.
 @mixin input() {
-  @include border($grey);
-  background: $light-grey;
+  @include border($dark-grey, $input-radius);
+  background: $input-color;
   height: 2.5rem;
   padding: 0 $default-spacing;
   font-size: 1rem;
@@ -107,7 +107,7 @@
 }
 
 @mixin button-colors($background-color, $text-color) {
-	@include border(darken($background-color, 10));
+	@include border(darken($background-color, 10), $input-radius);
 	background: $background-color;
 	color: $text-color;
 
@@ -133,6 +133,6 @@
 @mixin mobile-icon() {
   font-size: 1.75rem;
   position: absolute;
-  top: 0.375rem;
-  left:  0.375rem;
+  top: 0.25rem;
+  left:  0.625rem;
 }

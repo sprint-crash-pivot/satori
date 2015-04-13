@@ -31,6 +31,8 @@
 	}
 
 	section {
-		@extend .box;
+		margin: $default-spacing;
+		border: highlight-color($dark-grey) $border-size solid;
+		border-radius: $border-radius;
 	}
 }
