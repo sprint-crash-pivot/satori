@@ -17,10 +17,10 @@ var CopyContents = {
 			$target = $($this.data("target-selector"));
 
 		if ($source.length == 0) {
-			// Logger.log("CopyContents Error: data-source-selector could not find an element..");
+			Logger.log("CopyContents Error: data-source-selector could not find an element..");
 			return false;
 		} else if ($target.length == 0) {
-			// Logger.log("CopyContents Error: data-target-selector could not find an element..");
+			Logger.log("CopyContents Error: data-target-selector could not find an element..");
 			return false;
 		}
 
@@ -205,20 +205,61 @@ $document.on("page:load ready", function(event) {
 					visibleSlides: 1,
 					step: 1,
 					loop: true,
+					bindKeyEvents: true,
 					showArrows: true,
-					showControls: false
+					showControls: false,
+					hightlightActive: false
 				},
 				options = $.extend({}, defaults, $slideshow.data());
 
 		// Hide all but visible slides
 		$slides.slice(options.visibleSlides, $slides.length).hide();
 
-		// TODO Add Timer
+		// Add active/inactive classes
+		if (options.hightlightActive == true) {
+			$slides.slice(0, options.visibleSlides).addClass("inactive");
+			$slides.filter(":eq(" + Math.floor((options.visibleSlides - 1) / 2) + ")").addClass("active").removeClass("inactive");
+		}
 
 		// TODO Add slide left/right (with steps, loops)
-			// TODO Bind left/right arrows
+			// TODO Bind left/right arrows to scroll; bind escape to remove timer.
 			// TODO Manual scroll should remove timer
-			// Maybe TODO Bind escape to stop timer
+			// TODO Add swipe????
+
+		// keyboard scrolling
+		$document.on("keyup.slideshowScroll", function(event) {
+			if (event.keyCode == 37) {
+				var $visible = $slides.filter(":visible"),
+						$next = $visible.eq(-options.step).prevAll(":lt(" + options.visibleSlides + ")");
+
+				// this is a hack to get the first n slides
+				if ($next.length < options.visibleSlides) {
+					$next = $slides.slice(0, options.visibleSlides);
+				}
+
+				if ($next.length >= options.visibleSlides) {
+					$slides.hide();
+					$next.show();
+				}
+			} else if (event.keyCode == 39) {
+				var $visible = $slides.filter(":visible"),
+						$next = $visible.eq(-1 + options.step).nextAll(":lt(" + options.visibleSlides + ")");
+
+				// this is a hack to get the last n slies
+				if ($next.length < options.visibleSlides) {
+					$next = $slides.slice(-options.visibleSlides);
+				}
+
+				if ($next.length >= options.visibleSlides) {
+						$slides.hide();
+						$next.show();
+				}
+			}
+
+			// TODO move hidden elements in order to loop?
+		});
+
+		// TODO Add Timer
 
 		// TODO Create Arrows
 

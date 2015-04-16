@@ -1,0 +1,28 @@
+[data-role*=slideshow] {
+  position: relative;
+
+  [data-role*=slide] {
+    position: relative;
+
+    &.active {
+
+    }
+
+    &.inactive {
+      transform: scale(0.75, 0.75);
+
+      margin: auto 0;
+
+      &:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: $grey;
+        z-index: 5;
+        content: " ";
+
+        opacity: 0.5;
+      }
+    }
+  }
+}

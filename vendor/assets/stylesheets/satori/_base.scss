@@ -8,7 +8,7 @@ html {
   font-family: $body-font;
   font-size: $base-size;
   font-weight: $body-font-weight;
-  line-height: 1em;
+  line-height: 1;
 }
 
 body {
@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
 	font-weight: $header-font-weight;
   color: $header-color;
-  line-height: 1em;
+  line-height: 1;
 
   small {
     font-family: $body-font;
@@ -68,7 +68,7 @@ h4, h5, h6 {
 }
 
 p, td, th, li {
-  line-height: 1.5rem;
+  line-height: 1.5;
 }
 
 img {
@@ -163,7 +163,7 @@ hr {
 
   display: inline-block;
   text-decoration: none;
-  line-height: 2.5rem;
+  line-height: 2.5;
   width: auto;
   white-space: nowrap;
 }
@@ -235,6 +235,15 @@ table {
 
   button, .button, input[type=submit] {
     margin: 0;
+  }
+}
+
+pre {
+  overflow: auto;
+  max-width: 100%;
+
+  &.code {
+    background: $grey;
   }
 }
 

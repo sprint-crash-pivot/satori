@@ -9,32 +9,111 @@
 <body>
 	<h1>Satori Elements</h1>
 
-	<h2>Interactions <small>(Requires JavaScript)</small></h2>
+	<h2>Interactions</h2>
+	<p class="note">
+		Note: Satori's interactions require JavaScript but degrade gracefully where possible.
+	</p>
 
 	<h3>Slideshow</h3>
+	<p class="note">
+		Note: The people behind Satori are not fans of carousels, but recognize that it's a popular feature in web design.
+		Please be aware that hiding content presents major usability issues, you should consider alternative designs before using this feature as a carousel.
+	</p>
+	<p>Satori's slideshow widget handles the traditional gallery slideshow that is common throughout the web, in addition to carousels.</p>
+	<p>The left and right arrow keys are bound to trigger the scroll events.</p>
+
+	<h4>Live Demo</h4>
 	<div class="container" data-role="slideshow">
+		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+		<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+		<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+	</div>
+
+	<h5>Timer of 500ms w/ loop</h5>
+	<div class="container" data-role="slideshow" data-timer="500" data-loop="true">
+		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+		<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+		<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+	</div>
+
+	<h5>Multiple Visible Slides w/o Loop</h5>
+	<div class="container" data-role="slideshow" data-visible-slides="4" data-step="3">
+		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+		<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+		<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+		<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+	</div>
+
+	<h5>Highlight-Active w/ Loop</h5>
+	<div class="container" data-role="slideshow" data-visible-slides="3" data-hightlight-active="true" data-loop="true">
 		<div data-role="slide, please work" class="bg-primary">
+			<p>Slide ###</p>
 			<p>Slide ###</p>
 		</div>
 		<div data-role="slide" class="bg-alternate">
 			<p>Slide ###</p>
+			<p>Slide ###</p>
 		</div>
 		<div data-role="slide" class="bg-secondary">
+			<p>Slide ###</p>
 			<p>Slide ###</p>
 		</div>
 	</div>
 
-	<div class="container" data-role="slideshow" data-visible-slides="2">
-		<div data-role="slide, please work" class="bg-primary">
-			<p>Slide ###</p>
-		</div>
-		<div data-role="slide" class="bg-alternate">
-			<p>Slide ###</p>
-		</div>
-		<div data-role="slide" class="bg-secondary">
-			<p>Slide ###</p>
-		</div>
-	</div>
+	<h4>Slideshow Properties <small>(data-*)</small></h4>
+	<dl>
+		<dt>Timer</dt>
+		<dd>The timer attribute determines the time between automatic scrolling in milliseconds. Default is <strong>0</strong> (no automatic scrolling).</dd>
+
+		<dt>Visible-Slides</dt>
+		<dd>The number of slides that are visible at a given time. Default is <strong>1</strong>.</dd>
+
+		<dt>Step</dt>
+		<dd>The number of slides that move during each move event; this is most likely only needed when there are more than one visible slides. Default is <strong>1</strong>.</dd>
+
+		<dt>Loop</dt>
+		<dd>Allows the slideshow to repeat previous elements. Default is <strong>false</strong>.</dd>
+
+		<dt>Bind-Key-Events</dt>
+		<dd>Binds events to left arrow, right arrow, and escape keys. Default is <strong>true</strong>.</dd>
+
+		<dt>Show Arrows</dt>
+		<dd>Set visibility left and right arrows. Default is <strong>true</strong>.</dd>
+
+		<dt>Show Controls</dt>
+		<dd>Set visibility of controls (left and right arrows in a box, along with the number of slides). Default is <strong>false</strong>.</dd>
+	</dl>
+
+	<h4>Markup Example</h4>
+	<pre class="code"><p><code>&lt;div class=&quot;container&quot; data-role=&quot;slideshow&quot;&gt;
+	&lt;div data-role=&quot;slide&quot; class=&quot;bg-primary&quot;&gt;
+		&lt;p&gt;Slide ###&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div data-role=&quot;slide&quot; class=&quot;bg-alternate&quot;&gt;
+		&lt;p&gt;Slide ###&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div data-role=&quot;slide&quot; class=&quot;bg-secondary&quot;&gt;
+		&lt;p&gt;Slide ###&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></p></pre>
 
 	<h3>Fixed Alerts</h3>
 	<p>

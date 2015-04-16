@@ -11,6 +11,7 @@
 @import 'satori/_base-classes';
 
 @import 'satori/elements/modal';
+@import 'satori/elements/slideshow';
 
 @import 'satori/layouts/basic-mobile';
 @import 'satori/layouts/large-template';
@@ -163,7 +164,7 @@ choices (e.g. class="success bg-grey").
 	position: relative;
 
 	input[type=text] {
-		line-height: 2em;
+		line-height: 2;
 		margin: 0;
 		padding: $default-spacing;
 	}
@@ -317,7 +318,7 @@ choices (e.g. class="success bg-grey").
 
 .note {
 	font-style: italic;
-	color: $grey;
+	color: $dark-grey;
 	font-size: 0.9em;
 }
 
@@ -481,7 +482,7 @@ choices (e.g. class="success bg-grey").
 		height: 50%;
 		width: 50%;
 		font-size: 0.75rem;
-		line-height: 1rem;
+		line-height: 1;
 		text-align: center;
 	}
 
@@ -592,7 +593,7 @@ choices (e.g. class="success bg-grey").
 		display: block;
 		padding: 0.25rem $default-spacing 0;
 		color: $dark-grey;
-		line-height: 1em;
+		line-height: 1;
 		z-index: 2;
 		white-space: nowrap;
 		font-size: 0.75em;
@@ -744,6 +745,15 @@ a.delete, button.delete, input.delete {
 	// overflow: hidden; // TODO This is bad
 	background-color: $box-background;
 	margin: $default-spacing;
+
+	header {
+		border-bottom: $border-size $dark-grey solid;
+	}
+
+	footer {
+		background: $grey;
+		border-top: $border-size $dark-grey solid;
+	}
 }
 
 .success, .info, .warning, .error {
@@ -752,6 +762,10 @@ a.delete, button.delete, input.delete {
 	position: relative;
 	border-top-width: $border-size;
 	border-left: calc(#{$base-size * 2.5}) solid $grey;
+
+	header {
+		border-bottom: none;
+	}
 
 	&:before {
 		@include button-icon;
@@ -796,7 +810,7 @@ a.delete, button.delete, input.delete {
 
 .box-header {
 	margin: 0 0.5em;
-	line-height: 1.25em;
+	line-height: 1.25;
 	font-weight: 300;
 	border-bottom: 1px solid $grey;
 }
@@ -935,7 +949,7 @@ nav {
 		float: left;
 		margin: 0;
 		padding: 0;
-		line-height: 1.25rem;
+		line-height: 1.25;
 		height: 2.5rem;
 
 		&:nth-of-type(n) {
