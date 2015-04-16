@@ -23,6 +23,7 @@
 	<p>The left and right arrow keys are bound to trigger the scroll events.</p>
 
 	<h4>Live Demo</h4>
+	<h5>Default Settings</h5>
 	<div class="container" data-role="slideshow">
 		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
 		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
@@ -35,8 +36,8 @@
 		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
 	</div>
 
-	<h5>Timer of 500ms w/ loop</h5>
-	<div class="container" data-role="slideshow" data-timer="500" data-loop="true">
+	<h5>Loop</h5>
+	<div class="container" data-role="slideshow" data-loop="true">
 		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
 		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
 		<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
@@ -46,6 +47,19 @@
 		<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
 		<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
 		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+	</div>
+
+	<h5>Timer of 1000ms w/ loop and disabled key events</h5>
+	<div class="container" data-role="slideshow" data-timer="1000" data-loop="true" data-bind-key-events="false">
+		<div data-slide="1" data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+		<div data-slide="2" data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+		<div data-slide="3" data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+		<div data-slide="4" data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+		<div data-slide="5" data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+		<div data-slide="6" data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+		<div data-slide="7" data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+		<div data-slide="8" data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+		<div data-slide="9" data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
 	</div>
 
 	<h5>Multiple Visible Slides w/o Loop</h5>
@@ -63,16 +77,28 @@
 
 	<h5>Highlight-Active w/ Loop</h5>
 	<div class="container" data-role="slideshow" data-visible-slides="3" data-hightlight-active="true" data-loop="true">
-		<div data-role="slide, please work" class="bg-primary">
-			<p>Slide ###</p>
+		<div data-role="slide" class="bg-primary">
+			<p>Slide 1</p>
 			<p>Slide ###</p>
 		</div>
 		<div data-role="slide" class="bg-alternate">
-			<p>Slide ###</p>
+			<p>Slide 2</p>
 			<p>Slide ###</p>
 		</div>
 		<div data-role="slide" class="bg-secondary">
+			<p>Slide 3</p>
 			<p>Slide ###</p>
+		</div>
+		<div data-role="slide" class="bg-primary">
+			<p>Slide 4</p>
+			<p>Slide ###</p>
+		</div>
+		<div data-role="slide" class="bg-alternate">
+			<p>Slide 5</p>
+			<p>Slide ###</p>
+		</div>
+		<div data-role="slide" class="bg-secondary">
+			<p>Slide 6</p>
 			<p>Slide ###</p>
 		</div>
 	</div>
@@ -99,6 +125,10 @@
 
 		<dt>Show Controls</dt>
 		<dd>Set visibility of controls (left and right arrows in a box, along with the number of slides). Default is <strong>false</strong>.</dd>
+
+		<dt>Highlight Active</dt>
+		<dd>Adds emphasis to the center most visible slide; if the number of visible slides is even, it will take the two most center visible slides and
+			error to the left. In laymen's terms, if there are two visible slides, the active one will be the first slide. Default is <strong>false</strong>.</p>
 	</dl>
 
 	<h4>Markup Example</h4>

@@ -99,10 +99,8 @@ var ToggleEdit = {
 
 ModalWindow = {
 	ready: function(event, $document) {
-		console.log("ModalWindow");
-
-		var $overlay = ModalWindow.findOverlay();
-		var $modal = ModalWindow.findModal();
+		var $overlay = ModalWindow.findOverlay(),
+				$modal = ModalWindow.findModal();
 
 		$document.on("click.open-modal", "[data-role*=modal]", ModalWindow.open);
 		$document.on("keyup.close-modal", function(event) {
@@ -187,86 +185,146 @@ ModalWindow = {
 
 var $document = $(document);
 
-$document.on("page:load ready", function(event) {
-	console.log("Satori!");
 
+// TODO Make this an object instead of a variable
+var Slideshow = {
+	ready: function(event) {
+		var $document = $(document);
+
+		$("[data-role*=slideshow]").each(function(i, slideshow) {
+			var $slideshow = $(slideshow),
+					defaults = {
+						timer: 0,
+						visibleSlides: 1,
+						step: 1,
+						loop: false,
+						bindKeyEvents: true,
+						showArrows: true,
+						showControls: false,
+						hightlightActive: false
+					},
+					options = $.extend({}, defaults, $slideshow.data());
+
+			Slideshow.init(null, $slideshow, options);
+		});
+	},
+	init: function(event, $slideshow, options) {
+		var $slides = $slideshow.find("[data-role*=slide]"),
+				timer = null;
+
+		if (options.timer > 0) {
+			timer = window.setInterval(function() {
+				Slideshow.scroll($slides, options, "right");
+			}, options.timer);
+		}
+
+		// keyboard scrolling
+		if (options.bindKeyEvents === true) {
+			$document.on("keyup.slideshowScroll", function(event) {
+				if (event.keyCode == 37) {
+					window.clearInterval(timer);
+					Slideshow.scroll($slides, options, "left");
+				} else if (event.keyCode == 39) {
+					window.clearInterval(timer);
+					Slideshow.scroll($slides, options, "right");
+				} else if (event.keyCode == 27) {
+					window.clearInterval(timer);
+				}
+			});
+		}
+
+		Slideshow.initialHide($slides, options);
+		Slideshow.showActive($slideshow, options);
+
+		// TODO Create Arrows
+		// TODO Create Controls
+	},
+	initialHide: function($slides, options) {
+		$slides.slice(options.visibleSlides, $slides.length).hide();
+	},
+	showActive: function($slideshow, options) {
+		if (options.hightlightActive == true) {
+			var $slides = $slideshow.find("[data-role*=slide]"),
+					$visible = $slides.filter(":visible");
+
+			$slides.removeClass("inactive active");
+			$visible.slice(0, options.visibleSlides).addClass("inactive");
+			$visible.filter(":eq(" + Math.floor((options.visibleSlides - 1) / 2) + ")").addClass("active").removeClass("inactive");
+		}
+	},
+	getNext: function($slides, options, direction) {
+		var $visible = $slides.filter(":visible"),
+				$next = [];
+
+		if (direction == "left") {
+			$next = $visible.eq(-options.step).prevAll(":lt(" + options.visibleSlides + ")")
+
+			if (options.loop == true) {
+				var $move = $visible.last().nextAll(),
+						$slideshow = $slides.closest("[data-role*=slideshow]");
+
+				$move.prependTo($slideshow);
+				$next = $visible.eq(-options.step).prevAll(":lt(" + options.visibleSlides + ")");
+
+				// this moves elements around to stay consistent with forward
+				var $prev = $next.first().prevAll(),
+						$reverse = $($prev.get().reverse());
+
+				$reverse.appendTo($slideshow);
+			} else if ($next.length < options.visibleSlides) {
+				// this is a hack to get the first n slides
+				$next = $slides.slice(0, options.visibleSlides);
+			}
+		} else if (direction == "right") {
+			$next = $visible.eq(-1 + options.step).nextAll(":lt(" + options.visibleSlides + ")");
+
+			if (options.loop == true) {
+				var $move = $visible.first().prevAll();
+
+				$move.appendTo($slides.closest("[data-role*=slideshow]"));
+				$next = $visible.eq(-1 + options.step).nextAll(":lt(" + options.visibleSlides + ")");
+			} else if ($next.length < options.visibleSlides) {
+				// this is a hack to get the last n slies
+				$next = $slides.slice(-options.visibleSlides);
+			}
+		} else {
+			Logger.log("Invalid direction: Choose either \"left\" or \"right.\"");
+		}
+
+		return $next;
+	},
+	scroll: function($slides, options, direction) {
+		// if loop, move all invisible slides to front or back
+
+		if (direction == "left") {
+			var $next = Slideshow.getNext($slides, options, direction);
+
+			if ($next.length >= options.visibleSlides) {
+				$slides.hide();
+				$next.show();
+			}
+		} else if (direction == "right") {
+			var $next = Slideshow.getNext($slides, options, direction);
+
+			if ($next.length >= options.visibleSlides) {
+					$slides.hide();
+					$next.show();
+			}
+		} else {
+			Logger.log("Invalid direction: Choose either \"left\" or \"right.\"");
+		}
+
+		Slideshow.showActive($slides.closest("[data-role*=slideshow]"), options);
+	}
+}
+
+$document.on("page:load ready", function(event) {
 	ModalWindow.ready(event, $document);
 
 	CopyContents.ready(event);
 	ToggleMenu.ready(event);
 	ToggleEdit.ready(event);
-
-	// Slideshow!
-	$("[data-role*=slideshow]").each(function(i, slideshow) {
-		var $slideshow = $(slideshow),
-				$slides = $slideshow.find("[data-role*=slide]"),
-				defaults = {
-					timer: 0,
-					visibleSlides: 1,
-					step: 1,
-					loop: true,
-					bindKeyEvents: true,
-					showArrows: true,
-					showControls: false,
-					hightlightActive: false
-				},
-				options = $.extend({}, defaults, $slideshow.data());
-
-		// Hide all but visible slides
-		$slides.slice(options.visibleSlides, $slides.length).hide();
-
-		// Add active/inactive classes
-		if (options.hightlightActive == true) {
-			$slides.slice(0, options.visibleSlides).addClass("inactive");
-			$slides.filter(":eq(" + Math.floor((options.visibleSlides - 1) / 2) + ")").addClass("active").removeClass("inactive");
-		}
-
-		// TODO Add slide left/right (with steps, loops)
-			// TODO Bind left/right arrows to scroll; bind escape to remove timer.
-			// TODO Manual scroll should remove timer
-			// TODO Add swipe????
-
-		// keyboard scrolling
-		$document.on("keyup.slideshowScroll", function(event) {
-			if (event.keyCode == 37) {
-				var $visible = $slides.filter(":visible"),
-						$next = $visible.eq(-options.step).prevAll(":lt(" + options.visibleSlides + ")");
-
-				// this is a hack to get the first n slides
-				if ($next.length < options.visibleSlides) {
-					$next = $slides.slice(0, options.visibleSlides);
-				}
-
-				if ($next.length >= options.visibleSlides) {
-					$slides.hide();
-					$next.show();
-				}
-			} else if (event.keyCode == 39) {
-				var $visible = $slides.filter(":visible"),
-						$next = $visible.eq(-1 + options.step).nextAll(":lt(" + options.visibleSlides + ")");
-
-				// this is a hack to get the last n slies
-				if ($next.length < options.visibleSlides) {
-					$next = $slides.slice(-options.visibleSlides);
-				}
-
-				if ($next.length >= options.visibleSlides) {
-						$slides.hide();
-						$next.show();
-				}
-			}
-
-			// TODO move hidden elements in order to loop?
-		});
-
-		// TODO Add Timer
-
-		// TODO Create Arrows
-
-		// TODO Create Controls
-	});
-	// $document.on("", "", function() {});
-	// End Slideshow
+	Slideshow.ready(event);
 
 	// Alert Stuff
 	$document.on("click.openAlert", "[data-role*=open-alert]", function(event) {
