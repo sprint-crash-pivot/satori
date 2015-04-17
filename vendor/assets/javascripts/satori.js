@@ -209,12 +209,11 @@ var Slideshow = {
 		});
 	},
 	init: function(event, $slideshow, options) {
-		var $slides = $slideshow.find("[data-role*=slide]"),
-				timer = null;
+		var timer = null;
 
 		if (options.timer > 0) {
 			timer = window.setInterval(function() {
-				Slideshow.scroll($slides, options, "right");
+				Slideshow.scroll($slideshow, options, "right");
 			}, options.timer);
 		}
 
@@ -223,24 +222,28 @@ var Slideshow = {
 			$document.on("keyup.slideshowScroll", function(event) {
 				if (event.keyCode == 37) {
 					window.clearInterval(timer);
-					Slideshow.scroll($slides, options, "left");
+					Slideshow.scroll($slideshow, options, "left");
 				} else if (event.keyCode == 39) {
 					window.clearInterval(timer);
-					Slideshow.scroll($slides, options, "right");
+					Slideshow.scroll($slideshow, options, "right");
 				} else if (event.keyCode == 27) {
 					window.clearInterval(timer);
 				}
 			});
 		}
 
-		Slideshow.initialHide($slides, options);
+		Slideshow.initialHide($slideshow, options);
 		Slideshow.showActive($slideshow, options);
 
 		// TODO Create Arrows
 		// TODO Create Controls
 	},
-	initialHide: function($slides, options) {
+	initialHide: function($slideshow, options) {
+		var $slides = $slideshow.find("[data-role*=slide]");
+
 		$slides.slice(options.visibleSlides, $slides.length).hide();
+
+		// TODO If highlightActive, then scroll to first slide instead of middle slide
 	},
 	showActive: function($slideshow, options) {
 		if (options.hightlightActive == true) {
@@ -260,14 +263,18 @@ var Slideshow = {
 			$next = $visible.eq(-options.step).prevAll(":lt(" + options.visibleSlides + ")")
 
 			if (options.loop == true) {
-				var $move = $visible.last().nextAll(),
+				var $move = $slides.not(":visible"),
 						$slideshow = $slides.closest("[data-role*=slideshow]");
 
 				$move.prependTo($slideshow);
-				$next = $visible.eq(-options.step).prevAll(":lt(" + options.visibleSlides + ")");
+
+				// update slides and visible from DOM.
+				$slides = $slideshow.find("[data-role*=slide]");
+
+				$next = $slides.eq(-options.step).prevAll(":lt(" + options.visibleSlides + ")");
 
 				// this moves elements around to stay consistent with forward
-				var $prev = $next.first().prevAll(),
+				var $prev = $next.last().prevAll(),
 						$reverse = $($prev.get().reverse());
 
 				$reverse.appendTo($slideshow);
@@ -293,8 +300,9 @@ var Slideshow = {
 
 		return $next;
 	},
-	scroll: function($slides, options, direction) {
+	scroll: function($slideshow, options, direction) {
 		// if loop, move all invisible slides to front or back
+		var $slides = $slideshow.find("[data-role*=slide]");
 
 		if (direction == "left") {
 			var $next = Slideshow.getNext($slides, options, direction);
@@ -302,6 +310,10 @@ var Slideshow = {
 			if ($next.length >= options.visibleSlides) {
 				$slides.hide();
 				$next.show();
+
+				if (options.loop == true) {
+					$next.first().prevAll(":not(:visible)").appendTo($next.closest("[data-role*=slideshow]"));
+				}
 			}
 		} else if (direction == "right") {
 			var $next = Slideshow.getNext($slides, options, direction);
@@ -309,6 +321,10 @@ var Slideshow = {
 			if ($next.length >= options.visibleSlides) {
 					$slides.hide();
 					$next.show();
+
+					if (options.loop == true) {
+						$next.first().prevAll(":not(:visible)").appendTo($next.closest("[data-role*=slideshow]"));
+					}
 			}
 		} else {
 			Logger.log("Invalid direction: Choose either \"left\" or \"right.\"");
