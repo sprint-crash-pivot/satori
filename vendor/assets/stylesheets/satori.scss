@@ -24,7 +24,7 @@ body {
 	overflow-x: hidden; // TODO it would be nice to remove this
 }
 
-main {
+main, .main {
 	overflow: hidden;
 }
 
@@ -1061,3 +1061,5 @@ input.secondary {
 
 // Order matters, this needs to be last.
 .hidden { display: none; }
+.no-padding { padding: 0; }
+.no-margin { margin: 0; }

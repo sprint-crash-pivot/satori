@@ -18,7 +18,7 @@ body.micro {
   		.title {
   			display: block;
   			font-size: 1.25rem;
-        line-height: 2.5;
+        line-height: 2.25;
         padding: 0 $default-spacing;
 
   			img {
@@ -37,6 +37,7 @@ body.micro {
     margin-top: calc(2.5rem + 2px);
 
     section {
+      background: $background;
 			border: highlight-color($dark-grey) $border-size solid;
 			border-radius: $border-radius;
 

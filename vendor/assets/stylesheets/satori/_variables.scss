@@ -1,4 +1,17 @@
+/*
+  TODO Calculate colors based off of contrast ratios, if possible. Assuming #fff, the colors should be the comments.
+
+$normal-grey-text-ratio: 100 * (1 / 4.5); // 767676
+$enhanced-grey-text-ratio: 100 * (1 / 7); // 595959
+$large-grey-text-ratio: 100 * (1 / 3); // 959595
+
+  END TODO
+*/
+
 // 5 color scheme
+$background: #fcfcfc !default; // white
+$text: #404040 !default; // black
+
 $primary: #025185 !default; // #025185 #42cafd
 $alternate: #001e61 !default; // #3978cc
 $secondary: #00b9d2 !default; // #ff8500
@@ -12,11 +25,9 @@ $white: #fff !default;
 $lighter-grey: #f9f9f9 !default;
 $light-grey: #fcfcfc !default;
 $grey: #eee !default;
-$dark-grey: #aeaeae !default;
+$dark-grey: #767676 !default;
 $black: #000 !default;
 
-$background: #fcfcfc !default; // white
-$text: #404040 !default; // black
 $link: $secondary !default;
 
 $box-background: $background !default;
