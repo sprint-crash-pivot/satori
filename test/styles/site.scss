@@ -3,8 +3,14 @@ $font-path: '../vendor/assets/stylesheets/font-awesome/fonts';
 
 @import '../../vendor/assets/stylesheets/satori';
 
-[data-role*=slideshow] {
+.swatch {
+  @include box-shadow($dark-grey);
+  border-radius: $border-radius;
+  width: 100%;
+  height: 80px;
+}
 
+[data-role*=slideshow] {
   [data-role*=slide] {
     float: left;
   }

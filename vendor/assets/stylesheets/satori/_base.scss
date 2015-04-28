@@ -126,7 +126,12 @@ textarea {
 }
 
 input[type=checkbox], input[type=radio] {
+  box-shadow: none;
   width: auto;
+}
+
+input[type=file] {
+  padding: 0.5rem;
 }
 
 select {
@@ -137,7 +142,7 @@ select {
   background: $input-color url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
 }
 
-input[type=submit], button, a.button {
+input[type=submit], input[type=reset], button, a.button {
   @extend .inline-field;
   color: $text;
 

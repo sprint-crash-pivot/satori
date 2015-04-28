@@ -206,6 +206,7 @@ choices (e.g. class="success bg-grey").
 
 .toolbar {
 	@include border($dark-grey);
+  @include box-shadow($dark-grey);
 	background-color: $box-background;
 	margin: $default-spacing;
 
@@ -227,7 +228,7 @@ choices (e.g. class="success bg-grey").
 		}
 	}
 
-	a {
+	a, .fake-link {
 		display: block;
 		padding: $default-spacing $default-spacing calc(#{$default-spacing} / 2);
 		border-bottom: calc(#{$default-spacing} / 2) solid transparent;
@@ -389,6 +390,7 @@ choices (e.g. class="success bg-grey").
 	}
 }
 
+// TODO This needs to work for submit
 .button-icon {
 	@extend a.button;
 	position: relative;
@@ -736,6 +738,7 @@ a.delete, button.delete, input.delete {
 .box {
 	display: block;
 	@include border($dark-grey);
+  @include box-shadow($dark-grey);
 
 	// TODO Move this to header??
 	border-top: calc(#{$base-size} / 4) $primary solid;

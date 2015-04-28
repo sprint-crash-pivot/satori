@@ -75,6 +75,7 @@ body.new-dashboard {
 	}
 
 	section {
+		@include box-shadow($dark-grey);
 		margin: $default-spacing;
 		border: $dark-grey $border-size solid;
 		border-radius: $border-radius;
