@@ -6,487 +6,510 @@
 
 	<link rel="stylesheet" href="tmp/site.css" />
 </head>
-<body>
-	<h1>Satori Elements</h1>
-
-	<h2>Interactions</h2>
-	<p class="note">
-		Note: Satori's interactions require JavaScript but degrade gracefully where possible.
-	</p>
-
-	<h3>Slideshow</h3>
-	<p class="note">
-		Note: The people behind Satori are not fans of carousels, but recognize that it's a popular feature in web design.
-		Please be aware that hiding content presents major usability issues, you should consider alternative designs before using this feature as a carousel.
-	</p>
-	<p>Satori's slideshow widget handles the traditional gallery slideshow that is common throughout the web, in addition to carousels.</p>
-	<p>The left and right arrow keys are bound to trigger the scroll events.</p>
-
-	<h4>Live Demo</h4>
-	<h5>Default Settings</h5>
-	<div class="container" data-role="slideshow">
-		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
-		<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
-		<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
-	</div>
-
-	<h5>Loop</h5>
-	<div class="container" data-role="slideshow" data-loop="true">
-		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
-		<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
-		<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
-	</div>
-
-	<h5>Timer of 1000ms w/ loop and disabled key events</h5>
-	<div class="container" data-role="slideshow" data-timer="1000" data-loop="true" data-bind-key-events="false">
-		<div data-slide="1" data-role="slide" class="bg-primary"><p>Slide 1</p></div>
-		<div data-slide="2" data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
-		<div data-slide="3" data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
-		<div data-slide="4" data-role="slide" class="bg-primary"><p>Slide 4</p></div>
-		<div data-slide="5" data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
-		<div data-slide="6" data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
-		<div data-slide="7" data-role="slide" class="bg-primary"><p>Slide 7</p></div>
-		<div data-slide="8" data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
-		<div data-slide="9" data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
-	</div>
-
-	<h5>Multiple Visible Slides w/o Loop</h5>
-	<div class="container" data-role="slideshow" data-visible-slides="4" data-step="3">
-		<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
-		<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
-		<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
-		<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
-		<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
-	</div>
-
-	<h5>Highlight-Active w/ Loop</h5>
-	<div class="container" data-role="slideshow" data-visible-slides="3" data-hightlight-active="true" data-loop="true">
-		<div data-role="slide" class="bg-primary 1">
-			<p>Slide 1</p>
-			<p>Slide ###</p>
+<body class="dashboard">
+	<div class="layout-wrap">
+	<header class="site-header">
+		<div class="site-logo">
+			<div class="title"><a href="test/index.html">Satori</a><br/><small>A UI Framework</small></div>
 		</div>
-		<div data-role="slide" class="bg-alternate 2">
-			<p>Slide 2</p>
-			<p>Slide ###</p>
-		</div>
-		<div data-role="slide" class="bg-secondary 3">
-			<p>Slide 3</p>
-			<p>Slide ###</p>
-		</div>
-		<div data-role="slide" class="bg-primary 4">
-			<p>Slide 4</p>
-			<p>Slide ###</p>
-		</div>
-		<div data-role="slide" class="bg-alternate 5">
-			<p>Slide 5</p>
-			<p>Slide ###</p>
-		</div>
-		<div data-role="slide" class="bg-secondary 6">
-			<p>Slide 6</p>
-			<p>Slide ###</p>
-		</div>
-	</div>
 
-	<h4>Slideshow Properties <small>(data-*)</small></h4>
-	<dl>
-		<dt>Timer</dt>
-		<dd>The timer attribute determines the time between automatic scrolling in milliseconds. Default is <strong>0</strong> (no automatic scrolling).</dd>
+		<p class="text-center"><a href="test/satori.html#top">[ Go to top ]</a></p>
 
-		<dt>Visible-Slides</dt>
-		<dd>The number of slides that are visible at a given time. Default is <strong>1</strong>.</dd>
+		<nav class="vertical-nav">
+			<header><a href="test/satori.html#style">Style</a></header>
+			<ul>
+				<li><a href="test/satori.html#typography">Typography</a></li>
+				<li><a href="test/satori.html#colors">Colors</a></li>
+			</ul>
 
-		<dt>Step</dt>
-		<dd>The number of slides that move during each move event; this is most likely only needed when there are more than one visible slides. Default is <strong>1</strong>.</dd>
+			<header><a href="test/satori.html#elements">Elements</a></header>
+			<ul>
+				<li><a href="test/satori.html#forms">Forms</a></li>
+				<li><a href="test/satori.html#buttons">Buttons</a></li>
+				<li><a href="test/satori.html#gridbox">Grid Box</a></li>
+				<li><a href="test/satori.html#toolbars">Toolbars</a></li>
+				<li><a href="test/satori.html#boxes">Boxes</a></li>
+			</ul>
 
-		<dt>Loop</dt>
-		<dd>Allows the slideshow to repeat previous elements. Default is <strong>false</strong>.</dd>
+			<header><a href="test/satori.html#interactions">Interactions</a></header>
+			<ul>
+				<li><a href="test/satori.html#slideshow">Slideshow</a></li>
+				<li><a href="test/satori.html#fixed-alerts">Fixed Alerts</a></li>
+				<li><a href="test/satori.html#modal-windows">Modal Windows</a></li>
+			</ul>
+		</nav>
+	</header>
 
-		<dt>Bind-Key-Events</dt>
-		<dd>Binds events to left arrow, right arrow, and escape keys. Default is <strong>true</strong>.</dd>
+	<div class="page-content">
+		<h1><a name="top"></a>Satori UI Kit</h1>
 
-		<dt>Show-Arrows</dt>
-		<dd>Set visibility left and right arrows. Default is <strong>true</strong>.</dd>
+		<h2><a name="style"></a>Style</h2>
 
-		<dt>Show-Controls</dt>
-		<dd>Set visibility of controls (left and right arrows in a box, along with the number of slides). Default is <strong>false</strong>.</dd>
+		<h3><a name="typography"></a>Typography</h3>
+		<p>Headers use Impact Bold and the body font is Helvetica Thin.</p>
+		<p>By defauly, H1-H3 uses the primary color and H4-H6 uses dark grey. Using the small tag in the header will always result in smaller grey text.</p>
 
-		<dt>Highlight-Active</dt>
-		<dd>Adds emphasis to the center most visible slide; if the number of visible slides is even, it will take the center-most visible slide and
-			error to the left. In laymen's terms, if there are two visible slides, the active one will be the first slide. Default is <strong>false</strong>.</p>
-	</dl>
-
-	<h4>Markup Example</h4>
-	<pre class="code"><p><code>&lt;div class=&quot;container&quot; data-role=&quot;slideshow&quot;&gt;
-	&lt;div data-role=&quot;slide&quot; class=&quot;bg-primary&quot;&gt;
-		&lt;p&gt;Slide ###&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div data-role=&quot;slide&quot; class=&quot;bg-alternate&quot;&gt;
-		&lt;p&gt;Slide ###&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div data-role=&quot;slide&quot; class=&quot;bg-secondary&quot;&gt;
-		&lt;p&gt;Slide ###&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-</code></p></pre>
-
-	<h3>Fixed Alerts</h3>
-	<p>
-		<button data-role="open-alert" data-alert-selector="#default-fixed-alert">Default</button>
-		<button data-role="open-alert" data-alert-selector="#default-fixed-alert-success">Success</button>
-	</p>
-	<div id="default-fixed-alert" class="hidden fixed-alert">
-		<header>
-			<div data-role="close-alert" class="right fake-link mobile-icon close no-text no-margin">Close Alert</div>
-			Fixed Alert
-		</header>
-		<p>This is an example of a fixed alert</p>
-	</div>
-	<div id="default-fixed-alert-success" class="hidden fixed-alert success">
-		<header>
-			<div data-role="close-alert" class="right fake-link mobile-icon close no-text no-margin">Close Alert</div>
-			This is a Success Fixed Alert
-		</header>
-		<p>This is an example of a fixed alert</p>
-	</div>
-
-	<h3>Modal Windows</h3>
-
-	<h4>Ajax</h4>
-	<p><button data-role="modal" data-href="">Ajax Call Modal Window</button></p>
-
-	<h4>Existing Content</h4>
-	<p>Modal windows can be opening with existing content.</p>
-	<p><button data-role="modal" data-container="#containerModalWindow" data-title="This is a Modal Window!">Container Modal Window</button></p>
-	<div id="containerModalWindow" class="hidden">
-			<p>You've opened a modal window! It has the following settings:</p>
-			<dl>
-				<dt>data-container</dt>
-				<dd>#containerModalWindow</dd>
-				<dt>data-title</dt>
-				<dd>This is a Modal Window!</dd>
-			</dl>
-	</div>
-
-	<h2>Buttons</h2>
-
-	<p>
-		<button>Button</button>
-		<button class="primary">Primary</button>
-		<button class="alternate">Alternate</button>
-		<button class="secondary">Secondary</button>
-		<button class="button-icon add">Add</button>
-		<button class="button-icon save">Save</button>
-		<button class="button-icon delete">Delete</button>
-		<button class="button-icon edit">Edit</button>
-		<button class="button-icon copy">Copy</button>
-		<button class="button-icon upload">Upload</button>
-		<button class="button-icon add no-text">Add</button>
-		<button class="button-icon save no-text">Save</button>
-		<button class="button-icon delete no-text">Delete</button>
-		<button class="button-icon edit no-text">Edit</button>
-	</p>
-
-	<h2>Satori Elements</h2>
-
-	<h6>.grid-box</h6>
-	<div class="grid-box">
-		<a href="#" class="cell">
-			<header>Title</header>
-			<p>Just some content</p>
-		</a>
-		<a href="#" class="cell">
-			<header>Title</header>
-		</a>
-		<a href="#" class="cell">
-			<header>Title</header>
-		</a>
-	</div>
-
-	<h6>.grid-box.zebra</h6>
-	<div class="grid-box zebra">
-		<a href="#" class="cell">
-			<header>Title</header>
-		</a>
-		<a href="#" class="cell">
-			<header>Title</header>
-		</a>
-		<a href="#" class="cell">
-			<header>Title</header>
-		</a>
-	</div>
-
-	<h6>.toolbar</h6>
-	<div class="toolbar">
-		<ul>
-			<li>
-				<div class="search-field">
-					<input type="text" placeholder="Search" />
-					<input type="submit" value="Find" />
+		<h3><a name="colors"></a>Colors</h3>
+		<h4>Base Colors</h4>
+		<div class="clearfix">
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-background"></div>
+					<p>Background</p>
 				</div>
-			<li>
-				<input type="text" value="Text" />
-			</li>
-			<li>
-				<div class="float-label">
-					<label>Dropdown</label>
-					<select>
-						<option>Option 1</option>
-						<option>Option 2</option>
-						<option>Option 3</option>
-					</select>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-text"></div>
+					<p>Text</p>
 				</div>
-			</li>
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-		</ul>
-	</div>
+			</div>
 
-	<div class="toolbar">
-		<ul>
-			<li>
-				<a href="#">First</a>
-			</li>
-			<li>
-				<a href="#">Prev</a>
-			</li>
-	</div>
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-link"></div>
+					<p>Link</p>
+				</div>
+			</div>
 
-	<h6>.vertical-toolbar</h6>
-	<div class="vertical-toolbar">
-		<header>Title</header>
-		<p>This is just some body text to describe the links.</p>
-		<ul>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-		</ul>
-	</div>
+			<div class="clear pct25 left">
+				<div class="container">
+					<div class="swatch bg-primary"></div>
+					<p>Primary</p>
+				</div>
+			</div>
 
-	<h2>Form Elements</h2>
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-alternate"></div>
+					<p>Alternate</p>
+				</div>
+			</div>
 
-	<h6>.header-search-field</h6>
-	<div class="clearfix">
-		<div class="header-search-field">
-			<input type="text" placeholder="Search..." />
-			<input type="submit">
-		</div>
-	</div>
-
-	<h6>.float-label</h6>
-	<div class="clearfix">
-		<div class="float-label container">
-			<label>This is an input:</label>
-			<input type="text" />
-		</div>
-
-		<div class="float-label container">
-			<label>This is a select:</label>
-			<select>
-				<option>Option 1</option>
-				<option>Option 2</option>
-				<option>Option 3</option>
-			</select>
-		</div>
-
-		<div class="float-label container">
-			<label>This is a textarea:</label>
-			<textarea></textarea>
-		</div>
-
-		<div class="float-label container">
-			<label>This is a .fake-input:</label>
-			<span class="fake-input">Fake input</span>
-		</div>
-	</div>
-
-	<h3>Colors</h3>
-	<!--
-	<div class="container">
-		<table class="full">
-			<tbody>
-				<tr>
-					<td class="bg-background">Background</td>
-					<td class="bg-text">Text</td>
-					<td class="bg-primary">Primary</td>
-					<td class="bg-secondary">Secondary</td>
-					<td class="bg-success">Success</td>
-					<td class="bg-info">Info</td>
-					<td class="bg-warning">Warning</td>
-					<td class="bg-error">Error</td>
-					<td class="bg-white">White</td>
-					<td class="bg-grey">Grey</td>
-					<td class="bg-black">Black</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	-->
-	<h3>Base Colors</h3>
-	<div class="clearfix">
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-background"></div>
-				<p>Background</p>
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-secondary"></div>
+					<p>Secondary</p>
+				</div>
 			</div>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-text"></div>
-				<p>Text</p>
+		<h4>Shades</h4>
+		<div class="clearfix">
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-white"></div>
+					<p>White</p>
+				</div>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-light-grey"></div>
+					<p>Light Grey</p>
+				</div>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-grey"></div>
+					<p>Grey</p>
+				</div>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-dark-grey"></div>
+					<p>Dark Grey</p>
+				</div>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-black"></div>
+					<p>Black</p>
+				</div>
 			</div>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-link"></div>
-				<p>Link</p>
+		<h4>Alert Colors</h4>
+		<div class="clearfix">
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-success"></div>
+					<p>Success</p>
+				</div>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-info"></div>
+					<p>Info</p>
+				</div>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-error"></div>
+					<p>Error</p>
+				</div>
+			</div>
+
+			<div class="pct25 left">
+				<div class="container">
+					<div class="swatch bg-warning"></div>
+					<p>Warning</p>
+				</div>
 			</div>
 		</div>
 
-		<div class="clear pct25 left">
-			<div class="container">
-				<div class="swatch bg-primary"></div>
-				<p>Primary</p>
+		<h2><a name="elements"></a>Elements</h2>
+
+		<h3><a name="forms"></a>Forms</h3>
+
+		<h6>.header-search-field</h6>
+		<div class="clearfix">
+			<div class="header-search-field">
+				<input type="text" placeholder="Search..." />
+				<input type="submit">
 			</div>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-alternate"></div>
-				<p>Alternate</p>
+		<h6>.float-label</h6>
+		<div class="clearfix">
+			<div class="float-label container">
+				<label>This is an input:</label>
+				<input type="text" />
+			</div>
+
+			<div class="float-label container">
+				<label>This is a select:</label>
+				<select>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+				</select>
+			</div>
+
+			<div class="float-label container">
+				<label>This is a textarea:</label>
+				<textarea></textarea>
+			</div>
+
+			<div class="float-label container">
+				<label>This is a .fake-input:</label>
+				<span class="fake-input">Fake input</span>
 			</div>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-secondary"></div>
-				<p>Secondary</p>
-			</div>
-		</div>
-	</div>
+		<h3><a name="buttons"></a>Buttons</h3>
+		<p>
+			<button>Button</button>
+			<button class="primary">Primary</button>
+			<button class="alternate">Alternate</button>
+			<button class="secondary">Secondary</button>
+			<button class="button-icon add">Add</button>
+			<button class="button-icon save">Save</button>
+			<button class="button-icon delete">Delete</button>
+			<button class="button-icon edit">Edit</button>
+			<button class="button-icon copy">Copy</button>
+			<button class="button-icon upload">Upload</button>
+			<button class="button-icon add no-text">Add</button>
+			<button class="button-icon save no-text">Save</button>
+			<button class="button-icon delete no-text">Delete</button>
+			<button class="button-icon edit no-text">Edit</button>
+		</p>
 
-	<h3>Shades</h3>
-	<div class="clearfix">
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-white"></div>
-				<p>White</p>
-			</div>
-		</div>
-
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-light-grey"></div>
-				<p>Light Grey</p>
-			</div>
-		</div>
-
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-grey"></div>
-				<p>Grey</p>
-			</div>
-		</div>
-
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-dark-grey"></div>
-				<p>Dark Grey</p>
-			</div>
+		<h6>.grid-box</h6>
+		<div class="grid-box">
+			<a href="#" class="cell">
+				<header>Title</header>
+				<p>Just some content</p>
+			</a>
+			<a href="#" class="cell">
+				<header>Title</header>
+			</a>
+			<a href="#" class="cell">
+				<header>Title</header>
+			</a>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-black"></div>
-				<p>Black</p>
-			</div>
-		</div>
-	</div>
-
-	<h3>Alert Colors</h3>
-	<div class="clearfix">
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-success"></div>
-				<p>Success</p>
-			</div>
+		<h6>.grid-box.zebra</h6>
+		<div class="grid-box zebra">
+			<a href="#" class="cell">
+				<header>Title</header>
+			</a>
+			<a href="#" class="cell">
+				<header>Title</header>
+			</a>
+			<a href="#" class="cell">
+				<header>Title</header>
+			</a>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-info"></div>
-				<p>Info</p>
-			</div>
+		<h6>.toolbar</h6>
+		<div class="toolbar">
+			<ul>
+				<li>
+					<div class="search-field">
+						<input type="text" placeholder="Search" />
+						<input type="submit" value="Find" />
+					</div>
+				<li>
+					<input type="text" value="Text" />
+				</li>
+				<li>
+					<div class="float-label">
+						<label>Dropdown</label>
+						<select>
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+						</select>
+					</div>
+				</li>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+			</ul>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-error"></div>
-				<p>Error</p>
-			</div>
+		<div class="toolbar">
+			<ul>
+				<li>
+					<a href="#">First</a>
+				</li>
+				<li>
+					<a href="#">Prev</a>
+				</li>
 		</div>
 
-		<div class="pct25 left">
-			<div class="container">
-				<div class="swatch bg-warning"></div>
-				<p>Warning</p>
-			</div>
+		<h6>.vertical-toolbar</h6>
+		<div class="vertical-toolbar">
+			<header>Title</header>
+			<p>This is just some body text to describe the links.</p>
+			<ul>
+				<li>
+					<a href="#">Link</a>
+				</li>
+				<li>
+					<a href="#">Link</a>
+				</li>
+				<li>
+					<a href="#">Link</a>
+				</li>
+			</ul>
 		</div>
-	</div>
 
-	<h2 class="clear">Boxes</h2>
-	<div class="clear">
+		<h3><a name="boxes"></a>Boxes</h3>
+
 		<div class="box">
-			<header>Box Header</header>
-			<p>Box paragraph</p>
-			<footer>Box Footer</footer>
+			<header>Header</header>
+			<p>Body</p>
+			<footer>Footer</footer>
 		</div>
 
 		<div class="success">
-			<header>Success</header>
-			<p>Success message</p>
+			<header>Header</header>
+			<p>Body</p>
+			<footer>Footer</footer>
 		</div>
 
 		<div class="info">
-			<header>Info</header>
-			<p>Info message</p>
+			<header>Header</header>
+			<p>Body</p>
+			<footer>Footer</footer>
 		</div>
 
 		<div class="warning">
-			<header>Warning</header>
-			<p>Warning message</p>
+			<header>Header</header>
+			<p>Body</p>
+			<footer>Footer</footer>
 		</div>
 
 		<div class="error">
-			<header>Error</header>
-			<p>Error message</p>
+			<header>Header</header>
+			<p>Body</p>
+			<footer>Footer</footer>
+		</div>
+
+		<h2><a name="interactions"></a>Interactions</h2>
+		<p class="note">
+			Note: Satori's interactions require JavaScript but degrade gracefully where possible.
+		</p>
+
+		<h3><a name="slideshow"></a>Slideshow</h3>
+		<p class="note">
+			Note: The people behind Satori are not fans of carousels, but recognize that it's a popular feature in web design.
+			Please be aware that hiding content presents major usability issues, you should consider alternative designs before using this feature as a carousel.
+		</p>
+		<p>Satori's slideshow widget handles the traditional gallery slideshow that is common throughout the web, in addition to carousels.</p>
+		<p>The left and right arrow keys are bound to trigger the scroll events.</p>
+
+		<h4>Live Demo</h4>
+		<h5>Default Settings</h5>
+		<div class="container" data-role="slideshow">
+			<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+			<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+			<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+		</div>
+
+		<h5>Loop</h5>
+		<div class="container" data-role="slideshow" data-loop="true">
+			<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+			<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+			<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+		</div>
+
+		<h5>Timer of 1000ms w/ loop and disabled key events</h5>
+		<div class="container" data-role="slideshow" data-timer="1000" data-loop="true" data-bind-key-events="false">
+			<div data-slide="1" data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+			<div data-slide="2" data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+			<div data-slide="3" data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+			<div data-slide="4" data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+			<div data-slide="5" data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+			<div data-slide="6" data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+			<div data-slide="7" data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+			<div data-slide="8" data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+			<div data-slide="9" data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+		</div>
+
+		<h5>Multiple Visible Slides w/o Loop</h5>
+		<div class="container" data-role="slideshow" data-visible-slides="4" data-step="3">
+			<div data-role="slide" class="bg-primary"><p>Slide 1</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 2</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 3</p></div>
+			<div data-role="slide" class="bg-primary"><p>Slide 4</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 5</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 6</p></div>
+			<div data-role="slide" class="bg-primary"><p>Slide 7</p></div>
+			<div data-role="slide" class="bg-alternate"><p>Slide 8</p></div>
+			<div data-role="slide" class="bg-secondary"><p>Slide 9</p></div>
+		</div>
+
+		<h5>Highlight-Active w/ Loop</h5>
+		<div class="container" data-role="slideshow" data-visible-slides="3" data-hightlight-active="true" data-loop="true">
+			<div data-role="slide" class="bg-primary 1">
+				<p>Slide 1</p>
+				<p>Slide ###</p>
+			</div>
+			<div data-role="slide" class="bg-alternate 2">
+				<p>Slide 2</p>
+				<p>Slide ###</p>
+			</div>
+			<div data-role="slide" class="bg-secondary 3">
+				<p>Slide 3</p>
+				<p>Slide ###</p>
+			</div>
+			<div data-role="slide" class="bg-primary 4">
+				<p>Slide 4</p>
+				<p>Slide ###</p>
+			</div>
+			<div data-role="slide" class="bg-alternate 5">
+				<p>Slide 5</p>
+				<p>Slide ###</p>
+			</div>
+			<div data-role="slide" class="bg-secondary 6">
+				<p>Slide 6</p>
+				<p>Slide ###</p>
+			</div>
+		</div>
+
+		<h4>Slideshow Properties <small>(data-*)</small></h4>
+		<dl>
+			<dt>Timer</dt>
+			<dd>The timer attribute determines the time between automatic scrolling in milliseconds. Default is <strong>0</strong> (no automatic scrolling).</dd>
+
+			<dt>Visible-Slides</dt>
+			<dd>The number of slides that are visible at a given time. Default is <strong>1</strong>.</dd>
+
+			<dt>Step</dt>
+			<dd>The number of slides that move during each move event; this is most likely only needed when there are more than one visible slides. Default is <strong>1</strong>.</dd>
+
+			<dt>Loop</dt>
+			<dd>Allows the slideshow to repeat previous elements. Default is <strong>false</strong>.</dd>
+
+			<dt>Bind-Key-Events</dt>
+			<dd>Binds events to left arrow, right arrow, and escape keys. Default is <strong>true</strong>.</dd>
+
+			<dt>Show-Arrows</dt>
+			<dd>Set visibility left and right arrows. Default is <strong>true</strong>.</dd>
+
+			<dt>Show-Controls</dt>
+			<dd>Set visibility of controls (left and right arrows in a box, along with the number of slides). Default is <strong>false</strong>.</dd>
+
+			<dt>Highlight-Active</dt>
+			<dd>Adds emphasis to the center most visible slide; if the number of visible slides is even, it will take the center-most visible slide and
+				error to the left. In laymen's terms, if there are two visible slides, the active one will be the first slide. Default is <strong>false</strong>.</p>
+		</dl>
+
+		<h4>Markup Example</h4>
+		<pre class="code"><p><code>&lt;div class=&quot;container&quot; data-role=&quot;slideshow&quot;&gt;
+		&lt;div data-role=&quot;slide&quot; class=&quot;bg-primary&quot;&gt;
+			&lt;p&gt;Slide ###&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div data-role=&quot;slide&quot; class=&quot;bg-alternate&quot;&gt;
+			&lt;p&gt;Slide ###&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div data-role=&quot;slide&quot; class=&quot;bg-secondary&quot;&gt;
+			&lt;p&gt;Slide ###&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></p></pre>
+
+		<h3><a name="fixed-alerts"></a>Fixed Alerts</h3>
+		<p>
+			<button data-role="open-alert" data-alert-selector="#default-fixed-alert">Default</button>
+			<button data-role="open-alert" data-alert-selector="#default-fixed-alert-success">Success</button>
+		</p>
+		<div id="default-fixed-alert" class="hidden fixed-alert">
+			<header>
+				<div data-role="close-alert" class="right fake-link mobile-icon close no-text no-margin">Close Alert</div>
+				Fixed Alert
+			</header>
+			<p>This is an example of a fixed alert</p>
+		</div>
+		<div id="default-fixed-alert-success" class="hidden fixed-alert success">
+			<header>
+				<div data-role="close-alert" class="right fake-link mobile-icon close no-text no-margin">Close Alert</div>
+				This is a Success Fixed Alert
+			</header>
+			<p>This is an example of a fixed alert</p>
+		</div>
+
+		<h3><a name="modal-windows"></a>Modal Windows</h3>
+
+		<h4>Ajax</h4>
+		<p><button data-role="modal" data-href="">Ajax Call Modal Window</button></p>
+
+		<h4>Existing Content</h4>
+		<p>Modal windows can be opening with existing content.</p>
+		<p><button data-role="modal" data-container="#containerModalWindow" data-title="This is a Modal Window!">Container Modal Window</button></p>
+		<div id="containerModalWindow" class="hidden">
+				<p>You've opened a modal window! It has the following settings:</p>
+				<dl>
+					<dt>data-container</dt>
+					<dd>#containerModalWindow</dd>
+					<dt>data-title</dt>
+					<dd>This is a Modal Window!</dd>
+				</dl>
 		</div>
 	</div>
+</div>
 
 	<script src="test/scripts/jquery.js"></script>
 	<script src="vendor/assets/javascripts/satori.js"></script>

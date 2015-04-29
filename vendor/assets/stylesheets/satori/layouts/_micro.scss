@@ -39,7 +39,7 @@ body.micro {
     section {
       background: $background;
 			border: highlight-color($dark-grey) $border-size solid;
-		  @include box-shadow($dark-grey);
+		  // @include box-shadow($dark-grey);
 			border-radius: $border-radius;
 
       margin: $default-spacing 0 !important;

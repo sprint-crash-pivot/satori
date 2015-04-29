@@ -3,23 +3,21 @@ $layout-spacing: 2rem;
 
 // TODO Remove the colors from this and use .bg-{color} instead.
 
-body.new-dashboard {
+body.dashboard {
 	position: relative;
 	height: 100%;
 
-	.layout-wrap {
-		display: table;
-		height: 100%;
-	}
-
 	header.site-header {
-		display: table-cell;
-		min-width: $header-width;
+		position: fixed;
+		height: 100%;
 		width: $header-width;
-		vertical-align: top;
+		top: 0;
+		left: 0;
+		bottom: 0;
 
 		background-color: $primary;
 		color: highlight-color($primary, 60);
+		overflow: auto;
 
 		a {
 			color: set-text-color($primary);
@@ -48,20 +46,10 @@ body.new-dashboard {
 				font-size: 1.25em;
 			}
 		}
-
-		.heading {
-			font-size: 1.25rem;
-			font-family: $header-font-small;
-			font-weight: $header-font-small-weight;
-			padding: $default-spacing;
-
-			background-color: highlight-color($primary, 5);
-		}
 	}
 
 	div.page-content {
-		display: table-cell;
-		width: 100%;
+		margin-left: $header-width;
 		position: relative;
 	}
 
@@ -75,7 +63,6 @@ body.new-dashboard {
 	}
 
 	section {
-		@include box-shadow($dark-grey);
 		margin: $default-spacing;
 		border: $dark-grey $border-size solid;
 		border-radius: $border-radius;

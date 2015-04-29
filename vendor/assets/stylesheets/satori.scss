@@ -206,7 +206,7 @@ choices (e.g. class="success bg-grey").
 
 .toolbar {
 	@include border($dark-grey);
-  @include box-shadow($dark-grey);
+  // @include box-shadow($dark-grey);
 	background-color: $box-background;
 	margin: $default-spacing;
 
@@ -738,7 +738,7 @@ a.delete, button.delete, input.delete {
 .box {
 	display: block;
 	@include border($dark-grey);
-  @include box-shadow($dark-grey);
+  // @include box-shadow($dark-grey);
 
 	// TODO Move this to header??
 	border-top: calc(#{$base-size} / 4) $primary solid;
@@ -952,8 +952,7 @@ nav {
 		float: left;
 		margin: 0;
 		padding: 0;
-		line-height: 1.25;
-		height: 2.5rem;
+		line-height: 1.5;
 
 		&:nth-of-type(n) {
 			margin-left: 0 !important;
@@ -971,6 +970,20 @@ nav {
 	}
 
 	&.vertical-nav {
+		header, .heading {
+			font-size: 1.25rem;
+			line-height: 1.5;
+			font-family: $header-font-small;
+			font-weight: $header-font-small-weight;
+			padding: $default-spacing;
+
+			background-color: highlight-color($primary, 5);
+
+			a {
+				margin: -$default-spacing;
+			}
+		}
+
 		li {
 			float: none;
 			margin: 0;
