@@ -193,23 +193,30 @@ table {
     }
 
     th {
-      border-right: $border-size solid $dark-grey;
+      // border-right: $border-size solid $dark-grey;
 
+      /*
       &:last-of-type {
         border-right: none;
       }
+      //*/
     }
   }
 
   td, th {
     padding: 0.5em;
     vertical-align: top;
+    text-align: left;
+
+    &.numeric {
+      text-align: right;
+    }
   }
 
   tbody {
     tr {
       td {
-        border-bottom: $border-size solid $dark-grey;
+        // border-bottom: $border-size solid $dark-grey;
       }
 
       &:last-of-type td  {

@@ -570,20 +570,6 @@ choices (e.g. class="success bg-grey").
 	}
 }
 
-.actions {
-	@extend .clearfix;
-	@extend .container;
-
-	input[type=submit], button {
-		width: auto;
-		margin: 0 0.25em;
-
-		&:nth-child-of-type(1) {
-			margin-left: none;
-		}
-	}
-}
-
 .float-label {
 	@extend .clearfix;
 

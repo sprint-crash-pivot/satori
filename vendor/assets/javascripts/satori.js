@@ -342,6 +342,17 @@ $document.on("page:load ready", function(event) {
 	ToggleEdit.ready(event);
 	Slideshow.ready(event);
 
+	$document.on("click.fakeLink", "[data-role*=fake-link]", function(event) {
+		var $link = $(this),
+				href = $link.data("href");
+
+		if (href) {
+				event.preventDefault();
+
+				window.location = href;
+		}
+	});
+
 	// Alert Stuff
 	$document.on("click.openAlert", "[data-role*=open-alert]", function(event) {
 		var $alert = $($(this).data("alert-selector"));
