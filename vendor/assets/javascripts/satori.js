@@ -97,7 +97,68 @@ var ToggleEdit = {
 	}
 };
 
-ModalWindow = {
+var Tooltip = {
+	ready: function(event, $document) {
+		var $tooltip = $("#satori-tooltip");
+
+		if ($tooltip.length == 0) {
+			$tooltip = $("<div id=\"satori-tooltip\">").addClass("tooltip").appendTo(document.body);
+		}
+
+		$document.on("click.toggleTooltip", "[data-role*=tooltip]", Tooltip.open);
+		$document.on("keyup.closeTooltip", function(event) {
+			if (event.keyCode == 27) {
+				Tooltip.close(event);
+			}
+		});
+
+		$("[data-role*=tooltip]").addClass("tooltip-icon");
+	},
+	open: function(event) {
+		var $this = $(this),
+				$tooltip = $("#satori-tooltip"),
+				header = $this.data("title")
+				content = $this.data("content");
+
+		if (content) {
+			var $header = $("<header>"),
+					$content = $("<p>");
+
+			if (header) {
+				$header.html(header)
+			}
+
+			if (content) {
+				$content.html(content);
+			}
+
+			$tooltip.empty().append($header).append($content);
+		} else {
+			$tooltip.html($this.html());
+		}
+
+		$tooltip.show();
+
+		$tooltip.css({
+			top: $this.offset().top + $this.width() + "px",
+			left: $this.offset().left + "px"
+		});
+
+		$document.on("click.closeTooltip", Tooltip.close);
+	},
+	close: function(event) {
+		var $this = $(this),
+				$tooltip = $("#satori-tooltip");
+
+		if (!$.contains($tooltip[0], event.target)) {
+			$tooltip.hide();
+
+			$document.off("click.closeTooltip");
+		}
+	}
+};
+
+var ModalWindow = {
 	ready: function(event, $document) {
 		var $overlay = ModalWindow.findOverlay(),
 				$modal = ModalWindow.findModal();
@@ -336,6 +397,7 @@ var Slideshow = {
 
 $document.on("page:load ready", function(event) {
 	ModalWindow.ready(event, $document);
+	Tooltip.ready(event, $document);
 
 	CopyContents.ready(event);
 	ToggleMenu.ready(event);

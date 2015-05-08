@@ -13,13 +13,12 @@
 			<div class="title"><a href="test/index.html">Satori</a><br/><small>A UI Framework</small></div>
 		</div>
 
-		<p class="text-center"><a href="test/satori.html#top">[ Go to top ]</a></p>
-
 		<nav class="vertical-nav">
 			<header><a href="test/satori.html#style">Style</a></header>
 			<ul>
 				<li><a href="test/satori.html#typography">Typography</a></li>
 				<li><a href="test/satori.html#colors">Colors</a></li>
+				<li><a href="test/satori.html#icons">Icons</a></li>
 			</ul>
 
 			<header><a href="test/satori.html#elements">Elements</a></header>
@@ -47,7 +46,7 @@
 
 		<h3><a name="typography"></a>Typography</h3>
 		<p>Headers use Impact Bold and the body font is Helvetica Thin.</p>
-		<p>By defauly, H1-H3 uses the primary color and H4-H6 uses dark grey. Using the small tag in the header will always result in smaller grey text.</p>
+		<p>By default, H1-H3 uses the primary color and H4-H6 uses dark grey. Using the small tag in the header will always result in smaller grey text.</p>
 
 		<h3><a name="colors"></a>Colors</h3>
 		<h4>Base Colors</h4>
@@ -162,6 +161,13 @@
 					<p>Warning</p>
 				</div>
 			</div>
+		</div>
+
+		<h3><a name="icons"></a>Icons</h3>
+
+		<div class="container">
+			<div class="mobile-icon question">Question</div>
+			<div class="mobile-icon info">Info</div>
 		</div>
 
 		<h2><a name="elements"></a>Elements</h2>
@@ -491,6 +497,29 @@
 				This is a Success Fixed Alert
 			</header>
 			<p>This is an example of a fixed alert</p>
+		</div>
+
+		<h3><a name="tooltip"></a>Tooltip</h3>
+
+		<h4>Tooltip Properties <small>(data-*)</small></h4>
+		<dl>
+			<dt>Title</dt>
+			<dd>The title of the tooltip.</dd>
+			<dt>Content</dt>
+			<dd>The body of the tooltip. This will override the content within the tooltip element.</dd>
+		</dl>
+
+		<h4>Using data-* Properties</h4>
+		<div class="container">
+			<div class="mobile-icon info text-primary" data-role="tooltip" data-title="What is a tooltip?" data-content="This is a tooltip.">What is a tooltip?</div>
+		</div>
+
+		<h4>Using Aside & Header Tags</h4>
+		<div class="container">
+			<aside class="mobile-icon info text-primary" data-role="tooltip">
+				<header>This is a header</header>
+				<p>Some content.</p>
+			</aside>
 		</div>
 
 		<h3><a name="modal-windows"></a>Modal Windows</h3>

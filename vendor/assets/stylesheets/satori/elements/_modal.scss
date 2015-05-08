@@ -54,3 +54,15 @@
   // TODO These should be variables....
   z-index: 1001;
 }
+
+.tooltip-icon {
+  * {
+    display: none;
+  }
+}
+
+.tooltip {
+  @extend .fixed-alert;
+
+  position: absolute;
+}

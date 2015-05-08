@@ -10,6 +10,7 @@
 @import 'satori/base';
 @import 'satori/_base-classes';
 
+@import 'satori/elements/form';
 @import 'satori/elements/modal';
 @import 'satori/elements/slideshow';
 
@@ -488,6 +489,20 @@ choices (e.g. class="success bg-grey").
 		text-align: center;
 	}
 
+	&.question {
+		&:before {
+			@include button-icon;
+			content: "\f059";
+		}
+	}
+
+	&.info {
+		&:before {
+			@include button-icon;
+			content: "\f05a";
+		}
+	}
+
 	&.delete {
 		&:before {
 			@include button-icon;
@@ -584,7 +599,7 @@ choices (e.g. class="success bg-grey").
 		line-height: 1;
 		z-index: 2;
 		white-space: nowrap;
-		font-size: 0.75em;
+		font-size: 0.75rem;
 	}
 
 	input, textarea, select, .fake-input {
@@ -745,7 +760,7 @@ a.delete, button.delete, input.delete {
 	}
 }
 
-.success, .info, .warning, .error {
+.success, .info:not(.mobile-icon), .warning, .error {
 	@extend .box;
 
 	position: relative;
@@ -788,7 +803,7 @@ a.delete, button.delete, input.delete {
 	}
 }
 
-.info {
+.info:not(.mobile-icon) {
 	border-color: $info;
 
 	&:before {
@@ -924,7 +939,6 @@ a.delete, button.delete, input.delete {
 .no-text {
 	font-size: 0;
 }
-
 
 nav {
 	@extend .clearfix;
