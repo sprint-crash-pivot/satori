@@ -65,4 +65,6 @@
   @extend .fixed-alert;
 
   position: absolute;
+  width: 400px;
+  max-width: none;
 }

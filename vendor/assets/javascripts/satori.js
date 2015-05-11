@@ -395,9 +395,70 @@ var Slideshow = {
 	}
 }
 
+var Tabs = {
+	ready: function(event, $document) {
+		$document.on("click.activateTab", "[data-role*=tabs] nav li", Tabs.click);
+
+		var $container = $document.find("[data-role*=tabs]"),
+				$tabs = $container.find("nav li"),
+				initial = $container.data("initial"),
+				$active = null,
+				$target = null;
+
+		console.log(initial);
+
+		if (typeof initial == "number") {
+			console.log("number");
+			$active = $tabs.filter(":eq(" + (initial-1) + ")");
+		} else {
+			$active = $tabs.filter(initial);
+		}
+
+		console.log($active);
+
+		if ($active.length) {
+			$target = $active;
+		} else if ($tabs.first().length) {
+			$target = $tabs.first();
+		}
+
+		if ($target.length) {
+			$target.trigger("click.activateTab")
+		} else {
+			Logger.log("Cannot find an active or first tab.");
+		}
+	},
+	click: function(event) {
+		var $this = $(this),
+				target = $this.data("target")
+				$container = $this.closest("[data-role*=tabs]"),
+				$tabs = $container.find("nav  li"),
+				$sections = $container.children("section"),
+				$target = $sections.filter(target);
+
+
+		if ($target.length) {
+			$tabs.removeClass("active")
+			$tabs.filter($this[0]).addClass("active");
+
+			$sections.hide();
+			$target.show();
+		} else if ($tabs.length === $sections.length) {
+			$tabs.removeClass("active")
+			$tabs.filter($this[0]).addClass("active");
+
+			$sections.hide();
+			$sections.filter($sections[$tabs.filter($this[0]).index()]).show();
+		} else {
+			Logger.log("The tab has no target section.");
+		}
+	}
+}
+
 $document.on("page:load ready", function(event) {
 	ModalWindow.ready(event, $document);
 	Tooltip.ready(event, $document);
+	Tabs.ready(event, $document);
 
 	CopyContents.ready(event);
 	ToggleMenu.ready(event);

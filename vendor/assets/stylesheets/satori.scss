@@ -12,6 +12,7 @@
 
 @import 'satori/elements/form';
 @import 'satori/elements/modal';
+@import 'satori/elements/nav';
 @import 'satori/elements/slideshow';
 
 @import 'satori/layouts/basic-mobile';
@@ -938,131 +939,6 @@ a.delete, button.delete, input.delete {
 
 .no-text {
 	font-size: 0;
-}
-
-nav {
-	@extend .clearfix;
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	li {
-		float: left;
-		margin: 0;
-		padding: 0;
-		line-height: 1.5;
-
-		&:nth-of-type(n) {
-			margin-left: 0 !important;
-		}
-	}
-
-	a {
-		display: block;
-		margin: $default-spacing calc(#{$default-spacing / 2});
-		padding: $default-spacing;
-
-		&.button {
-			padding: 0 $default-spacing;
-		}
-	}
-
-	&.vertical-nav {
-		header, .heading {
-			font-size: 1.25rem;
-			line-height: 1.5;
-			font-family: $header-font-small;
-			font-weight: $header-font-small-weight;
-			padding: $default-spacing;
-
-			background-color: highlight-color($primary, 5);
-
-			a {
-				margin: -$default-spacing;
-			}
-		}
-
-		li {
-			float: none;
-			margin: 0;
-
-			a {
-				margin: 0;
-			}
-
-			/* no border for now
-			border-bottom: $dark-grey $border-size solid;
-
-			&:nth-child(1) {
-				border-top: $dark-grey $border-size solid;
-			}
-			*/
-		}
-	}
-
-	&.secondary-nav {
-		height: calc(1.5rem + (2 * #{$default-spacing}));
-		overflow: hidden;
-		position: relative;
-		width: 100%;
-
-		.arrow {
-			display: block;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			width: 40px;
-
-			&.dir-left {
-				left: 0px;
-
-				&:before {
-					@include mobile-icon;
-				  @extend .fa;
-
-					top: 0.75rem;
-					left: 0.75rem;
-					font-size: 1rem;
-				  content: "\f053";
-				}
-			}
-
-			&.dir-right {
-				right: 0;
-
-				&:before {
-					@include mobile-icon;
-				  @extend .fa;
-
-					top: 0.875rem;
-					left: 0.875rem;
-					font-size: 1rem;
-				  content: "\f054";
-				}
-			}
-		}
-
-		.arrow ~ ul {
-			padding: 0 40px;
-		}
-
-		li {
-			margin: 0;
-		}
-
-		a {
-			padding: $default-spacing;
-			margin: 0 $default-spacing;
-			border-bottom: 0.25em solid transparent;
-			text-decoration: none !important;
-
-			&:hover, &:focus {
-				border-bottom: 0.25em solid lighten($link, 10);
-			}
-		}
-	}
 }
 
 // base fixes
