@@ -267,6 +267,8 @@
 		</dl>
 
 		<h4>Demo</h4>
+
+		<h5>Implied Tabs/Sections</h5>
 		<div data-role="tabs" data-initial="2">
 			<nav>
 				<ul>
@@ -283,6 +285,27 @@
 			</section>
 			<section>
 				<p>Test 3</p>
+			</section>
+		</div>
+
+		<h5>Selector Tabs/Sections</h5>
+		<p class="note">View the source to see that the order of the sections do not matter.</p>
+		<div data-role="tabs" data-initial="#tabsSection3">
+			<nav>
+				<ul>
+					<li data-target="#tabsSection1">Tab</li>
+					<li data-target="#tabsSection2">Tab</li>
+					<li data-target="#tabsSection3">Tab</li>
+				</ul>
+			</nav>
+			<section id="tabsSection3">
+				<p>Test 3</p>
+			</section>
+			<section id="tabsSection1">
+				<p>Test 1</p>
+			</section>
+			<section id="tabsSection2">
+				<p>Test 2</p>
 			</section>
 		</div>
 

@@ -399,34 +399,31 @@ var Tabs = {
 	ready: function(event, $document) {
 		$document.on("click.activateTab", "[data-role*=tabs] nav li", Tabs.click);
 
-		var $container = $document.find("[data-role*=tabs]"),
-				$tabs = $container.find("nav li"),
-				initial = $container.data("initial"),
-				$active = null,
-				$target = null;
+		$document.find("[data-role*=tabs]").each(function(i, obj) {
+			var	$container = $(obj),
+					$tabs = $container.find("nav li"),
+					initial = $container.data("initial"),
+					$active = null,
+					$target = null;
 
-		console.log(initial);
+			if (typeof initial == "number") {
+				$active = $tabs.filter(":eq(" + (initial-1) + ")");
+			} else {
+				$active = $tabs.filter("[data-target=" + initial + "]");
+			}
 
-		if (typeof initial == "number") {
-			console.log("number");
-			$active = $tabs.filter(":eq(" + (initial-1) + ")");
-		} else {
-			$active = $tabs.filter(initial);
-		}
+			if ($active.length) {
+				$target = $active;
+			} else if ($tabs.first().length) {
+				$target = $tabs.first();
+			}
 
-		console.log($active);
-
-		if ($active.length) {
-			$target = $active;
-		} else if ($tabs.first().length) {
-			$target = $tabs.first();
-		}
-
-		if ($target.length) {
-			$target.trigger("click.activateTab")
-		} else {
-			Logger.log("Cannot find an active or first tab.");
-		}
+			if ($target.length) {
+				$target.trigger("click.activateTab")
+			} else {
+				Logger.log("Cannot find an active or first tab.");
+			}
+		});
 	},
 	click: function(event) {
 		var $this = $(this),
@@ -435,7 +432,6 @@ var Tabs = {
 				$tabs = $container.find("nav  li"),
 				$sections = $container.children("section"),
 				$target = $sections.filter(target);
-
 
 		if ($target.length) {
 			$tabs.removeClass("active")
