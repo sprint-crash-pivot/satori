@@ -29,11 +29,4 @@
 			line-height: 1;
 		}
 	}
-
-	section {
-		// @include box-shadow($dark-grey);
-		margin: $default-spacing;
-		border: highlight-color($dark-grey) $border-size solid;
-		border-radius: $border-radius;
-	}
 }

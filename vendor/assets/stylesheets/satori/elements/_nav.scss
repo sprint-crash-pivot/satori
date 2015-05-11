@@ -124,10 +124,11 @@ nav {
 }
 
 [data-role*=tabs] {
+  margin: $default-spacing;
+
   nav {
     ul {
       @extend .clearfix;
-      margin: 0 $default-spacing;
 
       li {
         background: $grey;
@@ -151,6 +152,5 @@ nav {
 
   section {
     border: $border-size $dark-grey solid;
-    margin: 0 $default-spacing;
   }
 }
