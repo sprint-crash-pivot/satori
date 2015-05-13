@@ -24,7 +24,6 @@
   border-radius: $border-radius;
   border: $border-size $dark-grey solid;
   border-top: calc(#{$base-size} / 4) $primary solid;
-  // overflow: hidden;
 
   #satori-modal-top-toolbar, header {
     border-radius: $border-radius $border-radius 0 0;

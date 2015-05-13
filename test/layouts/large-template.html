@@ -7,8 +7,8 @@
 	<link rel="stylesheet" href="tmp/site.css" />
 </head>
 <body class="large-template">
-		<header class="site-header bg-background">
-			<div class="soft-container">
+	<header class="site-header bg-background">
+		<div class="soft-container">
 			<nav class="secondary-nav">
 				<ul>
 					<li><a href="#">Register</a></li>
@@ -44,10 +44,10 @@
 				</ul>
 			</nav>
 		</div>
-		</header>
+	</header>
 
-		<main class="bg-background">
-			<div class="soft-container">
+	<main>
+		<div class="soft-container">
 			<section>
 				<h2>View This Page's Source Code</h2>
 				<p>View this page's source code to see how it was created.</p>
@@ -61,18 +61,16 @@
 				<h2>A Quick Tip</h2>
 				<p>You may want to create a separate SASS stylesheet and include Satori's classes to simplify your code. The following code is recommended:</p>
 
-				<div class="bg-grey">
-<pre>
+				<div class="splash bg-grey">
+					<div class="soft-container">
+						<pre class="container">section {
+	@extend bg-white;
 
-  section {
-    @extend bg-white;
-
-    footer {
-      @extend bg-grey;
-    }
-  }
-
-</pre>
+	footer {
+		@extend bg-grey;
+	}
+}</pre>
+					</div>
 				</div>
 
 				<p>This allows you to avoid having to include bg-white and bg-grey in each section. It leads to slightly more maintainable code.</p>
@@ -82,10 +80,10 @@
 				</footer>
 			</section>
 		</div>
-		</main>
+	</main>
 
-		<footer class="site-footer">
-			<div class="soft-container">
+	<footer class="site-footer">
+		<div class="soft-container">
 			<nav class="secondary-nav">
 				<ul>
 					<li><a href="#">Register</a></li>
@@ -96,10 +94,10 @@
 
 			<p class="text-center">&copy; <a href="http://www.sprintcrashpivot.com">2015 Sprint, Crash, Pivot</a></p>
 		</div>
-		</footer>
-	</div>
+	</footer>
+</div>
 
-	<script src="test/scripts/jquery.js"></script>
-	<script src="vendor/assets/javascripts/satori.js"></script>
+<script src="test/scripts/jquery.js"></script>
+<script src="vendor/assets/javascripts/satori.js"></script>
 </body>
 </html>

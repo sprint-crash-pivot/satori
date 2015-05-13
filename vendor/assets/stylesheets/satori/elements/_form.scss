@@ -16,3 +16,16 @@
 		z-index: 1
 	}
 }
+
+.inline-input {
+	overflow: hidden;
+
+	.right {
+		margin-left: $default-spacing;
+	}
+
+	& > *:not(.right) {
+		overflow: hidden;
+		margin-right: $default-spacing;
+	}
+}

@@ -15,47 +15,12 @@
 @import 'satori/elements/nav';
 @import 'satori/elements/slideshow';
 
+@import 'satori/layouts/layout';
 @import 'satori/layouts/basic-mobile';
 @import 'satori/layouts/large-template';
 @import 'satori/layouts/micro';
 @import 'satori/layouts/new-dashboard';
 @import 'satori/layouts/personal';
-
-// TODO Create _layout base file
-body {
-	overflow-x: hidden; // TODO it would be nice to remove this
-}
-
-main, .main {
-	overflow: hidden;
-}
-
-.sidebar {
-	width: $sidebar-width;
-}
-
-.sidebar:after {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	background: $grey;
-	content: " ";
-	z-index: -1;
-}
-
-.sidebar.left:after {
-	left: -100%;
-	width: calc(100% + #{$sidebar-width});
-
-	border-right: $border-size $dark-grey solid;
-}
-
-.sidebar.right:after {
-	width: 100%;
-
-	border-left: $border-size $dark-grey solid;
-}
-// End TODO
 
 header:not(.site-header) {
 	font-family: $header-font-small;
@@ -689,51 +654,6 @@ a.delete, button.delete, input.delete {
 
 .px40 {
 	height: 2.5rem;
-}
-
-.soft-container {
-	position: relative; // this is new
-	max-width: $max-width;
-	margin: 0 auto;
-	@extend .clearfix;
-}
-
-.splash {
-	margin: 0 -100%; // TODO fix this, -100% "only" goes out to 3600px
-}
-
-.button-nav {
-	@extend .clearfix;
-	margin: 0.25em;
-
-	ul {
-		list-style: none;
-		padding: 0;
-	}
-
-	li {
-		float: left;
-		margin: 0.25em 0.25em 0.25em 0;
-
-		&:last-child {
-			margin-left: 0.25em !important;
-		}
-	}
-
-	a {
-		display: inline-block;
-		font-size: 1em;
-		padding: 0.5em;
-		border-radius: $border-radius;
-		color: $grey;
-		text-decoration: none;
-
-		&:hover, &:focus {
-			background: $grey;
-			color: $text;
-			text-decoration: none !important;
-		}
-	}
 }
 
 // BOXES

@@ -35,8 +35,6 @@ nav {
 			font-weight: $header-font-small-weight;
 			padding: $default-spacing;
 
-			background-color: highlight-color($primary, 5);
-
 			a {
 				margin: -$default-spacing;
 			}
@@ -49,19 +47,10 @@ nav {
 			a {
 				margin: 0;
 			}
-
-			/* no border for now
-			border-bottom: $dark-grey $border-size solid;
-
-			&:nth-child(1) {
-				border-top: $dark-grey $border-size solid;
-			}
-			*/
 		}
 	}
 
 	&.secondary-nav {
-		height: calc(1.5rem + (2 * #{$default-spacing}));
 		overflow: hidden;
 		position: relative;
 		width: 100%;
@@ -111,7 +100,7 @@ nav {
 		}
 
 		a {
-			padding: $default-spacing;
+			padding: $default-spacing $default-spacing calc(#{$default-spacing} - 0.25em);
 			margin: 0 $default-spacing;
 			border-bottom: 0.25em solid transparent;
 			text-decoration: none !important;
