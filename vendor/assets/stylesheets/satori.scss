@@ -820,6 +820,18 @@ a.delete, button.delete, input.delete {
 	}
 }
 
+.text-dark-grey {
+	color: $dark-grey;
+
+	a {
+		color: $grey;
+
+		&:hover, &:focus {
+			color: $text;
+		}
+	}
+}
+
 .text-border {
 	color: $dark-grey;
 
@@ -870,8 +882,12 @@ input.secondary {
   @extend a.secondary;
 }
 
-
 // Order matters, this needs to be last.
+.block {
+	display: block;
+	width: 100%;
+}
+
 .hidden { display: none; }
 .no-padding { padding: 0; }
 .no-margin { margin: 0; }

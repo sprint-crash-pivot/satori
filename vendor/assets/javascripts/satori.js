@@ -451,10 +451,66 @@ var Tabs = {
 	}
 }
 
+var DropdownMenu = {
+	spacing: 10,
+	ready: function(event, $doc) {
+		$doc.off("click.show-menu").on("click.show-menu", "[data-role=menu]", DropdownMenu.show);
+
+		$("[data-role=menu]").each(function(i, obj) {
+			var $menu = $(obj),
+					$target = $($menu.data("menu-target"));
+
+			$target.hide().appendTo(document.body);
+			$target.attr("data-role", "menu-body");
+		});
+	},
+	show: function(event) {
+		var $this = $(this),
+				$window = $(window),
+				$document = $(document),
+				$target = $($this.data("menu-target")),
+				top = $this.offset().top + $this.height() + DropdownMenu.spacing;
+
+		if ($target.length < 1) {
+			Logger.log("The menu has no menu-target.");
+		}
+
+		if ($this.data("menu-fixed") === true) {
+			$target.css("position", "fixed");
+			top = top - $window.scrollTop();
+		}
+
+		$target.css({
+			top: top + "px",
+			left: $this.offset().left + "px"
+		});
+
+		$target.show();
+		$document.on("click.hide-menu", DropdownMenu.hide);
+		event.preventDefault();
+	},
+	hide: function(event) {
+		var $document = $(document),
+				$target = $(event.targetElement),
+				$bodies = $("[data-role=menu-body]");
+
+		$bodies.each(function(i, obj) {
+			var $obj = $(obj);
+
+			if (!$.contains(obj, event.target)) {
+				$obj.hide();
+
+				$document.off("click.hide-menu");
+			}
+		});
+	}
+}
+
 $document.on("page:load ready", function(event) {
 	ModalWindow.ready(event, $document);
 	Tooltip.ready(event, $document);
 	Tabs.ready(event, $document);
+	DropdownMenu.ready(event, $document);
 
 	CopyContents.ready(event);
 	ToggleMenu.ready(event);

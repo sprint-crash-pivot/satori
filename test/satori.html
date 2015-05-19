@@ -39,6 +39,7 @@
 
 			<header class="bg-primary"><a href="test/satori.html#interactions">Interactions</a></header>
 			<ul>
+				<li><a href="test/satori.html#dropdowns">Dropdowns</a></li>
 				<li><a href="test/satori.html#slideshow">Slideshow</a></li>
 				<li><a href="test/satori.html#fixed-alerts">Fixed Alerts</a></li>
 				<li><a href="test/satori.html#modal-windows">Modal Windows</a></li>
@@ -378,14 +379,26 @@
 		</div>
 
 		<h4>Secondary Navigation</h4>
-		<p>This navigation element is slightly smaller than the default one. This emphasis navigation for mobile devices.</p>
+		<p>This navigation element is slightly smaller than the default one. This emphasis navigation for mobile devices. Max height is 2.5rem (40px); overflow is handled by JavaScript..</p>
 
 		<div class="container">
 			<nav class="secondary-nav bg-primary">
 				<ul>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
+					<li><a href="#">Link 1</a></li>
+					<li><a href="#">Link 2</a></li>
+					<li><a href="#">Link 3</a></li>
+					<li><a href="#">Link 4</a></li>
+					<li><a href="#">Link 5</a></li>
+					<li><a href="#">Link 6</a></li>
+					<li><a href="#">Link 7</a></li>
+					<li><a href="#">Link 8</a></li>
+					<li><a href="#">Link 9</a></li>
+					<li><a href="#">Link 10</a></li>
+					<li><a href="#">Link 11</a></li>
+					<li><a href="#">Link 12</a></li>
+					<li><a href="#">Link 13</a></li>
+					<li><a href="#">Link 14</a></li>
+					<li><a href="#">Link 15</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -558,6 +571,37 @@
 		<p class="note">
 			Note: Satori's interactions require JavaScript but degrade gracefully where possible.
 		</p>
+
+		<h3><a name="dropdowns"></a>Dropdowns</h3>
+
+		<h4>Dropdown Properties <small>(data-*)</small></h4>
+		<dl>
+			<dt>Menu-Target</dt>
+			<dd>The selector for the menu body. Normally will be an ID (#some-menu-id).</dd>
+
+			<dt>Menu-Fixed</dt>
+			<dd>If you want the menu to stay in the same spot as the page scrolls, set this to "true".</dd>
+		</dl>
+
+		<h4>Demo</h4>
+		<div class="container">
+			<button data-role="menu" data-menu-target="#dropdown-menu">Dropdown</button>
+			<button data-role="menu" data-menu-target="#fixed-dropdown-menu" data-menu-fixed="true">Fixed Dropdown</button>
+			<nav id="dropdown-menu" class="dropdown-menu vertical-nav">
+				<ul>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+				</ul>
+			</nav>
+			<nav id="fixed-dropdown-menu" class="dropdown-menu vertical-nav">
+				<ul>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+				</ul>
+			</nav>
+		</div>
 
 		<h3><a name="slideshow"></a>Slideshow</h3>
 		<p class="note">

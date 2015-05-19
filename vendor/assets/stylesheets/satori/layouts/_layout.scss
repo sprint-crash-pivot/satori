@@ -12,6 +12,11 @@ body {
 .splash {
 	position: relative;
 
+	/* This might be better than :before
+	margin: 0 -100%;
+	padding: 0 100%;
+	//*/
+
 	&:before {
 		position: absolute;
 		background: inherit;
@@ -26,11 +31,28 @@ body {
 }
 
 .entabulature {
-  @extend .clearfix;
-  position: relative;
-
+	position: relative;
 	border-top: $border-size $dark-grey solid;
 	border-bottom: $border-size $dark-grey solid;
+
+	&:after {
+		display: block;
+		content: " ";
+		clear: both;
+	}
+
+	&:before {
+		position: absolute;
+		content: " ";
+		height: calc(100% + 2px);
+		width: 300%;
+		top: -1px;
+		left: -100%;
+		z-index: -1;
+
+		border-top: $border-size $dark-grey solid;
+		border-bottom: $border-size $dark-grey solid;
+	}
 }
 
 .sidebar {
