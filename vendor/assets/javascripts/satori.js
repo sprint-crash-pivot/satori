@@ -530,12 +530,6 @@ var ResponsiveTables = {
 					$hidden = $headers.filter("[data-responsive-column=hidden]"),
 					$rows = $table.find("tbody tr");
 
-			console.log(table);
-			console.log("Headers:" + $headers.length),
-			console.log("Essential: " + $essential.length);
-			console.log("Optional (default): " + $optional.length);
-			console.log("Hidden: " + $hidden.length);
-
 			$headers.each(function(j, th) {
 				var $th = $(th)
 						type = $th.data("responsive-column") || "optional",
@@ -556,8 +550,6 @@ var ResponsiveTables = {
 				}
 
 				$checkbox.data("responsive-column-index", j);
-				console.log($checkbox.data("responsive-column-index"));
-
 				$checkbox.on("change.toggleDisplay", function(event) {
 					var $checkbox = $(this),
 							index = $checkbox.data("responsive-column-index");
