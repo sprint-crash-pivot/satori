@@ -142,7 +142,7 @@ select {
   background: $input-color url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
 }
 
-input[type=submit], input[type=reset], button, a.button {
+input[type=submit], input[type=reset], button, .button {
   @extend .inline-field;
   color: $text;
 
@@ -262,4 +262,15 @@ pre {
 canvas {
   width: 100%;
   height: 300px;
+}
+
+header:not(.site-header) {
+	font-family: $header-font-small;
+	font-weight: $header-font-small-weight;
+	font-size: 1.5rem;
+	padding: $default-spacing;
+}
+
+footer:not(.site-footer) {
+	padding: $default-spacing;
 }

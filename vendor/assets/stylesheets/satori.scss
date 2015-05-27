@@ -22,17 +22,6 @@
 @import 'satori/layouts/new-dashboard';
 @import 'satori/layouts/personal';
 
-header:not(.site-header) {
-	font-family: $header-font-small;
-	font-weight: $header-font-small-weight;
-	font-size: 1.5rem;
-	padding: $default-spacing;
-}
-
-footer:not(.site-footer) {
-	padding: $default-spacing;
-}
-
 .width-container {
 	padding: 0 $default-spacing;
 }
@@ -189,7 +178,7 @@ choices (e.g. class="success bg-grey").
 			margin: 0;
 			padding: 0 $default-spacing;
 
-			&:nth-last-of-type(1) {
+			&:nth-last-of-type(0) {
 				border-right: none;
 			}
 		}
@@ -212,6 +201,7 @@ choices (e.g. class="success bg-grey").
 	@extend .box;
 
 	header {
+		color: $header-color;
 		border-bottom: $border-size $dark-grey solid;
 	}
 
@@ -672,6 +662,7 @@ a.delete, button.delete, input.delete {
 	margin: $default-spacing;
 
 	header {
+		color: $header-color;
 		border-bottom: $border-size $dark-grey solid;
 	}
 
@@ -689,6 +680,7 @@ a.delete, button.delete, input.delete {
 	border-left: calc(#{$base-size * 2.5}) solid $grey;
 
 	header {
+		color: $header-color;
 		border-bottom: none;
 	}
 
@@ -744,9 +736,10 @@ a.delete, button.delete, input.delete {
 	&:nth-child(0) {
 		border-top: none;
 	}
+
 	.header {
 		background: $background;
-		color: $grey;
+		color: $header-color;
 		font-weight: bold;
 		border-bottom: 1px solid $grey;
 		border-top: 1px solid $grey;
@@ -880,6 +873,16 @@ input.primary {
 
 input.secondary {
   @extend a.secondary;
+}
+
+.responsive-table-header {
+	@extend .clearfix;
+	margin: 0 $default-spacing;
+
+	.button {
+		border-bottom: transparent;
+		border-radius: $border-radius $border-radius 0 0;
+	}
 }
 
 // Order matters, this needs to be last.

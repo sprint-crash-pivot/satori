@@ -249,8 +249,10 @@
 		</div>
 
 		<h3><a name="tables"></a>Tables</h3>
+
+		<h4>Non-Responsive Table</h4>
 		<div class="container">
-			<table class="zebra">
+			<table data-responsive="false">
 				<thead>
 					<tr>
 					<th>Table Header 1</th>
@@ -273,6 +275,42 @@
 						<td>Division 1</td>
 						<td>Division 2</td>
 						<td>Division 3</td>
+					</tr>
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+		</div>
+
+		<h4>Responsive Table <small>(Requires JavaScript)</small></h4>
+		<div class="container">
+			<table>
+				<thead>
+					<tr>
+					<th data-responsive-column="essential">Table Header 1</th>
+					<th data-responsive-column="optional">Table Header 2</th>
+					<th>Table Header 3</th>
+					<th data-responsive-column="hidden">Table Header 4</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Division 1</td>
+						<td>Division 2</td>
+						<td>Division 3</td>
+						<td>Division 4</td>
+					</tr>
+					<tr>
+						<td>Division 1</td>
+						<td>Division 2</td>
+						<td>Division 3</td>
+						<td>Division 4</td>
+					</tr>
+					<tr>
+						<td>Division 1</td>
+						<td>Division 2</td>
+						<td>Division 3</td>
+						<td>Division 4</td>
 					</tr>
 				</tbody>
 				<tfoot>
@@ -587,19 +625,25 @@
 		<div class="container">
 			<button data-role="menu" data-menu-target="#dropdown-menu">Dropdown</button>
 			<button data-role="menu" data-menu-target="#fixed-dropdown-menu" data-menu-fixed="true">Fixed Dropdown</button>
-			<nav id="dropdown-menu" class="dropdown-menu vertical-nav">
+			<nav id="dropdown-menu">
 				<ul>
 					<li><a href="#">Link</a></li>
 					<li><a href="#">Link</a></li>
 					<li><a href="#">Link</a></li>
 				</ul>
 			</nav>
-			<nav id="fixed-dropdown-menu" class="dropdown-menu vertical-nav">
+			<nav id="fixed-dropdown-menu">
 				<ul>
 					<li><a href="#">Link</a></li>
 					<li><a href="#">Link</a></li>
 					<li><a href="#">Link</a></li>
 				</ul>
+
+				<footer>
+					<ul>
+						<li><a href="#">Link</a></li>
+					</ul>
+				</footer>
 			</nav>
 		</div>
 

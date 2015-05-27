@@ -57,12 +57,8 @@ body.dashboard {
 		border-bottom: $dark-grey $border-size solid;
 	}
 
-	main {
-		vertical-align: top;
-		background: $grey;
-	}
-
 	footer.site-footer {
+		clear: both;
 		border-top: $border-size $dark-grey solid;
 	}
 }

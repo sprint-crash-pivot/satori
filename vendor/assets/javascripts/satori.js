@@ -462,6 +462,9 @@ var DropdownMenu = {
 
 			$target.hide().appendTo(document.body);
 			$target.attr("data-role", "menu-body");
+
+			// TODO Add override class option
+			$target.addClass("dropdown-menu vertical-nav");
 		});
 	},
 	show: function(event) {
@@ -497,7 +500,7 @@ var DropdownMenu = {
 		$bodies.each(function(i, obj) {
 			var $obj = $(obj);
 
-			if (!$.contains(obj, event.target)) {
+			if (!$.contains(obj, event.target) && $obj.is(":visible")) {
 				$obj.hide();
 
 				$document.off("click.hide-menu");
@@ -506,11 +509,114 @@ var DropdownMenu = {
 	}
 }
 
+var ResponsiveTables = {
+	ready: function(event, $doc) {
+		var $tables = $doc.find("table").not("[data-responsive=false]");
+
+		// columns, data-responsive-column=[essential, optional, hidden]
+		// essential = visible, checkbox cannot hide it
+		// optional = visible, checkbox can hide it (default)
+		// hidden = hidden, checkbox can show it
+
+		$tables.each(function(i, table) {
+			var $table = $(table),
+					$header = $("<div class=\"responsive-table-header\"></div>"),
+					$menuBody = $("<nav id=\"responsive-table-" + i + "\" class=\"nowrap\"></nav>"),
+					$list = $("<ul>").appendTo($menuBody),
+					$button = $("<span class=\"button right\" data-role=\"menu\" data-menu-target=\"#responsive-table-" + i + "\">Options</span>"),
+					$headers = $table.find("thead tr:first th"),
+					$essential = $headers.filter("[data-responsive-column=essential]"),
+					$optional = $headers.filter("[data-responsive-column=optional], :not([data-responsive-column])"),
+					$hidden = $headers.filter("[data-responsive-column=hidden]"),
+					$rows = $table.find("tbody tr");
+
+			console.log(table);
+			console.log("Headers:" + $headers.length),
+			console.log("Essential: " + $essential.length);
+			console.log("Optional (default): " + $optional.length);
+			console.log("Hidden: " + $hidden.length);
+
+			$headers.each(function(j, th) {
+				var $th = $(th)
+						type = $th.data("responsive-column") || "optional",
+						$listItem = $("<li/>"),
+						$label = $("<label>" + $th.text() + "</label>"),
+						$checkbox = $("<input type=\"checkbox\" />");
+
+				// TODO Add checkbox and label to $header
+				if (type == "essential") {
+					$checkbox.prop("checked", true);
+					$checkbox.prop("disabled", true);
+				} else if (type == "optional") {
+					$checkbox.prop("checked", true);
+				} else if (type == "hidden") {
+					$checkbox.prop("checked", false);
+				} else {
+					Logger.log("Responsive Table: Column Type not defined.");
+				}
+
+				$checkbox.data("responsive-column-index", j);
+				console.log($checkbox.data("responsive-column-index"));
+
+				$checkbox.on("change.toggleDisplay", function(event) {
+					var $checkbox = $(this),
+							index = $checkbox.data("responsive-column-index");
+
+					var $ths = $headers.filter(":eq(" + index + ")"),
+							$tds = $rows.find("td:eq(" + index + ")");
+
+					$ths.toggle();
+					$tds.toggle();
+				});
+
+				$checkbox.prependTo($label);
+				$label.appendTo($listItem);
+				$listItem.appendTo($list);
+
+				$th.addClass(type);
+			});
+
+			$rows.each(function(j, tr) {
+				var $tr = $(tr),
+						$td = $tr.find("td");
+
+				// for now, only apply column values if the rows are equal
+				if ($td.length == $headers.length) {
+					$td.each(function(k, td) {
+						var $header = $($headers.get(k)),
+								$td = $(td)
+								type = $header.data("responsive-column") || "optional";
+
+
+						if (type == "essential") {
+
+						} else if (type == "optional") {
+
+						} else if (type == "hidden") {
+
+						} else {
+							Logger.log("Responsive Table: Column Type not defined.");
+						}
+
+						$td.addClass(type);
+					});
+				}
+			});
+
+			$table.addClass("full");
+			$button.appendTo($header);
+			$menuBody.appendTo($header);
+			$header.insertBefore(table);
+		});
+	}
+}
+
 $document.on("page:load ready", function(event) {
 	ModalWindow.ready(event, $document);
 	Tooltip.ready(event, $document);
 	Tabs.ready(event, $document);
-	DropdownMenu.ready(event, $document);
+	ResponsiveTables.ready(event, $document);
+	DropdownMenu.ready(event, $document); // ResponsiveTables depends on DropdownMenu
 
 	CopyContents.ready(event);
 	ToggleMenu.ready(event);
