@@ -349,7 +349,7 @@ choices (e.g. class="success bg-grey").
 
 // TODO This needs to work for submit
 .button-icon {
-	@extend a.button;
+	@extend .button;
 	position: relative;
 	padding-left: calc(1.75rem + #{$default-spacing}); // TODO: change this to default-spacing, but still needs to be 40px
 
@@ -882,6 +882,41 @@ input.secondary {
 	.button {
 		border-bottom: transparent;
 		border-radius: $border-radius $border-radius 0 0;
+
+		&.active {
+			background-color: $grey;
+		}
+	}
+}
+
+.responsive-table {
+	width: 100%;
+
+	&.scroll {
+		// TODO overflow should allow scrolling
+	}
+
+	&.stack {
+		thead {
+			display: none;
+		}
+
+		tbody {
+			td {
+				display: block;
+
+				&:before {
+					display: block;
+					content: attr(data-responsive-label) ":";
+
+					float: left;
+					clear: left;
+					font-weight: bold;
+					color: $dark-grey;
+					width: 150px;
+				}
+			}
+		}
 	}
 }
 
@@ -892,5 +927,6 @@ input.secondary {
 }
 
 .hidden { display: none; }
+.always-hidden { display: none !important; }
 .no-padding { padding: 0; }
 .no-margin { margin: 0; }

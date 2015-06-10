@@ -523,12 +523,31 @@ var ResponsiveTables = {
 					$header = $("<div class=\"responsive-table-header\"></div>"),
 					$menuBody = $("<nav id=\"responsive-table-" + i + "\" class=\"nowrap\"></nav>"),
 					$list = $("<ul>").appendTo($menuBody),
-					$button = $("<span class=\"button right\" data-role=\"menu\" data-menu-target=\"#responsive-table-" + i + "\">Options</span>"),
+					$toolbar = $("<div>Style: </div>"),
+					$stack = $("<span class=\"button\">Stack</span>"),
+					$scroll = $("<span class=\"button\">Scroll</span>"),
+					$button = $("<span class=\"button right\" data-role=\"menu\" data-menu-target=\"#responsive-table-" + i + "\">Columns</span>"),
 					$headers = $table.find("thead tr:first th"),
 					$essential = $headers.filter("[data-responsive-column=essential]"),
 					$optional = $headers.filter("[data-responsive-column=optional], :not([data-responsive-column])"),
 					$hidden = $headers.filter("[data-responsive-column=hidden]"),
 					$rows = $table.find("tbody tr");
+
+			$stack.on("click.toggle-stack", function(event) {
+				$stack.addClass("active");
+				$scroll.removeClass("active");
+
+				$table.addClass("stack");
+				$table.removeClass("scroll");
+			});
+
+			$scroll.on("click.toggle-scroll", function(event) {
+				$scroll.addClass("active");
+				$stack.removeClass("active");
+
+				$table.addClass("scroll");
+				$table.removeClass("stack");
+			}).trigger("click.toggle-scroll");
 
 			$headers.each(function(j, th) {
 				var $th = $(th)
@@ -545,6 +564,7 @@ var ResponsiveTables = {
 					$checkbox.prop("checked", true);
 				} else if (type == "hidden") {
 					$checkbox.prop("checked", false);
+					$th.addClass("always-hidden");
 				} else {
 					Logger.log("Responsive Table: Column Type not defined.");
 				}
@@ -557,15 +577,18 @@ var ResponsiveTables = {
 					var $ths = $headers.filter(":eq(" + index + ")"),
 							$tds = $rows.find("td:eq(" + index + ")");
 
-					$ths.toggle();
-					$tds.toggle();
+					if ($checkbox.is(":checked")) {
+						$ths.removeClass("always-hidden");
+						$tds.removeClass("always-hidden");
+					} else {
+						$ths.addClass("always-hidden");
+						$tds.addClass("always-hidden");
+					}
 				});
 
 				$checkbox.prependTo($label);
 				$label.appendTo($listItem);
 				$listItem.appendTo($list);
-
-				$th.addClass(type);
 			});
 
 			$rows.each(function(j, tr) {
@@ -585,18 +608,21 @@ var ResponsiveTables = {
 						} else if (type == "optional") {
 
 						} else if (type == "hidden") {
-
+							$td.addClass("always-hidden");
 						} else {
 							Logger.log("Responsive Table: Column Type not defined.");
 						}
 
-						$td.addClass(type);
+						$td.attr("data-responsive-label", $header.text());
 					});
 				}
 			});
 
-			$table.addClass("full");
+			$table.addClass("responsive-table");
 			$button.appendTo($header);
+			$stack.appendTo($toolbar);
+			$scroll.appendTo($toolbar);
+			$toolbar.appendTo($header);
 			$menuBody.appendTo($header);
 			$header.insertBefore(table);
 		});
