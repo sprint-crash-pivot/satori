@@ -109,6 +109,11 @@ label {
   display: block;
   font-weight: bold;
   padding: $default-spacing;
+
+  input {
+    display: inline-block;
+    height: auto !important;
+  }
 }
 
 input {

@@ -16,6 +16,12 @@
 	  .search {
 		  @extend .header-search-field;
 	  }
+
+		& + *:before {
+			content: "";
+			display: block;
+			margin-top: 6rem;
+		}
 	}
 
 	.site-logo {
@@ -35,9 +41,5 @@
 				vertical-align: top;
 			}
 		}
-	}
-
-	main, .sidebar {
-		margin: 6rem 0rem 0rem;
 	}
 }

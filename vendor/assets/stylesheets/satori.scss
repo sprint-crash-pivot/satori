@@ -399,6 +399,13 @@ choices (e.g. class="success bg-grey").
 			content: "\f0c5";
 		}
 	}
+
+	&.clock {
+		&:before {
+			@include button-icon;
+			content: "\f017";
+		}
+	}
 }
 
 .mobile-icon {
@@ -917,6 +924,15 @@ input.secondary {
 				}
 			}
 		}
+	}
+}
+
+.checkbox-inline-block {
+	label {
+		display: inline-block;
+	}
+
+	input {
 	}
 }
 
