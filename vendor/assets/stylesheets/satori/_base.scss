@@ -109,6 +109,29 @@ label {
   display: block;
   font-weight: bold;
   padding: $default-spacing;
+}
+
+.radio-input {
+	label {
+		border: $border-size $dark-grey solid;
+		border-bottom: $border-size transparent solid;
+		background: $input-color;
+
+		&:nth-child(1) {
+			border-top-left-radius: $border-radius;
+			border-top-right-radius: $border-radius;
+		}
+
+		&:nth-last-child(1) {
+			border-bottom: $border-size $dark-grey solid;
+			border-bottom-left-radius: $border-radius;
+			border-bottom-right-radius: $border-radius;
+		}
+
+		&:hover, &:focus {
+			background-color: highlight-color($input-color);
+		}
+	}
 
   input {
     display: inline-block;
@@ -144,7 +167,7 @@ select {
   padding-right: 40px !important;
 
   -webkit-appearance: none;
-  background: $input-color url($base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
+  background: $input-color url($image-base-path + "/icons/arrow 3.png") left calc(100% - #{$default-spacing}) top 50% no-repeat;
 }
 
 input[type=submit], input[type=reset], button, .button {

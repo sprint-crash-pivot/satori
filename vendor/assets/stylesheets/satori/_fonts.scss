@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Work Sans Thin';
+  src:  url($font-base-path + '/worksans/WorkSans-Thin.woff2') format('woff2'),
+        url($font-base-path + '/worksans/WorkSans-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'WorkSans-Hairline';
+  src:  url($font-base-path + '/worksans/WorkSans-Hairline.ttf') format('truetype');
+}

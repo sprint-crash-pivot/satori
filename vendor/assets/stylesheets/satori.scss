@@ -7,6 +7,7 @@
 @import 'satori/mixins/mixins';
 
 @import 'satori/reset';
+@import 'satori/fonts';
 @import 'satori/base';
 @import 'satori/_base-classes';
 
@@ -126,7 +127,7 @@ choices (e.g. class="success bg-grey").
 	}
 
 	input[type=submit] {
-		background: url($base-path + '/icons/search.png') $input-color no-repeat;
+		background: url($image-base-path + '/icons/search.png') $input-color no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
@@ -534,14 +535,14 @@ choices (e.g. class="success bg-grey").
 	}
 
 	&.facebook {
-		background-image: url($base-path + '/social-icons/facebook.png');
+		background-image: url($image-base-path + '/social-icons/facebook.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 	}
 
 	&.twitter {
-		background-image: url($base-path + '/social-icons/twitter.png');
+		background-image: url($image-base-path + '/social-icons/twitter.png');
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 24px 24px;

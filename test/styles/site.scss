@@ -1,5 +1,15 @@
-$base-path: '../vendor/assets/images/satori';
-$font-path: '../vendor/assets/stylesheets/font-awesome/fonts';
+$image-base-path: '../vendor/assets/images/satori';
+$font-base-path: '../vendor/assets/fonts/satori';
+$font-awesome-path: '../vendor/assets/stylesheets/font-awesome/fonts';
+
+// Temp
+$header-font: "Work Sans Thin", sans-serif;
+$header-font-weight: 300;
+$header-font-small: "Work Sans Thin", sans-serif;
+$header-font-small-weight: 300;
+$logo-font: "Work Sans Thin", sans-serif;
+$logo-font-weight: 300;
+// End Temp
 
 @import '../../vendor/assets/stylesheets/satori';
 
