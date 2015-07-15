@@ -883,6 +883,22 @@ input.secondary {
   @extend a.secondary;
 }
 
+.pills {
+	@extend .clearfix;
+	list-style: none;
+	padding: 0;
+
+	li {
+		@extend .bg-grey;
+		border: highlight-color($grey) $border-size solid;
+		float: left;
+
+		margin: $default-spacing;
+		padding: $default-spacing;
+		border-radius: $border-radius;
+	}
+}
+
 .responsive-table-header {
 	@extend .clearfix;
 	margin: 0 $default-spacing;

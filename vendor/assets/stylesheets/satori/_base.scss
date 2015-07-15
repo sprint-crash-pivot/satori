@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
   padding: $default-spacing;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, header:not(.site-header) {
   font-family: $header-font;
 	font-weight: $header-font-weight;
   color: $header-color;
@@ -301,4 +301,9 @@ header:not(.site-header) {
 
 footer:not(.site-footer) {
 	padding: $default-spacing;
+}
+
+.site-logo {
+  font-family: $logo-font;
+  font-weight: $logo-font-weight;
 }
