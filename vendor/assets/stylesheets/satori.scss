@@ -925,18 +925,37 @@ input.secondary {
 		}
 
 		tbody {
+			tr {
+				display: block;
+
+				&:not(:last-child) {
+					border-bottom: $border-size $dark-grey solid;
+				}
+			}
 			td {
 				display: block;
+				margin-left: 150px;
+				position: relative;
+				min-height: 2.5rem;
 
 				&:before {
 					display: block;
-					content: attr(data-responsive-label) ":";
+					position: absolute;
+					left: -150px;
+					top: 0px;
+					bottom: 0px;
+					width: 150px;
+
+					content: attr(data-responsive-label); // ":";
 
 					float: left;
 					clear: left;
 					font-weight: bold;
-					color: $dark-grey;
-					width: 150px;
+					color: $black;
+
+					background-color: $grey;
+					border-right: $border-size $dark-grey solid;
+					padding: $default-spacing;
 				}
 			}
 		}
