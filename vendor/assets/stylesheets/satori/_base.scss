@@ -113,19 +113,19 @@ label {
 
 .radio-input {
 	label {
-		border: $border-size $dark-grey solid;
-		border-bottom: $border-size transparent solid;
+		border: $input-border-size $input-border-color $input-border-style;
+		border-bottom: $input-border-size transparent solid;
 		background: $input-color;
 
 		&:nth-child(1) {
-			border-top-left-radius: $border-radius;
-			border-top-right-radius: $border-radius;
+			border-top-left-radius: $input-border-radius;
+			border-top-right-radius: $input-border-radius;
 		}
 
 		&:nth-last-child(1) {
-			border-bottom: $border-size $dark-grey solid;
-			border-bottom-left-radius: $border-radius;
-			border-bottom-right-radius: $border-radius;
+			border-bottom: $input-border-size $input-border-color $input-border-style;
+			border-bottom-left-radius: $input-border-radius;
+			border-bottom-right-radius: $input-border-radius;
 		}
 
 		&:hover, &:focus {
@@ -144,7 +144,9 @@ input {
 }
 
 input[disabled], input[readonly] {
-  background: darken($light-grey, 25);
+  border-color: darken($input-border-color, 10);
+  background: darken($input-color, 10);
+  color: lighten($text, 10);
 }
 
 textarea {
@@ -173,6 +175,9 @@ select {
 input[type=submit], input[type=reset], button, .button {
   @extend .inline-field;
   color: $text;
+
+  border: $button-border-size $button-border-color $button-border-style;
+  border-radius: $button-border-radius;
 
   cursor: pointer;
   text-align: center;
@@ -290,6 +295,24 @@ pre {
 canvas {
   width: 100%;
   height: 300px;
+}
+
+fieldset {
+  margin: $default-spacing;
+  border: $border-size $border-style $dark-grey;
+  border-radius: $border-radius;
+}
+
+legend {
+  @extend header;
+
+  display: block;
+  width: calc(100% + (2 * #{$border-size}));
+  margin: 0 -#{$border-size};
+  border: $border-size $border-style $dark-grey;
+
+  border-top: calc(#{$base-size} / 4) $primary solid;
+  border-radius: $border-radius $border-radius 0 0;
 }
 
 header:not(.site-header) {

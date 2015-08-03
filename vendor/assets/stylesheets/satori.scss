@@ -131,8 +131,8 @@ choices (e.g. class="success bg-grey").
 		background-position: 50% 50%;
 		background-size: 24px 24px;
 
-		border: $border-size solid $dark-grey !important;
-		border-radius: 0 $input-radius $input-radius 0;
+		border: $input-border-size $input-border-style $input-border-color;
+		border-radius: 0 $input-border-radius $input-border-radius 0;
 		text-indent: -250px;
 
 		// @include box-shadow(none);
@@ -240,6 +240,10 @@ choices (e.g. class="success bg-grey").
 
 		display: block;
 		border-bottom: 1px solid $dark-grey;
+
+		&:last-child {
+			border-bottom: none;
+		}
 	}
 
 	a.cell {
@@ -904,7 +908,7 @@ input.secondary {
 
 	.button {
 		border-bottom: transparent;
-		border-radius: $border-radius $border-radius 0 0;
+		border-radius: $button-border-radius $button-border-radius 0 0;
 
 		&.active {
 			background-color: $grey;
