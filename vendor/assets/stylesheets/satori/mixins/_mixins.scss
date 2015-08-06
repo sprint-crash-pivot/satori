@@ -67,8 +67,6 @@
 
 // not really a mixin, but need to share it.
 @mixin input {
-  -webkit-appearance: none;
-  
   border: $input-border-size $input-border-style $input-border-color;
   border-radius: $input-border-radius;
   //@include box-shadow($dark-grey);

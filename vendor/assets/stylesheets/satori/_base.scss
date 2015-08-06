@@ -51,10 +51,10 @@ h1, h2, h3, h4, h5, h6, header:not(.site-header) {
   line-height: 1;
 
   small {
-    font-family: $body-font;
+    font-family: $header-font-small;
     font-size: 0.75em;
     color: $header-secondary-color;
-    font-weight: $light;
+    font-weight: $header-font-small-weight;
   }
 }
 
@@ -103,6 +103,15 @@ dt {
 
 dd {
   margin: 0 0 0 1.5em;
+}
+
+blockquote {
+  margin: $default-spacing;
+  background: $box-background;
+  // @include box-shadow($dark-grey);
+
+	// TODO Move this to header??
+	border-left: calc(#{$base-size} / 4) $primary solid;
 }
 
 label {
@@ -174,6 +183,7 @@ select {
 
 input[type=submit], input[type=reset], button, .button {
   @extend .inline-field;
+  -webkit-appearance: none;
   color: $text;
 
   border: $button-border-size $button-border-color $button-border-style;

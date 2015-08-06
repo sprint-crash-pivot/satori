@@ -8,3 +8,9 @@
   font-family: 'WorkSans-Hairline';
   src:  url($font-base-path + '/worksans/WorkSans-Hairline.ttf') format('truetype');
 }
+
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src:  url($font-base-path + '/opensans/OpenSans-Light.ttf') format('truetype');
+}

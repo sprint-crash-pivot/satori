@@ -44,6 +44,10 @@ choices (e.g. class="success bg-grey").
 	@include bg-color($link, set-text-color($link), $link);
 }
 
+.bg-input {
+	@include bg-color($input-color, set-text-color($input-color), $input-color);
+}
+
 .bg-grey {
 	@include bg-color($grey, set-text-color($grey), $link);
 
@@ -660,15 +664,12 @@ a.delete, button.delete, input.delete {
 // BOXES
 .box {
 	display: block;
-	@include border($dark-grey);
+	// @include border($dark-grey);
   // @include box-shadow($dark-grey);
 
 	// TODO Move this to header??
 	border-top: calc(#{$base-size} / 4) $primary solid;
 
-	// @include box-shadow($dark-grey);
-
-	// overflow: hidden; // TODO This is bad
 	background-color: $box-background;
 	margin: $default-spacing;
 
