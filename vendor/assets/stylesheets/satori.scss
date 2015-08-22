@@ -635,6 +635,9 @@ a.delete, button.delete, input.delete {
 }
 
 .page-title {
+	margin: $default-spacing;
+	padding: 0;
+	padding-bottom: $default-spacing;
 	border-bottom: $border-size solid $dark-grey;
 }
 
@@ -688,7 +691,7 @@ a.delete, button.delete, input.delete {
 	@extend .box;
 
 	position: relative;
-	border-top-width: $border-size;
+	border-top-width: 0;
 	border-left: calc(#{$base-size * 2.5}) solid $grey;
 
 	header {
@@ -805,6 +808,16 @@ a.delete, button.delete, input.delete {
 
 		&:hover, &:focus {
 			color: highlight-color($link, 10);
+		}
+	}
+}
+
+.link-dark-grey {
+	a {
+		color: $dark-grey;
+
+		&:hover, &:focus {
+			color: highlight-color($dark-grey, 10);
 		}
 	}
 }

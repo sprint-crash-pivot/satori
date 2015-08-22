@@ -14,3 +14,13 @@
   font-family: 'OpenSans-Light';
   src:  url($font-base-path + '/opensans/OpenSans-Light.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Droid Serif';
+  src:  url($font-base-path + '/droidserif/droid-serif.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  src:  url($font-base-path + '/yanone-kaffeesatz/yanone-kaffeesatz.woff2') format('woff2');
+}
