@@ -292,11 +292,55 @@ choices (e.g. class="success bg-grey").
 	font-size: 0.75em;
 }
 
-.pct25 { width: 25%; }
-.pct33 { width: 33.3333%; }
-.pct50 { width: 50%; }
-.pct66 { width: 66.6666%; }
-.pct75 { width: 75%; }
+.pct20 {
+	width: 20%;
+
+	@include device(phone) {
+		width: 33.3333%;
+	}
+}
+
+.pct25 {
+	width: 25%;
+
+	@include device(phone) {
+		width: 50%;
+	}
+}
+
+.pct33 {
+	width: 33.3333%;
+
+	@include device(phone) {
+		width: 50%;
+	}
+}
+
+.pct50 {
+	width: 50%;
+
+	@include device(phone) {
+		width: 100%;
+	}
+}
+
+.pct66 {
+	width: 66.6666%;
+
+	@include device(phone) {
+		// TODO this preserves the columns feel
+		width: 50%;
+	}
+}
+
+.pct75 {
+	width: 75%;
+
+	@include device(phone) {
+		// TODO this preserves the columns feel
+		width: 50%;
+	}
+}
 
 .auto { width: auto; }
 .full { width: 100%; }
@@ -752,6 +796,7 @@ a.delete, button.delete, input.delete {
            background: highlight-color($box-background);
        }
    }
+
    .preview {
        background: $white;
        text-align: center;
@@ -759,6 +804,7 @@ a.delete, button.delete, input.delete {
            max-height: 240px;
        }
    }
+
    header, h1, h2, h3, h4, h5, h6 {
        text-overflow: ellipsis;
        white-space: nowrap;

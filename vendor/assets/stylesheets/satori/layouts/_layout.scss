@@ -53,32 +53,43 @@ body {
 		border-top: $border-size $dark-grey solid;
 		border-bottom: $border-size $dark-grey solid;
 	}
+
+	.sidebar:nth-child(n -1) {
+		border-bottom: $border-size $dark-grey solid;
+	}
 }
 
 .sidebar {
 	width: $sidebar-width;
-}
 
-.sidebar:after {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	background: $box-background;
-	content: " ";
-	z-index: -1;
-}
+	@include device(phone) {
+		width: 100%;
+		background: $box-background;
+	}
 
-.sidebar.left:after {
-	left: -100%;
-	width: calc(100% + #{$sidebar-width});
+	@include device(tablet-plus) {
+		&:after {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			background: $box-background;
+			content: " ";
+			z-index: -1;
+		}
 
-	border-right: $border-size $dark-grey solid;
-}
+		&.left:after {
+			left: -100%;
+			width: calc(100% + #{$sidebar-width});
 
-.sidebar.right:after {
-	width: 100%;
+			border-right: $border-size $dark-grey solid;
+		}
 
-	border-left: $border-size $dark-grey solid;
+		&.right:after {
+			width: 100%;
+
+			border-left: $border-size $dark-grey solid;
+		}
+	}
 }
 
 main, .main {
@@ -90,9 +101,13 @@ main, .main {
 }
 
 div.sidebar ~ main, div.sidebar ~ div.main {
-	width: calc(100% - #{$sidebar-width});
+	@include device(tablet-plus) {
+		width: calc(100% - #{$sidebar-width});
+	}
 }
 
 div.sidebar ~ div.sidebar ~ main, div.sidebar ~ div.sidebar ~ div.main {
-	width: calc(100% - #{$sidebar-width * 2});
+	@include device(tablet-plus) {
+		width: calc(100% - #{$sidebar-width * 2});
+	}
 }
