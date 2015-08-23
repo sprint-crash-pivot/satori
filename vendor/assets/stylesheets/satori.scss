@@ -120,7 +120,6 @@ choices (e.g. class="success bg-grey").
 // partially complete elements
 
 .header-search-field {
-	padding: $default-spacing;
 	overflow: hidden;
 	position: relative;
 
@@ -142,8 +141,8 @@ choices (e.g. class="success bg-grey").
 		// @include box-shadow(none);
 
 		position: absolute;
-		right: $default-spacing;
-		top: $default-spacing;
+		right: 0;
+		top: 0;
 
 		width: calc(48px);
 		padding: $default-spacing;
@@ -737,6 +736,34 @@ a.delete, button.delete, input.delete {
 	&:before {
 	  content: "\f05a";
 	}
+}
+
+.tiles {
+   @extend .clearfix;
+   .cell {
+       display: block;
+       position: relative;
+       margin: $default-spacing;
+       overflow: hidden;
+       color: $text;
+       background: $box-background;
+       @include border($box-background, $border-radius);
+       &:hover, &:focus {
+           background: highlight-color($box-background);
+       }
+   }
+   .preview {
+       background: $white;
+       text-align: center;
+       img {
+           max-height: 240px;
+       }
+   }
+   header, h1, h2, h3, h4, h5, h6 {
+       text-overflow: ellipsis;
+       white-space: nowrap;
+       overflow: hidden;
+   }
 }
 // END BOXES
 
