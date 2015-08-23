@@ -807,7 +807,17 @@ a.delete, button.delete, input.delete {
 		color: $white;
 
 		&:hover, &:focus {
-			color: highlight-color($link, 10);
+			color: highlight-color($white, 10);
+		}
+	}
+}
+
+.link-grey {
+	a {
+		color: $grey;
+
+		&:hover, &:focus {
+			color: highlight-color($grey, 10);
 		}
 	}
 }
@@ -987,6 +997,10 @@ input.secondary {
 
 	input {
 	}
+}
+
+.overflow-hidden {
+	overflow: hidden;
 }
 
 // Order matters, this needs to be last.

@@ -192,6 +192,9 @@ input[type=submit], input[type=reset], button, .button {
   cursor: pointer;
   text-align: center;
 
+	font-family: $body-font !important; // TODO is this necessary?
+	text-transform: none !important; // TODO is this necessary?
+
   &:hover, &:focus {
     color: $text;
     background: darken($light-grey, 10);

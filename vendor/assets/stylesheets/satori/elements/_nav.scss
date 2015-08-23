@@ -7,7 +7,7 @@ nav {
 	}
 
 	li {
-		float: left;
+		display: inline-block;
 		margin: 0;
 		padding: 0;
 		line-height: 1.5;
@@ -19,7 +19,7 @@ nav {
 
 	a {
 		display: block;
-		margin: $default-spacing calc(#{$default-spacing / 2});
+		margin: 0 calc(#{$default-spacing / 2});
 		padding: $default-spacing;
 
 		&.button {
@@ -41,7 +41,7 @@ nav {
 		}
 
 		li {
-			float: none;
+			display: block;
 			margin: 0;
 
 			a {
