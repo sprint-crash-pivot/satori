@@ -54,8 +54,10 @@ body {
 		border-bottom: $border-size $dark-grey solid;
 	}
 
-	.sidebar:nth-child(n -1) {
-		border-bottom: $border-size $dark-grey solid;
+	@include device(phone) {
+		& > *:nth-last-child(n+2) {
+			border-bottom: $border-size $dark-grey solid;
+		}
 	}
 }
 

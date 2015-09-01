@@ -637,9 +637,21 @@ choices (e.g. class="success bg-grey").
 }
 
 .datetime {
-	input {
-		width: auto;
-	}
+  border: $border-size $dark-grey solid;
+  border-radius: $border-radius;
+  margin: $default-spacing;
+  padding: 0;
+  background-color: $input-color;
+  white-space: nowrap;
+
+  select {
+    display: inline-block;
+    width: auto;
+    border: none;
+
+    // border-right: $border-size $dark-grey solid;
+    // border-radius: 0;
+  }
 }
 
 #display-tooltip {

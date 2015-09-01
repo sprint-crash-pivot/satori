@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["corey@dockenonline.com"]
   spec.description   = "Front end framework for Sprint, Crash, Pivot."
   spec.summary       = "Front end framework for Sprint, Crash, Pivot"
-  spec.homepage      = ""
+  spec.homepage      = "http://www.sprintcrashpivot.com"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
